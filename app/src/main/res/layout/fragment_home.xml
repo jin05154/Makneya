@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
@@ -18,10 +19,12 @@
             android:layout_gravity="center"
             android:layout_weight="0.7"
             android:gravity="bottom">
-            <Button
-                android:id="@+id/button"
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Page1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:backgroundTint="@color/file_yellow"
                 android:text="김 부장"/>
         </RelativeLayout>
         <RelativeLayout

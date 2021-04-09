@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_community"
+        android:id="@+id/navigation_community"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_navi_community"
         android:title="게시판"/>
 
     <item
-        android:id="@+id/page_home"
+        android:id="@+id/navigation_home"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_navi_myinfo"
         android:title="홈"/>
 
     <item
-        android:id="@+id/page_myinfo"
+        android:id="@+id/navigation_myinfo"
         android:enabled="true"
         android:icon="@drawable/ic_bottom_navi_myinfo"
         android:title="내 정보"/>

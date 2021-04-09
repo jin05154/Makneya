@@ -16,21 +16,24 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnNavigationItemSelectedListener(this)
 
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView) as BottomNavigationView
+        bottomNavigationView.selectedItemId = R.id.navigation_home
+
         supportFragmentManager.beginTransaction().add(R.id.linearLayout, CommunityFragment()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.page_community -> {
+            R.id.navigation_community -> {
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout , CommunityFragment()).commitAllowingStateLoss()
                 return true
             }
-            R.id.page_home -> {
+            R.id.navigation_home -> {
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout, HomeFragment()).commitAllowingStateLoss()
                 return true
             }
-            R.id.page_myinfo -> {
+            R.id.navigation_myinfo -> {
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout, MyinfoFragment()).commitAllowingStateLoss()
                 return true
             }
