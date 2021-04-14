@@ -20,3 +20,7 @@ activity가 많이 겹치게 하면 안 됨.
 navigation bar 구현, default menu는 home
 activity main은 흰 화면에 navigation bar.
 home fragment의 노란 파일 모양 구현하려는데 위의 부장 탭과 파일 본체(?)가 분리되는 것을 해결 못함
+
+2021.04.15
+Home, MyInfo fragment마다 대략적인 전체 structure 다 잡았음
+버튼 누를 시 fragment to activity action 성공 ("결재받기" 버튼)
