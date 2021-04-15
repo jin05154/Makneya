@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_home"
         android:enabled="true"
-        android:icon="@drawable/ic_bottom_navi_myinfo"
+        android:icon="@drawable/ic_bottom_navi_home"
         android:title="홈"/>
 
     <item

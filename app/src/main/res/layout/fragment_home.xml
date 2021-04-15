@@ -6,39 +6,155 @@
     android:orientation="horizontal"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:weightSum="1">
+    >
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <RelativeLayout
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="bottom">
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Page1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@color/file_yellow"
                 android:text="김 부장"/>
-        </RelativeLayout>
-        <RelativeLayout
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
-            android:layout_weight="0.2"
-            android:background="@drawable/box">
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.7">
-        </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="#FFDB0F">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:padding="10dp"
+                android:text="가. 술마신 정도"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:background="#FFDB0F">
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="50"
+                android:scrollbarStyle="outsideInset"
+                android:thumb="?android:attr/textSelectHandle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="#FFDB0F">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:padding="10dp"
+                android:text="나. 부장님 기분"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:background="#FFDB0F">
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="50"
+                android:scrollbarStyle="outsideInset"
+                android:thumb="@android:drawable/btn_star_big_on"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/border"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="#FFDB0F">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:padding="10dp"
+                android:text="다. 날씨"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:background="#FFDB0F">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:background="#FFDB0F">
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeTextType="uniform"
+                android:padding="10dp"
+                android:text="라. 먹었던 메뉴"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:background="#FFDB0F">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FFDB0F"
+            android:gravity="right">
+            <Button
+                android:id="@+id/btnApproval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="결재하기"
+                app:backgroundTint="@color/purple_200" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

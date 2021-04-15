@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView) as BottomNavigationView
         bottomNavigationView.selectedItemId = R.id.navigation_home
 
-        supportFragmentManager.beginTransaction().add(R.id.linearLayout, CommunityFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.linearLayout, HomeFragment()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
