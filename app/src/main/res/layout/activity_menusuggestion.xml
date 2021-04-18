@@ -67,6 +67,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="148dp"
                     android:layout_height="60dp"
+                    android:fontFamily="@font/tmoneyregular"
                     android:text="샌드위치"
                     android:textSize="36sp"
                     app:layout_constraintBottom_toBottomOf="parent"
