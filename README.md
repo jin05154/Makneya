@@ -24,3 +24,6 @@ home fragment의 노란 파일 모양 구현하려는데 위의 부장 탭과 �
 2021.04.15
 Home, MyInfo fragment마다 대략적인 전체 structure 다 잡았음
 버튼 누를 시 fragment to activity action 성공 ("결재받기" 버튼)
+
+2021.04.22
+날씨 일단 주석처리, aws apigateway와의 통신 성공
