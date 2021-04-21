@@ -64,7 +64,7 @@
                     app:srcCompat="@drawable/sandwich" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/menuname1"
                     android:layout_width="148dp"
                     android:layout_height="60dp"
                     android:fontFamily="@font/tmoneyregular"

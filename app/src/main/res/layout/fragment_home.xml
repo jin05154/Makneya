@@ -15,17 +15,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
             android:gravity="bottom">
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Page1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:backgroundTint="@color/file_yellow"
-                android:text="김 부장"
-                android:fontFamily="@font/tmoneyregular"
-                android:includeFontPadding="false"
-                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Bujangname"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:autoSizeTextType="uniform"
+                    android:fontFamily="@font/tmoneyregular"
+                    android:gravity="center"
+                    android:background="#FFDB0F"
+                    android:text="이름" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bujangbutton"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -35,7 +54,7 @@
             android:background="#FFDB0F">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/GA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autoSizeTextType="uniform"
@@ -122,7 +141,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.3"
-            android:background="#FFDB0F">
+            android:background="#FFDB0F"
+            >
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,7 +183,7 @@
                 android:fontFamily="@font/tmoneyregular"
                 android:textStyle="bold"
                 android:includeFontPadding="false"
-                app:backgroundTint="@color/purple_200" />
+                app:backgroundTint="#000000" />
 
         </LinearLayout>
         <LinearLayout
