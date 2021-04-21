@@ -28,18 +28,23 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val gobutton = view.findViewById<Button>(R.id.btnApproval)
+        val wow = view.findViewById<Button>(R.id.Plus)
 
         handler = DisplayHandler()
 
         var thread = NetworkThread()
         thread.start()
 
-
-
-
         gobutton.setOnClickListener(object :View.OnClickListener {
             override fun onClick(v: View?) {
                 val intent = Intent(context, MenuApproval::class.java)
+                startActivity(intent)
+            }
+        })
+
+        wow.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?){
+                val intent = Intent(context, Bujangplus1::class.java)
                 startActivity(intent)
             }
         })

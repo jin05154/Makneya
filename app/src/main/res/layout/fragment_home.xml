@@ -40,9 +40,18 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bujangbutton"
-                    android:layout_width="20dp"
+                    android:layout_width="25dp"
                     android:layout_height="match_parent"
                     android:includeFontPadding="false" />
+
+                <Button
+                    android:id="@+id/Plus"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/plus"
+                    android:text="Button"
+                    app:backgroundTint="#000000" />
+
             </LinearLayout>
 
         </LinearLayout>
