@@ -24,16 +24,16 @@ import android.os.Handler;
 
 class HomeFragment : Fragment() {
 
-    var handler:DisplayHandler? = null
+    //var handler:DisplayHandler? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val gobutton = view.findViewById<Button>(R.id.btnApproval)
         val wow = view.findViewById<Button>(R.id.Plus)
 
-        handler = DisplayHandler()
+        /* handler = DisplayHandler()
 
         var thread = NetworkThread()
-        thread.start()
+        thread.start() */
 
         gobutton.setOnClickListener(object :View.OnClickListener {
             override fun onClick(v: View?) {
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         fun newInstance(): HomeFragment = HomeFragment()
     }
 
-    inner class NetworkThread: Thread(){
+    /* inner class NetworkThread: Thread(){
         override fun run(){
 
             var site = "https://texenjloz9.execute-api.ap-northeast-2.amazonaws.com/testmakneAPI/test/asdf1234"
@@ -96,6 +96,6 @@ class HomeFragment : Fragment() {
             super.handleMessage(msg)
             Bujangname.text = "${msg.obj}"
         }
-    }
+    } */
 }
 
