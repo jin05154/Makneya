@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363910159040",
+    "project_id": "makneya-app",
+    "storage_bucket": "makneya-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363910159040:android:9774a0fb6f28127a342b25",
+        "android_client_info": {
+          "package_name": "com.stopmeifyoucan.makneya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363910159040-v7am3rt9cu1nnpngolqia208rvekc65b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUlXvNrYF14pUjnNC9nPAJwS8cCGjIGqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363910159040-v7am3rt9cu1nnpngolqia208rvekc65b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

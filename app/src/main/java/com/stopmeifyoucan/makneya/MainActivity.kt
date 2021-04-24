@@ -13,20 +13,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-//interface WeatherInterface {
-    //@GET("getUltraSrtFcst" +
-            //"?serviceKey=fJHQarZZHDA44sSg6onUtCVNxg1%2BVn2Hhmng%2BnA8oHawn9bURtewIVsgBrFTGT%2FFZM7oWOzIzOZF0V664cYOWg%3D%3D&numOfRows=10&pageNo=1" +
-            //"&base_date=20210418&base_time=0630&nx=55&ny=127")
-    //fun GetWeather(): Call<WEATHER> // DATA CLASS
-//}  // 이렇게 날짜,시간 고정되면 안 되니까 데이터 동적으로 받아야함. encoded 인증키
-
-
-//object ApiObject {
-    //val retrofitService: WeatherInterface by lazy {
-        //retrofit.create(WeatherInterface::class.java)
-    //}
-//}
-
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
