@@ -1,25 +1,11 @@
 package com.stopmeifyoucan.makneya
 import android.content.Intent
 import android.os.Bundle
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.activity_menusuggestion.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import org.json.JSONObject
-import org.jsoup.Connection;
-import org.jsoup.Connection.Response;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.URL
-import android.os.Handler;
 
 
 class HomeFragment : Fragment() {
@@ -44,7 +30,7 @@ class HomeFragment : Fragment() {
 
         wow.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?){
-                val intent = Intent(context, Bujangplus1::class.java)
+                val intent = Intent(context, BujangPlus1::class.java)
                 startActivity(intent)
             }
         })

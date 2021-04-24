@@ -13,14 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Bujangplus1" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".BujangPlus1" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
