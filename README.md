@@ -30,3 +30,6 @@ Home, MyInfo fragment마다 대략적인 전체 structure 다 잡았음
 
 2021.04.24
 날씨, AWS api 연결 모두 주석처리. Google 로그인 성공
+
+2021.04.26
+Google 로그아웃 성공
