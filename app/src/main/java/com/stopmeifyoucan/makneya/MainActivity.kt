@@ -1,22 +1,23 @@
 package com.stopmeifyoucan.makneya
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.stopmeifyoucan.makneya.CommunityFragment
-import com.stopmeifyoucan.makneya.HomeFragment
-import com.stopmeifyoucan.makneya.MyinfoFragment
-import com.stopmeifyoucan.makneya.R
-import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_myinfo.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        checkCurrentUser()
+        getUserProfile()
 
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnNavigationItemSelectedListener(this)
 
@@ -45,4 +46,37 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         return false
     }
+
+    private fun checkCurrentUser() {
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            // User is signed in
+        } else {
+            // No user is signed in
+        }
+    }
+
+    private fun getUserProfile() {
+        val user = Firebase.auth.currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val name = user.displayName
+            val email = user.email
+            val photoUrl = user.photoUrl
+
+            // Check if user's email is verified
+            val emailVerified = user.isEmailVerified
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getToken() instead.
+            val uid = user.uid
+
+            Log.d("test log", name)
+            //var userName = findViewById<TextView>(R.id.userID)
+            //userName.setText(name)
+        }
+    }
+
+
 }
