@@ -1,25 +1,32 @@
 package com.stopmeifyoucan.makneya
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.stopmeifyoucan.makneya.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -33,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             .requestIdToken(getString(R.string.firebase_web_client_id))
             .requestEmail()
             .build()
-        googleSignInClient = GoogleSignIn.getClient(this,gso)
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -90,6 +97,56 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginSuccess() {  // 이거를 updateUI에 활용하기
+
+        /* val retrofit = Retrofit.Builder()
+                .baseUrl("https://yh4s7jmsr8.execute-api.ap-northeast-2.amazonaws.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+        val service = retrofit.create(Userinterface::class.java)
+
+        val mUser = FirebaseAuth.getInstance().currentUser
+        mUser.getIdToken(true)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val idToken = task.result!!.token
+                        // Send token to your backend via HTTPS
+                        val call = service.getCurrentUserData(idToken.toString())
+
+                        call.enqueue(object: Callback<UserResponse>{
+                            override fun onResponse(
+                                call: Call<UserResponse>,
+                                response: Response<UserResponse>) {
+                                if (response.code() == 200){
+                                    Log.d("restest", response.toString())
+                                    val testtext = response.body()!!
+
+                                    if (testtext.Body != null){
+                                        Log.d("uidtest", testtext.Body!!.realuid.toString())
+
+                                    }
+                                    else{
+                                        Log.d("test", "uid is null")
+                                    }
+
+
+                                }
+                                val testtext = response.errorBody()
+                                //Log.d("errortest", testtext.toString())
+                                //Log.d("errortest", idToken.toString())
+                            }
+
+                            override fun onFailure(
+                                call: Call<UserResponse>,
+                                t: Throwable) {
+                                Log.d("test", "실패")
+                            }
+                        })
+
+                    } else {
+                        //Handle error -> task.getException();
+                    }
+                }*/
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

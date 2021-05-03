@@ -14,26 +14,13 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="닉네임: "
+            android:text="닉네임:  막둥이"
             android:fontFamily="@font/tmoneyregular"
             android:autoSizeTextType="uniform"
             android:includeFontPadding="false"
             android:paddingTop="25dp"
             android:paddingBottom="25dp"
-            android:paddingLeft="20dp"
-            android:layout_weight="25"/>
-
-        <TextView
-            android:id="@+id/userID"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text=""
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:layout_weight="10"/>
+            android:paddingLeft="20dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -65,13 +52,13 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="부장님 정보 수정"
-            android:fontFamily="@font/tmoneyregular"
             android:autoSizeTextType="uniform"
+            android:fontFamily="@font/tmoneyregular"
             android:includeFontPadding="false"
+            android:paddingLeft="20dp"
             android:paddingTop="25dp"
             android:paddingBottom="25dp"
-            android:paddingLeft="20dp" />
+            android:text="부장님 정보 수정" />
 
     </LinearLayout>
     <LinearLayout
@@ -96,14 +83,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="60" >
-
-        <Button
-            android:id="@+id/btn_googleLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="LOGOUT" />
-    </LinearLayout>
+        android:layout_weight="60" />
 
 </LinearLayout>
