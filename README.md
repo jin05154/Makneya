@@ -33,3 +33,6 @@ Home, MyInfo fragment마다 대략적인 전체 structure 다 잡았음
 
 2021.04.26
 Google 로그아웃 성공
+
+2021.05.03
+api retrofit을 이용하여 통신 성공
