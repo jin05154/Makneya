@@ -3,14 +3,10 @@ package com.stopmeifyoucan.makneya
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_myinfo.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,22 +20,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView) as BottomNavigationView
         bottomNavigationView.selectedItemId = R.id.navigation_home
 
-        supportFragmentManager.beginTransaction().add(R.id.linearLayout, HomeFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.linearLayout, TabHome()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
             R.id.navigation_community -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , CommunityFragment()).commitAllowingStateLoss()
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout , TabCommunity()).commitAllowingStateLoss()
                 return true
             }
             R.id.navigation_home -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout, HomeFragment()).commitAllowingStateLoss()
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout, TabHome()).commitAllowingStateLoss()
                 return true
             }
             R.id.navigation_myinfo -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout, MyinfoFragment()).commitAllowingStateLoss()
+                supportFragmentManager.beginTransaction().replace(R.id.linearLayout, TabMyInfo()).commitAllowingStateLoss()
                 return true
             }
         }

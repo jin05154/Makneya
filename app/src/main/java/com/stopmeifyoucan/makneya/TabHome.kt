@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 
-class HomeFragment : Fragment() {
+class TabHome : Fragment() {
 
     //var handler:DisplayHandler? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.tab_home, container, false)
         val gobutton = view.findViewById<Button>(R.id.btnApproval)
         val wow = view.findViewById<Button>(R.id.Plus)
 
@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): HomeFragment = HomeFragment()
+        fun newInstance(): TabHome = TabHome()
     }
 
     /* inner class NetworkThread: Thread(){
