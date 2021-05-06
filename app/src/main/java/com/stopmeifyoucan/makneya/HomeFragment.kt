@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
 
         wow.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?){
-                val intent = Intent(context, BujangPlus1::class.java)
+                val intent = Intent(context, ActivityAddBujang1::class.java)
                 startActivity(intent)
             }
         })
