@@ -2,10 +2,11 @@ package com.stopmeifyoucan.makneya
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
-class ActivityAddBujang1 : AppCompatActivity() {
+class AddBujangGgondae : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addbujang1)
+        setContentView(R.layout.activity_addbujangggondae)
     }
 }

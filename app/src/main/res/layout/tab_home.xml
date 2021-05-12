@@ -184,7 +184,7 @@
             android:paddingRight="10dp">
 
             <Button
-                android:id="@+id/btnApproval"
+                android:id="@+id/btn_approval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="결재받기"

@@ -13,30 +13,29 @@ class TabHome : Fragment() {
     //var handler:DisplayHandler? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.tab_home, container, false)
-        val gobutton = view.findViewById<Button>(R.id.btnApproval)
-        val wow = view.findViewById<Button>(R.id.Plus)
+        val getApproval = view.findViewById<Button>(R.id.btn_approval)
+        val addBujang = view.findViewById<Button>(R.id.Plus)
 
         /* handler = DisplayHandler()
 
         var thread = NetworkThread()
         thread.start() */
 
-        gobutton.setOnClickListener(object :View.OnClickListener {
+        getApproval.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 val intent = Intent(context, MenuApproval::class.java)
                 startActivity(intent)
             }
         })
 
-        wow.setOnClickListener(object :View.OnClickListener{
+        addBujang.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?){
-                val intent = Intent(context, ActivityAddBujang1::class.java)
+                val intent = Intent(context, AddBujangName::class.java)
                 startActivity(intent)
             }
         })
 
         return view
-
     }
 
     companion object {

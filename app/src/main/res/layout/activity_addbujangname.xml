@@ -15,44 +15,38 @@
             android:layout_height="match_parent"
             android:text="부장님 정보 등록"
             android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
             android:includeFontPadding="false"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:paddingLeft="20dp" />
-
+            android:paddingLeft="15dp"
+            android:textSize="35dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
-        >
-
-
+        android:layout_weight="10">
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="30"
-        >
+        android:layout_weight="20">
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Q1. 부장님의 이름을 정해주세요"
+            android:text="Q1. 부장님의 성함을 입력해주세요."
             android:fontFamily="@font/tmoneyregular"
             android:autoSizeTextType="uniform"
-            android:gravity="center_horizontal"
+            android:gravity=""
             android:includeFontPadding="false"
             android:paddingTop="30dp"
             android:paddingBottom="30dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"/>
-
-
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -63,23 +57,44 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/bujang_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="별명도 좋아요!"
                 android:inputType="textPersonName"
-                android:text="닉네임도 좋아요!" />
+                android:textColorHint="@color/gray" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="30" >
+        android:layout_weight="10" >
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8" >
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/btn_add_bujangname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="NEXT" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10" >
     </LinearLayout>
 
 </LinearLayout>
