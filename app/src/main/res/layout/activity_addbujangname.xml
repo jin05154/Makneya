@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="7"
         android:background="@drawable/border">
         <TextView
             android:id="@+id/textView3"
@@ -17,7 +17,7 @@
             android:fontFamily="@font/tmoneyregular"
             android:includeFontPadding="false"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="15dp"
             android:textSize="35dp" />
     </LinearLayout>
@@ -25,7 +25,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_weight="13">
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,8 +43,8 @@
             android:includeFontPadding="false"
             android:paddingTop="30dp"
             android:paddingBottom="30dp"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"/>
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"/>
     </LinearLayout>
 
     <LinearLayout

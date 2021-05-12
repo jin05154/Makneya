@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="7"
         android:background="@drawable/border">
         <TextView
             android:id="@+id/textView3"
@@ -17,7 +17,7 @@
             android:fontFamily="@font/tmoneyregular"
             android:includeFontPadding="false"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="15dp"
             android:textSize="35dp" />
     </LinearLayout>
@@ -25,7 +25,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_weight="13">
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,9 +40,9 @@
             android:fontFamily="@font/tmoneyregular"
             android:gravity=""
             android:includeFontPadding="false"
-            android:paddingLeft="30dp"
+            android:paddingLeft="25dp"
             android:paddingTop="30dp"
-            android:paddingRight="30dp"
+            android:paddingRight="25dp"
             android:paddingBottom="30dp"
             android:text="Q2. 부장님의 꼰대력은?" />
     </LinearLayout>
@@ -75,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="젊으신편"
-                android:paddingLeft="7dp"/>
+                android:paddingLeft="7dp"
+                android:textSize="20dp"/>
             <TextView
                 android:id="@+id/textView55"
                 android:layout_width="wrap_content"
@@ -83,7 +84,8 @@
                 android:layout_weight="1"
                 android:text="말이안통함"
                 android:gravity="right"
-                android:paddingRight="7dp"/>
+                android:paddingRight="7dp"
+                android:textSize="20dp"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
