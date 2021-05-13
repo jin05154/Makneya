@@ -84,7 +84,7 @@
             android:paddingRight="10dp">
 
             <Button
-                android:id="@+id/btn_add_bujangname"
+                android:id="@+id/btn_add_bujangdrink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
