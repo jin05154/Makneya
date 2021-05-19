@@ -11,7 +11,7 @@ class AddBujangName : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addbujangname)
 
-        val btnBujangName = findViewById<Button>(R.id.btn_add_bujangdrink)
+        val btnBujangName = findViewById<Button>(R.id.btn_firstuser)
         val bujang_nickname = findViewById<TextView>(R.id.bujang_nickname)
 
         btnBujangName.setOnClickListener {

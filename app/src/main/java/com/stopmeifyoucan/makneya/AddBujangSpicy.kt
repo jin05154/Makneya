@@ -12,7 +12,7 @@ class AddBujangSpicy: AppCompatActivity() {
         setContentView(R.layout.activity_addbujangspicy)
 
         val seekbar : SeekBar = findViewById(R.id.drinkbar)
-        val btnBujangspicy = findViewById<Button>(R.id.btn_add_bujangdrink)
+        val btnBujangspicy = findViewById<Button>(R.id.btn_firstuser)
 
         btnBujangspicy.setOnClickListener {
             InDB.prefs.setString("spicy", (seekbar.progress+1).toString())

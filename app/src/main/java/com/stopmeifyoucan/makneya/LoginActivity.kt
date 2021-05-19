@@ -98,58 +98,81 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loginSuccess() {  // 이거를 updateUI에 활용하기
 
-        /* val retrofit = Retrofit.Builder()
-                .baseUrl("https://yh4s7jmsr8.execute-api.ap-northeast-2.amazonaws.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         val service = retrofit.create(Userinterface::class.java)
 
         val mUser = FirebaseAuth.getInstance().currentUser
         mUser.getIdToken(true)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val idToken = task.result!!.token
-                        // Send token to your backend via HTTPS
-                        val call = service.getCurrentUserData(idToken.toString())
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val idToken = task.result!!.token
+                    //Log.d("token: ", idToken.toString())
 
-                        call.enqueue(object: Callback<UserResponse>{
-                            override fun onResponse(
-                                call: Call<UserResponse>,
-                                response: Response<UserResponse>) {
-                                if (response.code() == 200){
-                                    Log.d("restest", response.toString())
-                                    val testtext = response.body()!!
+                    // Send token to your backend via HTTPS
+                    val call = service.getCurrentUserData(idToken.toString())
 
-                                    if (testtext.Body != null){
-                                        Log.d("uidtest", testtext.Body!!.realuid.toString())
+                    call.enqueue(object: Callback<UserResponse>{
 
-                                    }
-                                    else{
-                                        Log.d("test", "uid is null")
-                                    }
+                        override fun onResponse(
+                            call: Call<UserResponse>,
+                            response: Response<UserResponse>) {
+                            if (response.code() == 200) {
+                                Log.d("alltext", response.toString())
+                                val testtext = response.body()!!
+                                //Log.d("uidtest", testtext.Body.toString())
 
+                                if (testtext != null) {
+                                    Log.d("uidtest", testtext.new_user.toString())
+                                    Log.d("bujangcount", testtext.bujangcount.toString())
+                                    Log.d("name", testtext.Name.toString())
+                                    //Log.d("dtest", testtext.bujangdata.get(0).bujangcode.toString())
+                                    InDB.prefs.setString("new_user", testtext.new_user.toString())
+                                    InDB.prefs.setString("bujangname1", testtext.bujangdata.get(0).bujangname.toString())
+                                    InDB.prefs.setString("bujangcode1", testtext.bujangdata.get(0).bujangcode.toString())
+                                    Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                    moveactivity()
 
+                                } else {
+                                    Log.d("test", "uid is null")
+                                    //Log.d("token: ", idToken.toString())
                                 }
-                                val testtext = response.errorBody()
-                                //Log.d("errortest", testtext.toString())
-                                //Log.d("errortest", idToken.toString())
                             }
+                        }
 
-                            override fun onFailure(
-                                call: Call<UserResponse>,
-                                t: Throwable) {
-                                Log.d("test", "실패")
-                            }
-                        })
+                        override fun onFailure(
+                            call: Call<UserResponse>,
+                            t: Throwable) {
+                            Log.d("test", "실패")
+                            Log.d("error: ", t.message.toString())
+                            //Log.d("token: ", idToken.toString())
+                        }
+                    })
 
-                    } else {
-                        //Handle error -> task.getException();
-                    }
-                }*/
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+                } else {
+                    //Handle error -> task.getException();
+                }
+            }
+    }
+
+    private fun moveactivity(){
+        Log.d("new_user", "before ${InDB.prefs.getString("new_user", " ").toInt()}")
+        if ((InDB.prefs.getString("new_user", "").toInt()) == 1){
+            Log.d("new_user", "into if user ${InDB.prefs.getString("new_user", " ").toInt()}")
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+        else{
+            Log.d("new_user", "else user ${InDB.prefs.getString("new_user", " ").toInt()}")
+            val intent = Intent(this, Forfirstuser::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun signIn() {

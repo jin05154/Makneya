@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBujangHurry">
+    tools:context=".Forfirstuser">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,16 +15,17 @@
             android:layout_height="0dp"
             android:layout_weight="7"
             android:background="@drawable/border">
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="부장님 정보 등록"
                 android:fontFamily="@font/tmoneyregular"
                 android:includeFontPadding="false"
+                android:paddingLeft="15dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="10dp"
-                android:paddingLeft="15dp"
+                android:text="환영합니다!"
                 android:textSize="35dp" />
         </LinearLayout>
 
@@ -50,66 +51,58 @@
                 android:paddingTop="30dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="30dp"
-                android:text="Q3. 부장님은 급한 성격이신가요?" />
+                android:text="처음이시군요! \n우선 본인의 이름과 생년월일을 입력해 주세요" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="15"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="10" >
 
-            <SeekBar
-                android:id="@+id/drinkbar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:max="4"
-                android:progress="2" />
+                android:layout_height="match_parent">
 
-            <LinearLayout
+                <EditText
+                    android:id="@+id/mynickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="닉네임도 좋아요!"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10" >
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/mybirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingLeft="7dp"
-                    android:text="느긋"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/textView55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:paddingRight="7dp"
-                    android:text="급함"
-                    android:textSize="20dp" />
-            </LinearLayout>
+                    android:ems="10"
+                    android:hint="예)19900101"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5" >
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
-            android:paddingRight="10dp">
+            android:layout_weight="8" >
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="right">
+                android:gravity="right"
+                android:paddingRight="10dp">
 
                 <Button
                     android:id="@+id/btn_firstuser"
@@ -126,8 +119,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

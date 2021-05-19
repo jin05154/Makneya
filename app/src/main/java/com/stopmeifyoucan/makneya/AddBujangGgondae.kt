@@ -13,7 +13,7 @@ class AddBujangGgondae : AppCompatActivity() {
         setContentView(R.layout.activity_addbujangggondae)
 
         val seekbar : SeekBar = findViewById(R.id.drinkbar)
-        val btnBujangggondae = findViewById<Button>(R.id.btn_add_bujangdrink)
+        val btnBujangggondae = findViewById<Button>(R.id.btn_firstuser)
 
         btnBujangggondae.setOnClickListener {
             InDB.prefs.setString("ggondae", (seekbar.progress+1).toString())

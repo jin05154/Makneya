@@ -12,7 +12,7 @@ class AddBujangHurry : AppCompatActivity() {
         setContentView(R.layout.activity_addbujanghurry)
 
         val seekbar : SeekBar = findViewById(R.id.drinkbar)
-        val btnBujanghurry = findViewById<Button>(R.id.btn_add_bujangdrink)
+        val btnBujanghurry = findViewById<Button>(R.id.btn_firstuser)
 
         btnBujanghurry.setOnClickListener {
             InDB.prefs.setString("hurry", (seekbar.progress+1).toString())

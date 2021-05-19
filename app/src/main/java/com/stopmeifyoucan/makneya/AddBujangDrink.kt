@@ -1,6 +1,5 @@
 package com.stopmeifyoucan.makneya
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +21,7 @@ class AddBujangDrink : AppCompatActivity() {
         setContentView(R.layout.activity_addbujangdrink)
 
         val seekbar : SeekBar = findViewById(R.id.drinkbar)
-        val btnBujangdrink = findViewById<Button>(R.id.btn_add_bujangdrink)
+        val btnBujangdrink = findViewById<Button>(R.id.btn_firstuser)
 
         btnBujangdrink.setOnClickListener {
             InDB.prefs.setString("drink", (seekbar.progress+1).toString())
@@ -97,8 +96,6 @@ class AddBujangDrink : AppCompatActivity() {
                         //Handle error -> task.getException();
                     }
                 }
-
         }
-
     }
 }

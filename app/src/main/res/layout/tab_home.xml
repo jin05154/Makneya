@@ -39,7 +39,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bujangbutton"
-                    android:layout_width="25dp"
+                    android:layout_width="29dp"
                     android:layout_height="match_parent"
                     android:includeFontPadding="false" />
 
@@ -81,16 +81,18 @@
             android:background="#FFDB0F">
 
             <SeekBar
+                android:id="@+id/SeekbarGa"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:max="50"
+                android:background="@drawable/border"
+                android:max="4"
+                android:progress="2"
                 android:scrollbarStyle="outsideInset"
                 android:thumb="?android:attr/textSelectHandle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/border" />
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,16 +119,18 @@
             android:background="#FFDB0F">
 
             <SeekBar
+                android:id="@+id/SeekbarNA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:max="50"
+                android:background="@drawable/border"
+                android:max="4"
+                android:progress="2"
                 android:scrollbarStyle="outsideInset"
                 android:thumb="@android:drawable/btn_star_big_on"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/border"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
