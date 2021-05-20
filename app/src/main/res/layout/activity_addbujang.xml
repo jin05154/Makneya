@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="@drawable/border">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="부장님 정보 등록"
+            android:fontFamily="@font/tmoneyregular"
+            android:includeFontPadding="false"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:textSize="35dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/changeview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="63" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10" >
+
+        <Button
+            android:id="@+id/btn_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="성함"
+            app:backgroundTint="#000000" />
+
+        <Button
+            android:id="@+id/btn_ggon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="라떼"
+            app:backgroundTint="#000000" />
+
+        <Button
+            android:id="@+id/btn_hurry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="급함"
+            app:backgroundTint="#000000" />
+
+        <Button
+            android:id="@+id/btn_spicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="맵부심"
+            app:backgroundTint="#000000" />
+
+        <Button
+            android:id="@+id/btn_drink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="주량"
+            app:backgroundTint="#000000" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

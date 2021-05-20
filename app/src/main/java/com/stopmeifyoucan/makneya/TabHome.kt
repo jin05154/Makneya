@@ -90,7 +90,7 @@ class TabHome : Fragment() {
 
         addBujang.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?){
-                val intent = Intent(context, AddBujangName::class.java)
+                val intent = Intent(context, AddBujang::class.java)
                 startActivity(intent)
             }
         })

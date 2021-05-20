@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId "com.stopmeifyoucan.makneya"
         minSdkVersion 16
+        multiDexEnabled true
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -37,6 +38,8 @@ android {
 }
 
 dependencies {
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.2.0'
@@ -58,6 +61,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

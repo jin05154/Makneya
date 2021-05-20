@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_forfirstuser.*
 
 class Forfirstuser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +19,7 @@ class Forfirstuser : AppCompatActivity() {
             InDB.prefs.setString("name", Mynickname.text.toString())
             InDB.prefs.setString("b_date", Mybirth.text.toString())
             //Log.d("bujang name is", InDB.prefs.getString("bujang_name", ""))
-            val intent = Intent(this, AddBujangName::class.java)
+            val intent = Intent(this, AddBujang::class.java)
             startActivity(intent)
         }
     }

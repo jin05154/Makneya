@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".AddBujangName" />
+        <activity android:name=".AddBujang" />
         <activity android:name=".AddBujangGgondae" />
         <activity
             android:name=".MainActivity"
