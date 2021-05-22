@@ -1,8 +1,12 @@
 package com.stopmeifyoucan.makneya
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SeekBar
 import com.google.firebase.auth.FirebaseAuth
@@ -15,19 +19,18 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AddBujangDrink : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addbujangdrink)
+class AddBujangdrink : Fragment() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_add_bujangdrink, container, false)
 
-        val seekbar : SeekBar = findViewById(R.id.drinkbar)
-        val btnBujangdrink = findViewById<Button>(R.id.btn_firstuser)
+        val seekbar : SeekBar = view.findViewById(R.id.drinkbar)
+        val btn_save = view.findViewById<Button>(R.id.btn_firstuser)
 
-        btnBujangdrink.setOnClickListener {
+        btn_save.setOnClickListener {
             InDB.prefs.setString("drink", (seekbar.progress+1).toString())
-            //Log.d("bujang ggondae", InDB.prefs.getString("drink", ""))
+            btn_save.text = "잠시만요!"
 
-            val retrofit = Retrofit.Builder()
+                val retrofit = Retrofit.Builder()
                 .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -52,7 +55,8 @@ class AddBujangDrink : AppCompatActivity() {
                         json.put("drink", InDB.prefs.getString(("drink"), ""))
                         json.put("spicy", InDB.prefs.getString(("spicy"), ""))
                         json.put("hurry", InDB.prefs.getString(("hurry"), ""))
-                        val requestBody: RequestBody = RequestBody.create(MediaType.parse("application/json"), json.toString())
+                        val requestBody: RequestBody =
+                            RequestBody.create(MediaType.parse("application/json"), json.toString())
                         val call = service.postbujangplus(requestBody)
                         Log.d("json", json.toString())
 
@@ -61,17 +65,16 @@ class AddBujangDrink : AppCompatActivity() {
                             override fun onResponse(
                                 call: Call<GetbujangResponse>,
                                 response: Response<GetbujangResponse>
-                            ){
-                                if (response.code() == 200){
+                            ) {
+                                if (response.code() == 200) {
                                     Log.d("restest", response.toString())
                                     val testtext = response.body()!!
                                     //Log.d("uidtest", testtext.Body.toString())
 
-                                    if (testtext != null){
+                                    if (testtext != null) {
                                         Log.d("test", testtext.body.toString())
 
-                                    }
-                                    else{
+                                    } else {
                                         Log.d("test", "uid is null")
                                         //Log.d("token: ", idToken.toString())
                                     }
@@ -96,6 +99,12 @@ class AddBujangDrink : AppCompatActivity() {
                         //Handle error -> task.getException();
                     }
                 }
+            val intent = Intent(context, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+
         }
+        return view
     }
+
 }

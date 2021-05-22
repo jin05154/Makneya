@@ -15,6 +15,9 @@ class AddBujang : AppCompatActivity() {
         val btn_spicy = findViewById<Button>(R.id.btn_spicy)
         val btn_drink = findViewById<Button>(R.id.btn_drink)
 
+
+
+
         supportFragmentManager.beginTransaction().add(R.id.changeview, AddBujangname()).commit()
 
         btn_name.setOnClickListener {
