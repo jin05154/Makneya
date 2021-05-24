@@ -1,6 +1,5 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Data
 
-import com.google.gson.annotations.SerializedName
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*

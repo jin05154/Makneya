@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Navigation
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,11 @@ import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.stopmeifyoucan.makneya.*
+import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.Data.InstanceDataResponse
+import com.stopmeifyoucan.makneya.Data.InstanceDatainterface
+import com.stopmeifyoucan.makneya.AddBujang.AddBujang
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -48,7 +53,9 @@ class TabHome : Fragment() {
                 json.put("bujang_code", InDB.prefs.getString("bujangcode1", ""))
                 json.put("feeling", InDB.prefs.getString("feeling", ""))
                 json.put("haejang", InDB.prefs.getString("haejang", ""))
-                json.put("weather", weather)
+                json.put("weather",
+                    weather
+                )
                 val requestBody: RequestBody = RequestBody.create(MediaType.parse("application/json"), json.toString())
                 val call = service.postinstanceData(requestBody)
 
@@ -99,7 +106,8 @@ class TabHome : Fragment() {
     }
 
     companion object {
-        fun newInstance(): TabHome = TabHome()
+        fun newInstance(): TabHome =
+            TabHome()
         val weather = "1"
     }
 }

@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.AddBujang.AddBujang
 
-class Forfirstuser : AppCompatActivity() {
+class ForFirstUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forfirstuser)

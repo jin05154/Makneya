@@ -3,10 +3,7 @@ package com.stopmeifyoucan.makneya
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_menusuggestion.*
-import kotlinx.android.synthetic.main.tab_home.*
-import org.jsoup.Jsoup
-import org.jsoup.select.Elements
+import com.stopmeifyoucan.makneya.Data.InDB
 
 class MenuSuggest : AppCompatActivity() {
 

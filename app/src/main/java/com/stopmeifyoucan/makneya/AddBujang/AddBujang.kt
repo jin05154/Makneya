@@ -1,8 +1,9 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.AddBujang
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.stopmeifyoucan.makneya.*
 
 class AddBujang : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,39 +16,42 @@ class AddBujang : AppCompatActivity() {
         val btn_spicy = findViewById<Button>(R.id.btn_spicy)
         val btn_drink = findViewById<Button>(R.id.btn_drink)
 
+        val save_bujang_name = "Kim"
+        val save_ggondae = 3
+        val save_hurry = 3
+        val save_spicy = 3
+        val save_drink = 3
 
-
-
-        supportFragmentManager.beginTransaction().add(R.id.changeview, AddBujangname()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.changeview, AddBujangName()).commit()
 
         btn_name.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.changeview, AddBujangname())
+                .replace(R.id.changeview, AddBujangName())
                 .commit()
         }
+
         btn_ggon.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.changeview, AddBujangggondae())
+                .replace(R.id.changeview, AddBujangGgondae())
                 .commit()
         }
 
         btn_hurry.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.changeview, AddBujanghurry())
+                .replace(R.id.changeview, AddBujangHurry())
                 .commit()
         }
 
         btn_spicy.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.changeview, AddBujangspicy())
+                .replace(R.id.changeview, AddBujangSpicy())
                 .commit()
         }
+
         btn_drink.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.changeview, AddBujangdrink())
+                .replace(R.id.changeview, AddBujangDrink())
                 .commit()
         }
-
-
     }
 }

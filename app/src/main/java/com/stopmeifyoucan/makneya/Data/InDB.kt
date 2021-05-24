@@ -1,6 +1,7 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Data
 
 import android.app.Application
+import com.stopmeifyoucan.makneya.PreferenceUtil
 
 class InDB: Application() {
     companion object{
@@ -8,7 +9,8 @@ class InDB: Application() {
     }
 
     override fun onCreate() {
-        prefs = PreferenceUtil(applicationContext)
+        prefs =
+            PreferenceUtil(applicationContext)
         super.onCreate()
     }
 }

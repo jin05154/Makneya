@@ -2,7 +2,7 @@ package com.stopmeifyoucan.makneya
 
 import com.google.gson.annotations.SerializedName
 
-class GetbujangResponse {
+class GetBujangResponse {
     @SerializedName("response")
     var body: String? = null
 }

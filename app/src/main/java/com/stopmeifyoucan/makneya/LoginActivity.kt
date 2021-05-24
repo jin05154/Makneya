@@ -3,8 +3,6 @@ package com.stopmeifyoucan.makneya
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
@@ -134,7 +133,7 @@ class LoginActivity : AppCompatActivity() {
                                     InDB.prefs.setString("bujangname1", testtext.bujangdata.get(0).bujangname.toString())
                                     InDB.prefs.setString("bujangcode1", testtext.bujangdata.get(0).bujangcode.toString())
                                     Log.d("new_user", InDB.prefs.getString("new_user", ""))
-                                    moveactivity()
+                                    moveActivity()
 
                                 } else {
                                     Log.d("test", "uid is null")
@@ -158,7 +157,7 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun moveactivity(){
+    private fun moveActivity(){
         Log.d("new_user", "before ${InDB.prefs.getString("new_user", " ").toInt()}")
         if ((InDB.prefs.getString("new_user", "").toInt()) == 1){
             Log.d("new_user", "into if user ${InDB.prefs.getString("new_user", " ").toInt()}")
@@ -169,7 +168,7 @@ class LoginActivity : AppCompatActivity() {
         }
         else{
             Log.d("new_user", "else user ${InDB.prefs.getString("new_user", " ").toInt()}")
-            val intent = Intent(this, Forfirstuser::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

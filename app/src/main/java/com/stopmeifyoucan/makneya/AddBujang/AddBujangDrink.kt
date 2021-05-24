@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.AddBujang
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SeekBar
 import com.google.firebase.auth.FirebaseAuth
+import com.stopmeifyoucan.makneya.*
+import com.stopmeifyoucan.makneya.Data.InDB
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -19,7 +21,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AddBujangdrink : Fragment() {
+class AddBujangDrink : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_bujangdrink, container, false)
 
@@ -35,11 +37,11 @@ class AddBujangdrink : Fragment() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            val service = retrofit.create(Getbujanginterface::class.java)
+            val service = retrofit.create(GetBujanginterface::class.java)
 
-            val User = FirebaseAuth.getInstance().currentUser
+            val user = FirebaseAuth.getInstance().currentUser
 
-            User.getIdToken(true)
+            user.getIdToken(true)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val idToken = task.result!!.token
@@ -60,11 +62,11 @@ class AddBujangdrink : Fragment() {
                         val call = service.postbujangplus(requestBody)
                         Log.d("json", json.toString())
 
-                        call.enqueue(object : Callback<GetbujangResponse> {
+                        call.enqueue(object : Callback<GetBujangResponse> {
 
                             override fun onResponse(
-                                call: Call<GetbujangResponse>,
-                                response: Response<GetbujangResponse>
+                                call: Call<GetBujangResponse>,
+                                response: Response<GetBujangResponse>
                             ) {
                                 if (response.code() == 200) {
                                     Log.d("restest", response.toString())
@@ -79,7 +81,6 @@ class AddBujangdrink : Fragment() {
                                         //Log.d("token: ", idToken.toString())
                                     }
 
-
                                 }
                                 val testtext = response.body()
                                 if (testtext != null) {
@@ -88,7 +89,7 @@ class AddBujangdrink : Fragment() {
                                 //Log.d("errortest", idToken.toString())
                             }
 
-                            override fun onFailure(call: Call<GetbujangResponse>, t: Throwable) {
+                            override fun onFailure(call: Call<GetBujangResponse>, t: Throwable) {
                                 Log.d("test", "실패")
                                 Log.d("error: ", t.message.toString())
                                 //Log.d("token: ", idToken.toString())

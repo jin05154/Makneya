@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Data
 
 class AddInfotoApi{
     var bujangname: String? = null

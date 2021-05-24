@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Navigation
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -15,7 +14,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.tab_myinfo.*
+import com.stopmeifyoucan.makneya.LoginActivity
+import com.stopmeifyoucan.makneya.R
 
 class TabMyInfo : Fragment() {
 
@@ -28,7 +28,7 @@ class TabMyInfo : Fragment() {
 
         // 구글 로그아웃을 위해 로그인 세션 가져오기
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.firebase_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(view.context, gso)
@@ -81,7 +81,8 @@ class TabMyInfo : Fragment() {
         googleSignInClient?.signOut()
     }
     companion object {
-        fun newInstance(): TabMyInfo = TabMyInfo()
+        fun newInstance(): TabMyInfo =
+            TabMyInfo()
     }
 
 }

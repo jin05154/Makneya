@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Data
 
 import com.google.gson.annotations.SerializedName
 

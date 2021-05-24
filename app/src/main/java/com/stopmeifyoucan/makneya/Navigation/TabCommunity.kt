@@ -1,9 +1,10 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.Navigation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.stopmeifyoucan.makneya.R
 
 class TabCommunity : Fragment() {
 
@@ -11,7 +12,8 @@ class TabCommunity : Fragment() {
         inflater.inflate(R.layout.tab_community, container, false)
 
     companion object {
-        fun newInstance(): TabCommunity = TabCommunity()
+        fun newInstance(): TabCommunity =
+            TabCommunity()
     }
 
 }
