@@ -8,4 +8,8 @@
         android:fontStyle = "normal"
         android:fontWeight = "400"
         android:font = "@font/tmoneybold"/>
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/newgoong"/>
 </font-family>

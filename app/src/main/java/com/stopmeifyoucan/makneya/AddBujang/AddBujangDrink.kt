@@ -32,16 +32,16 @@ class AddBujangDrink : Fragment() {
             InDB.prefs.setString("drink", (seekbar.progress+1).toString())
             btn_save.text = "잠시만요!"
 
-                val retrofit = Retrofit.Builder()
+            val retrofit = Retrofit.Builder()
                 .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
             val service = retrofit.create(GetBujanginterface::class.java)
 
-            val user = FirebaseAuth.getInstance().currentUser
+            val User = FirebaseAuth.getInstance().currentUser
 
-            user.getIdToken(true)
+            User.getIdToken(true)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val idToken = task.result!!.token
@@ -74,17 +74,18 @@ class AddBujangDrink : Fragment() {
                                     //Log.d("uidtest", testtext.Body.toString())
 
                                     if (testtext != null) {
-                                        Log.d("test", testtext.body.toString())
+                                        Log.d("test", testtext.bujangcount.toString())
 
                                     } else {
                                         Log.d("test", "uid is null")
                                         //Log.d("token: ", idToken.toString())
                                     }
 
+
                                 }
                                 val testtext = response.body()
                                 if (testtext != null) {
-                                    Log.d("errortest", testtext.body.toString())
+                                    //Log.d("errortest", testtext.body.toString())
                                 }
                                 //Log.d("errortest", idToken.toString())
                             }
@@ -100,12 +101,11 @@ class AddBujangDrink : Fragment() {
                         //Handle error -> task.getException();
                     }
                 }
+
             val intent = Intent(context, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-
         }
         return view
     }
-
 }
