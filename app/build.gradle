@@ -39,6 +39,8 @@ android {
 
 dependencies {
     def multidex_version = "2.0.1"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'gun0912.ted:tedpermission:2.2.0'
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

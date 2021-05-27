@@ -1,5 +1,6 @@
 package com.stopmeifyoucan.makneya.Navigation
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +13,12 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.TedPermission
+import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.LoginActivity
 import com.stopmeifyoucan.makneya.R
 
@@ -25,6 +30,8 @@ class TabMyInfo : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.tab_myinfo, container, false)
         usernameEditText = view.findViewById(R.id.userID)
+        val myaddress = view.findViewById<TextView>(R.id.address)
+        myaddress.text = "내 근무지역 : " + InDB.prefs.getString("myaddress", "")
 
         // 구글 로그아웃을 위해 로그인 세션 가져오기
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -84,5 +91,8 @@ class TabMyInfo : Fragment() {
         fun newInstance(): TabMyInfo =
             TabMyInfo()
     }
+
+
+
 
 }

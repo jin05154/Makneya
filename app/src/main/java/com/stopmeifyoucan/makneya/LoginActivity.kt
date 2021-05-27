@@ -1,6 +1,8 @@
 package com.stopmeifyoucan.makneya
 
+import android.Manifest
 import android.content.Intent
+import android.location.Address
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -14,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.TedPermission
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_login.*
@@ -22,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.ArrayList
 
 
 class LoginActivity : AppCompatActivity() {
@@ -32,6 +37,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        tedPermission()
 
         // Configure Google Sign In
         auth = FirebaseAuth.getInstance()
@@ -181,6 +188,25 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
 
+    }
+
+    private fun tedPermission() {
+        val permissionListener = object : PermissionListener {
+            override fun onPermissionGranted() {}
+            override fun onPermissionDenied(deniedPermissions: ArrayList<String>?) {
+                finish()
+            }
+        }
+
+        TedPermission.with(this)
+            .setPermissionListener(permissionListener)
+            .setRationaleMessage("서비스 사용을 위해서 몇가지 권한이 필요합니다.")
+            .setDeniedMessage("[설정] > [권한] 에서 권한을 설정할 수 있습니다.")
+            .setPermissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+            .check()
     }
 
     companion object {

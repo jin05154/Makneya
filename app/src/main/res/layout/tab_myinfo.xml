@@ -43,7 +43,7 @@
         android:background="@drawable/border">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="내 근무 지역:  잠실"

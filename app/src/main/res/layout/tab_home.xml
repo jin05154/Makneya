@@ -101,7 +101,7 @@
             android:background="#FFDB0F">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autoSizeTextType="uniform"

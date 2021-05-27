@@ -1,20 +1,58 @@
 package com.stopmeifyoucan.makneya
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.*
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.Navigation.TabCommunity
 import com.stopmeifyoucan.makneya.Navigation.TabHome
 import com.stopmeifyoucan.makneya.Navigation.TabMyInfo
+import java.io.IOException
+import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private val locationManager by lazy {
+        getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    }
+
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val locationListener = object : LocationListener {
+            override fun onLocationChanged(location: Location) {
+                location?.let {
+                    val position = LatLng(it.latitude, it.longitude)
+                    Log.e("lat and long", "${position.latitude} and ${position.longitude}")
+                    getAddress(position)
+                }
+            }
+            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
+            override fun onProviderEnabled(provider: String) {}
+            override fun onProviderDisabled(provider: String) {}
+        }
+
+        locationManager.requestLocationUpdates(
+            LocationManager.GPS_PROVIDER,
+            10000,
+            1f,
+            locationListener
+        )
+
         checkCurrentUser()
         getUserProfile()
 
@@ -47,6 +85,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.linearLayout,
                     TabMyInfo()
                 ).commitAllowingStateLoss()
+                Log.d("뭐지?", InDB.prefs.getString("myaddress", ""))
                 return true
             }
         }
@@ -84,6 +123,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             //userName.setText(name)
         }
     }
+    private fun getAddress(position: LatLng) {
+        val geoCoder = Geocoder(this@MainActivity, Locale.KOREAN)
+        val address =
+            geoCoder.getFromLocation(position.latitude, position.longitude, 1).first()
+                .getAddressLine(0)
+        InDB.prefs.setString("myaddress", address)
+        Log.d("Address", address)
+    }
+
 
 
 }
+
