@@ -1,23 +1,19 @@
 package com.stopmeifyoucan.makneya.Navigation
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.TedPermission
+import com.squareup.picasso.Picasso
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.LoginActivity
 import com.stopmeifyoucan.makneya.R
@@ -25,13 +21,18 @@ import com.stopmeifyoucan.makneya.R
 class TabMyInfo : Fragment() {
 
     private var googleSignInClient : GoogleSignInClient ?= null
-    private lateinit var usernameEditText: TextView
+    private lateinit var userNameEditText: TextView
+    private lateinit var userImageEditImage : ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.tab_myinfo, container, false)
-        usernameEditText = view.findViewById(R.id.usernameTextView)
-        val myaddress = view.findViewById<TextView>(R.id.address)
-        myaddress.text = "내 근무지역 : " + InDB.prefs.getString("myaddress", "")
+        userNameEditText = view.findViewById(R.id.userID)
+        userImageEditImage = view.findViewById(R.id.profileCircleImageView)
+        val myAddress = view.findViewById<TextView>(R.id.address)
+        myAddress.text = "내 근무지역 : " + InDB.prefs.getString("myaddress", "")
+
+        //checkCurrentUser()
+        getUserProfile()
 
         // 구글 로그아웃을 위해 로그인 세션 가져오기
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -40,11 +41,7 @@ class TabMyInfo : Fragment() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(view.context, gso)
 
-        checkCurrentUser()
-        getUserProfile()
-
         val google_signout = view.findViewById<TextView>(R.id.myinfoLogout)
-        //val google_signout = findViewById(R.id.myinfoLogout) as TextView
 
         google_signout.setOnClickListener {
             signOut()
@@ -79,9 +76,11 @@ class TabMyInfo : Fragment() {
             // FirebaseUser.getToken() instead.
             val uid = user.uid
 
-            Log.d("test log", name)
-            usernameEditText.text = name
-
+            //Log.d("test log", name)
+            userNameEditText.text = name
+            Picasso.get()
+                .load(user?.photoUrl)
+                .into(userImageEditImage)
         }
     }
     private fun signOut() {
@@ -92,8 +91,4 @@ class TabMyInfo : Fragment() {
         fun newInstance(): TabMyInfo =
             TabMyInfo()
     }
-
-
-
-
 }

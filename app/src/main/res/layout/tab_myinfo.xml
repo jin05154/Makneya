@@ -31,7 +31,7 @@
                 android:layout_marginRight="10dp"/>
 
             <TextView
-                android:id="@+id/usernameTextView"
+                android:id="@+id/userID"
                 style="@style/viewParent.headerText"
                 android:text="이유민"
                 android:textSize="18sp"
@@ -39,11 +39,12 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
+                android:id="@+id/address"
                 style="@style/viewParent.headerText"
                 android:text="근무지역: 도곡동"
                 android:textSize="16sp"
                 android:textColor="#5D5C5C"
-                android:layout_below="@id/usernameTextView"
+                android:layout_below="@id/userID"
                 android:layout_toRightOf="@id/profileCircleImageView"/>
 
             <ImageView

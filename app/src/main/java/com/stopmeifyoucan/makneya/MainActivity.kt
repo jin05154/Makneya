@@ -131,8 +131,5 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         InDB.prefs.setString("myaddress", address)
         Log.d("Address", address)
     }
-
-
-
 }
 
