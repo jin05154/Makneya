@@ -16,12 +16,12 @@ class AddBujangName : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_bujangname, container, false)
-        val Bujangname = view.findViewById<TextView>(R.id.bujang_nickname)
+        val bujangname = view.findViewById<TextView>(R.id.bujang_nickname)
         val btn_save = view.findViewById<Button>(R.id.btn_firstuser)
 
         btn_save.setOnClickListener {
 
-            InDB.prefs.setString("bujang_name", Bujangname.text.toString())
+            InDB.prefs.setString("bujang_name", bujangname.text.toString())
             Log.d("부장 이름은", InDB.prefs.getString("bujang_name", ""))
 
             btn_save.text = "저장완료"

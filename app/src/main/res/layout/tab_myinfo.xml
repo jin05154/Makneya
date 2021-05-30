@@ -1,109 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="@drawable/border">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
 
         <TextView
-            android:id="@+id/textView"
+            style="@style/viewParent.headerText"
+            android:text="Settings" />
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="닉네임: "
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:paddingLeft="20dp"
-            android:layout_weight="25"/>
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/imageBorderColor"
+                android:src="@drawable/employee"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                style="@style/viewParent.headerText"
+                android:text="이유민"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/profileCircleImageView"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                style="@style/viewParent.headerText"
+                android:text="근무지역: 도곡동"
+                android:textSize="16sp"
+                android:textColor="#5D5C5C"
+                android:layout_below="@id/usernameTextView"
+                android:layout_toRightOf="@id/profileCircleImageView"/>
+
+            <ImageView
+                style="@style/viewParent"
+                android:src="@drawable/ic_more"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/userID"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="막둥이"
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:layout_weight="10"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="@drawable/border">
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Profile"/>
 
         <TextView
-            android:id="@+id/address"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="내 근무 지역:  잠실"
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:paddingLeft="20dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="@drawable/border">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_edit_profile"
+            android:text="부장님 정보 수정" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="부장님 정보 수정"
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:paddingLeft="20dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="@drawable/border">
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_edit_password"
+            android:layout_marginTop="10dp"
+            android:text="내 리뷰 보기" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="내 리뷰 보기"
-            android:fontFamily="@font/tmoneyregular"
-            android:autoSizeTextType="uniform"
-            android:includeFontPadding="false"
-            android:paddingTop="25dp"
-            android:paddingBottom="25dp"
-            android:paddingLeft="20dp" />
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Notifications"/>
+
+        <Switch
+            style="@style/settingsText"
+            android:checked="true"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:text="알림 설정" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Regional"/>
+
+        <TextView
+            android:id="@+id/myinfoLogout"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_logout"
+            android:text="로그아웃" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="60" >
-
-        <Button
-            android:id="@+id/btn_googleLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="LOGOUT" />
-    </LinearLayout>
-
 </LinearLayout>

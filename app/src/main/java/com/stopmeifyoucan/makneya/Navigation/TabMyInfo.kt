@@ -29,7 +29,7 @@ class TabMyInfo : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.tab_myinfo, container, false)
-        usernameEditText = view.findViewById(R.id.userID)
+        usernameEditText = view.findViewById(R.id.usernameTextView)
         val myaddress = view.findViewById<TextView>(R.id.address)
         myaddress.text = "내 근무지역 : " + InDB.prefs.getString("myaddress", "")
 
@@ -43,7 +43,8 @@ class TabMyInfo : Fragment() {
         checkCurrentUser()
         getUserProfile()
 
-        val google_signout = view.findViewById<Button>(R.id.btn_googleLogout)
+        val google_signout = view.findViewById<TextView>(R.id.myinfoLogout)
+        //val google_signout = findViewById(R.id.myinfoLogout) as TextView
 
         google_signout.setOnClickListener {
             signOut()

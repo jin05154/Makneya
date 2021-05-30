@@ -37,7 +37,7 @@ class AddBujangDrink : Fragment() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            val service = retrofit.create(GetBujanginterface::class.java)
+            val service = retrofit.create(GetBujangInterface::class.java)
 
             val User = FirebaseAuth.getInstance().currentUser
 
