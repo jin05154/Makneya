@@ -13,7 +13,7 @@ import com.stopmeifyoucan.makneya.*
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.Data.InstanceDataResponse
 import com.stopmeifyoucan.makneya.Data.InstanceDatainterface
-import com.stopmeifyoucan.makneya.AddBujang.AddBujang
+import com.stopmeifyoucan.makneya.AddNewBujang.AddBujang
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject

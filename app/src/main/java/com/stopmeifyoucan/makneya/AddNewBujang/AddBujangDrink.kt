@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.AddBujang
+package com.stopmeifyoucan.makneya.AddNewBujang
 
 import android.content.Intent
 import android.os.Bundle

@@ -16,11 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ForFirstUser"></activity>
-        <activity android:name=".AddBujang.AddBujangDrink" />
-        <activity android:name=".AddBujang.AddBujangHurry" />
-        <activity android:name=".AddBujang.AddBujangSpicy" />
-
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Splash">
@@ -31,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".AddBujang.AddBujang" />
-        <activity android:name=".AddBujang.AddBujangGgondae" />
+        <activity android:name=".ForFirstUser" />
+        <activity android:name=".AddNewBujang.AddBujang" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

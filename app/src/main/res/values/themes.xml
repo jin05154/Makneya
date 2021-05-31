@@ -26,6 +26,12 @@
     </style>
 
     <!-- My Info -->
+    <style name="borderLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@color/gray</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
     <style name="viewParent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -52,6 +58,5 @@
     </style>
 
     <style name="Theme.Makneya.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="Theme.Makneya.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

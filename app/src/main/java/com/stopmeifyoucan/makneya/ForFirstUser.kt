@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.AddBujang.AddBujang
+import com.stopmeifyoucan.makneya.AddNewBujang.AddBujang
 
 class ForFirstUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

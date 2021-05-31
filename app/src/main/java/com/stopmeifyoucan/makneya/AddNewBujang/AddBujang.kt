@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.AddBujang
+package com.stopmeifyoucan.makneya.AddNewBujang
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

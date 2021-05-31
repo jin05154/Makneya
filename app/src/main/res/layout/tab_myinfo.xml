@@ -14,7 +14,8 @@
 
         <TextView
             style="@style/viewParent.headerText"
-            android:text="Settings" />
+            android:text="MY INFO"
+            android:layout_marginBottom="5dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,7 +34,7 @@
             <TextView
                 android:id="@+id/userID"
                 style="@style/viewParent.headerText"
-                android:text="이유민"
+                android:text="김막내"
                 android:textSize="18sp"
                 android:layout_toRightOf="@id/profileCircleImageView"
                 android:layout_marginTop="20dp"/>
@@ -41,7 +42,7 @@
             <TextView
                 android:id="@+id/address"
                 style="@style/viewParent.headerText"
-                android:text="근무지역: 도곡동"
+                android:text="내 근무지역: 강남"
                 android:textSize="16sp"
                 android:textColor="#5D5C5C"
                 android:layout_below="@id/userID"
@@ -55,14 +56,15 @@
 
         </RelativeLayout>
 
-        <TextView
-            style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="Profile"/>
+        <LinearLayout
+            style="@style/borderLine">
+        </LinearLayout>
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_edit_profile"
-            android:text="부장님 정보 수정" />
+            android:text="부장님 정보 수정"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
@@ -70,9 +72,9 @@
             android:layout_marginTop="10dp"
             android:text="내 리뷰 보기" />
 
-        <TextView
-            style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="Notifications"/>
+        <LinearLayout
+            style="@style/borderLine">
+        </LinearLayout>
 
         <Switch
             style="@style/settingsText"
@@ -80,10 +82,9 @@
             android:drawableLeft="@drawable/ic_notifications"
             android:text="알림 설정" />
 
-        <TextView
-            style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="Regional"/>
-
+        <LinearLayout
+            style="@style/borderLine">
+        </LinearLayout>
         <TextView
             android:id="@+id/myinfoLogout"
             style="@style/viewParent.headerText.settingsTextIcon"

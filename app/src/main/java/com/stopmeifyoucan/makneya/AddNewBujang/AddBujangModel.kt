@@ -1,11 +1,12 @@
-package com.stopmeifyoucan.makneya.AddBujang
+package com.stopmeifyoucan.makneya.AddNewBujang
 
 class AddBujangModel {
     companion object{
         var obj : AddBujangModel? = null
-        fun getinstance() : AddBujangModel{
+        fun getinstance() : AddBujangModel {
             if (obj == null){
-                obj = AddBujangModel()
+                obj =
+                    AddBujangModel()
                 return obj!!
             }
             else{
