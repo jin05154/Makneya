@@ -13,17 +13,17 @@ import com.stopmeifyoucan.makneya.R
 
 class AddBujangName : Fragment() {
 
+    lateinit var actModel: AddBujangModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_bujangname, container, false)
         val bujangname = view.findViewById<TextView>(R.id.bujang_nickname)
         val btn_save = view.findViewById<Button>(R.id.btn_firstuser)
 
+        actModel = (activity as AddBujang).model
         btn_save.setOnClickListener {
-
-            InDB.prefs.setString("bujang_name", bujangname.text.toString())
-            Log.d("부장 이름은", InDB.prefs.getString("bujang_name", ""))
-
+            actModel.bujang_name = bujangname.text.toString()
+            Log.d("부장 이름은", actModel.bujang_name.toString())
             btn_save.text = "저장완료"
             activity?.supportFragmentManager!!.beginTransaction()
                 .replace(R.id.changeview, AddBujangGgondae())

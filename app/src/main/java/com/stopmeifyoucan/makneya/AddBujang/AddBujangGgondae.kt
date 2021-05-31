@@ -12,19 +12,18 @@ import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.R
 
 class AddBujangGgondae : Fragment() {
+
+    lateinit var actModel: AddBujangModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_bujangggondae, container, false)
 
         val seekbar : SeekBar = view.findViewById(R.id.ggonbar)
         val btn_save = view.findViewById<Button>(R.id.btn_firstuser)
 
+        actModel = (activity as AddBujang).model
         btn_save.setOnClickListener {
-            InDB.prefs.setString("ggondae", (seekbar.progress+1).toString())
-            Log.d("이후 부장이름", InDB.prefs.getString("bujang_name", ""))
-            //InDB.prefs.remove("bujang_name") //삭제 테스트용
-
-            Log.d("이후 부장이름", InDB.prefs.getString("bujang_name", ""))
-
+            actModel.ggondae = (seekbar.progress+1).toString()
             btn_save.text = "저장완료"
 
             activity?.supportFragmentManager!!.beginTransaction()

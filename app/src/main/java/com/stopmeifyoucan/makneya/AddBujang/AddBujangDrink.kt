@@ -22,14 +22,20 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class AddBujangDrink : Fragment() {
+
+    lateinit var actModel: AddBujangModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_bujangdrink, container, false)
 
         val seekbar : SeekBar = view.findViewById(R.id.drinkbar)
         val btn_save = view.findViewById<Button>(R.id.btn_firstuser)
 
+        actModel = (activity as AddBujang).model
+
         btn_save.setOnClickListener {
-            InDB.prefs.setString("drink", (seekbar.progress+1).toString())
+            actModel.drink = (seekbar.progress+1).toString()
+
             btn_save.text = "잠시만요!"
 
             val retrofit = Retrofit.Builder()
@@ -52,11 +58,12 @@ class AddBujangDrink : Fragment() {
                         json.put("state", 1)
                         json.put("idToken", idToken)
                         json.put("bujang_code", "")
-                        json.put("bujang_name", InDB.prefs.getString(("bujang_name"), ""))
-                        json.put("ggondae", InDB.prefs.getString(("ggondae"), ""))
-                        json.put("drink", InDB.prefs.getString(("drink"), ""))
-                        json.put("spicy", InDB.prefs.getString(("spicy"), ""))
-                        json.put("hurry", InDB.prefs.getString(("hurry"), ""))
+                        json.put("bujang_name", actModel.bujang_name)
+                        json.put("ggondae", actModel.ggondae)
+                        json.put("drink", actModel.drink)
+                        json.put("spicy", actModel.spicy)
+                        json.put("hurry", actModel.hurry)
+
                         val requestBody: RequestBody =
                             RequestBody.create(MediaType.parse("application/json"), json.toString())
                         val call = service.postbujangplus(requestBody)
