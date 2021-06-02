@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".ForFirstUser" />
         <activity android:name=".AddNewBujang.AddBujang" />
         <activity

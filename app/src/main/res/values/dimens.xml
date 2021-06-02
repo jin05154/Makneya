@@ -4,4 +4,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="headerTextSizeLogin">22sp</dimen>
+    <dimen name="newsMoreTextSize">16sp</dimen>
+    <dimen name="signup_text_margin_top">5dp</dimen>
 </resources>

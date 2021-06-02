@@ -43,7 +43,7 @@ class TabHome : Fragment() {
 
         spinnerweather.adapter = adapter
 
-        spinnerweather.onItemSelectedListener=object : AdapterView.OnItemSelectedListener{
+        spinnerweather.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,

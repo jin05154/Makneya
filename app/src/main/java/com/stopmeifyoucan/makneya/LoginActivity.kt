@@ -1,10 +1,14 @@
 package com.stopmeifyoucan.makneya
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
-import android.location.Address
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -19,18 +23,16 @@ import com.google.firebase.ktx.Firebase
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.layout_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.ArrayList
-
+import java.util.*
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    //private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -53,6 +55,10 @@ class LoginActivity : AppCompatActivity() {
 
         btn_googleSignIn.setOnClickListener {
             signIn()
+        }
+        btn_signUp.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 

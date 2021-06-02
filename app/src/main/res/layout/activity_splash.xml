@@ -26,8 +26,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62"
-        android:fontFamily="@font/tmoneyregular"
-        android:textStyle="bold"
+        android:fontFamily="@font/tmoneybold"
+        android:includeFontPadding="false"
         android:textSize="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
