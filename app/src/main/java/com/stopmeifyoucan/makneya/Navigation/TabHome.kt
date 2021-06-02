@@ -145,6 +145,7 @@ class TabHome : Fragment() {
 
         addBujang.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?){
+                InDB.prefs.setString("currentstate", "1")
                 val intent = Intent(context, AddBujang::class.java)
                 startActivity(intent)
             }

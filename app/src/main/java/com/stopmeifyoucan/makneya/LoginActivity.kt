@@ -2,7 +2,6 @@ package com.stopmeifyoucan.makneya
 
 import android.Manifest
 import android.content.Intent
-import android.location.Address
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -128,18 +127,23 @@ class LoginActivity : AppCompatActivity() {
                             response: Response<UserResponse>) {
                             if (response.code() == 200) {
                                 Log.d("alltext", response.toString())
-                                val testtext = response.body()!!
+                                val firstresponse = response.body()!!
                                 //Log.d("uidtest", testtext.Body.toString())
 
-                                if (testtext != null) {
-                                    Log.d("uidtest", testtext.new_user.toString())
-                                    Log.d("bujangcount", testtext.bujangcount.toString())
-                                    Log.d("name", testtext.Name.toString())
+                                if (firstresponse != null) {
+                                    Log.d("uidtest", firstresponse.new_user.toString())
+                                    Log.d("bujangcount", firstresponse.bujangcount.toString())
+                                    Log.d("name", firstresponse.Name.toString())
                                     //Log.d("dtest", testtext.bujangdata.get(0).bujangcode.toString())
-                                    InDB.prefs.setString("new_user", testtext.new_user.toString())
-                                    InDB.prefs.setString("bujangname1", testtext.bujangdata.get(0).bujangname.toString())
-                                    InDB.prefs.setString("bujangcode1", testtext.bujangdata.get(0).bujangcode.toString())
-                                    Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                    InDB.prefs.setString("new_user", firstresponse.new_user.toString())
+                                    InDB.prefs.setString("bujangcount", firstresponse.bujangcount.toString())
+                                    //Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                    val Bcount = firstresponse.bujangcount?.toInt()
+                                    for(i in 1..Bcount!!){
+                                        InDB.prefs.setString(("bujangname"+i), firstresponse.bujangdata.get(i-1).bujangname.toString())
+                                        InDB.prefs.setString(("bujangcode"+i), firstresponse.bujangdata.get(i-1).bujangcode.toString())
+                                        Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                    }
                                     moveActivity()
 
                                 } else {

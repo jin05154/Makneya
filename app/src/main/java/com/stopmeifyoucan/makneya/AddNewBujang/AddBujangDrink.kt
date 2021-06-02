@@ -51,13 +51,13 @@ class AddBujangDrink : Fragment() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val idToken = task.result!!.token
-                        //Log.d("token: ", idToken.toString())
+                        Log.d("상태 ", InDB.prefs.getString("currentstate", ""))
 
                         // Send token to your backend via HTTPS
                         val json = JSONObject()
-                        json.put("state", 1)
+                        json.put("state", InDB.prefs.getString("currentstate", "").toInt() )
                         json.put("idToken", idToken)
-                        json.put("bujang_code", "")
+                        json.put("bujang_code", InDB.prefs.getString("currentcode", ""))
                         json.put("bujang_name", actModel.bujang_name)
                         json.put("ggondae", actModel.ggondae)
                         json.put("drink", actModel.drink)
@@ -77,11 +77,19 @@ class AddBujangDrink : Fragment() {
                             ) {
                                 if (response.code() == 200) {
                                     Log.d("restest", response.toString())
-                                    val testtext = response.body()!!
+                                    val Plusresponse = response.body()!!
                                     //Log.d("uidtest", testtext.Body.toString())
 
-                                    if (testtext != null) {
-                                        Log.d("test", testtext.bujangcount.toString())
+                                    if (Plusresponse != null) {
+                                        InDB.prefs.setString("bujangcount", Plusresponse.bujangcount.toString())
+                                        //Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                        val Bcount = Plusresponse.bujangcount?.toInt()
+                                        for(i in 1..Bcount!!){
+                                            InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangdata.get(i-1).bujangname.toString())
+                                            InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangdata.get(i-1).bujangcode.toString())
+                                            Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                        }
+                                        InDB.prefs.remove("currentcode")
 
                                     } else {
                                         Log.d("test", "uid is null")

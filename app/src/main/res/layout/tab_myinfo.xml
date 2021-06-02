@@ -61,10 +61,11 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/bujanginfo"
             style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_edit_profile"
-            android:text="부장님 정보 수정"
-            android:layout_marginBottom="10dp" />
+            android:text="부장님 정보 수정" />
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"

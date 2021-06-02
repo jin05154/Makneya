@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MyBujang"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Splash">
@@ -33,7 +34,7 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.Makneya.NoActionBar" />
         <activity android:name=".MenuApproval" />
-        <activity android:name=".MenuSuggest"/>
+        <activity android:name=".MenuSuggest" />
     </application>
 
 </manifest>
