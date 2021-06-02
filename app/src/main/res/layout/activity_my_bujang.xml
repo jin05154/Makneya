@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            style="@style/viewParent.headerText"
+            android:text="부장님 정보수정"
+            android:layout_marginBottom="30dp"/>
+
+        <LinearLayout
+            style="@style/borderLine">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mybujang1"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/borderLine"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mybujang2"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/borderLine"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mybujang3"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/borderLine"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mybujang4"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/borderLine"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mybujang5"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
+        <LinearLayout
+            style="@style/borderLine"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

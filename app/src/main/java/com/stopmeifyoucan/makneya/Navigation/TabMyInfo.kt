@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.LoginActivity
+import com.stopmeifyoucan.makneya.MyBujang
 import com.stopmeifyoucan.makneya.R
 
 class TabMyInfo : Fragment() {
@@ -42,12 +43,18 @@ class TabMyInfo : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(view.context, gso)
 
         val google_signout = view.findViewById<TextView>(R.id.myinfoLogout)
+        val changebujanginfo = view.findViewById<TextView>(R.id.bujanginfo)
 
         google_signout.setOnClickListener {
             signOut()
             val logoutIntent= Intent(context, LoginActivity::class.java)
             logoutIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(logoutIntent)
+        }
+
+        changebujanginfo.setOnClickListener{
+            val Intent= Intent(context, MyBujang::class.java)
+            startActivity(Intent)
         }
 
         return view
