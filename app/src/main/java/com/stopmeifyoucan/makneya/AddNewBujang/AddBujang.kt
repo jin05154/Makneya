@@ -20,19 +20,12 @@ class AddBujang : AppCompatActivity() {
         val btn_spicy = findViewById<Button>(R.id.btn_spicy)
         val btn_drink = findViewById<Button>(R.id.btn_drink)
 
-        val save_bujang_name = "Kim"
-        val save_ggondae = 3
-        val save_hurry = 3
-        val save_spicy = 3
-        val save_drink = 3
-
         supportFragmentManager.beginTransaction().add(R.id.changeview, AddBujangName()).commit()
 
         btn_name.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.changeview, AddBujangName())
                 .commit()
-
         }
 
         btn_ggon.setOnClickListener {

@@ -26,7 +26,7 @@ class AddBujangDrink : Fragment() {
     lateinit var actModel: AddBujangModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_add_bujangdrink, container, false)
+        val view = inflater.inflate(R.layout.layout_add_bujangdrink, container, false)
 
         val seekbar : SeekBar = view.findViewById(R.id.drinkbar)
         val btn_save = view.findViewById<Button>(R.id.btn_firstuser)

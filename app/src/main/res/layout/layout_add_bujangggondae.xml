@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".AddNewBujang.AddBujangGgondae">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="45" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bujang_ask_ggon"
+            style="@style/parent.TextLayout"
+            android:textSize="40sp"
+            android:fontFamily="@font/tmoneyregular"
+            android:text="Q2. 부장님께서 \n'라떼는~~' \n이라는 말을 \n자주 하시나요?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <SeekBar
+                android:id="@+id/ggonbar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="4"
+                android:max="4"
+                android:progress="2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="7dp"
+                    android:text="전혀"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:paddingRight="5dp"
+                    android:text="정말 자주"
+                    android:textSize="22dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="35" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+            <Button
+                android:id="@+id/btn_firstuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장하기" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

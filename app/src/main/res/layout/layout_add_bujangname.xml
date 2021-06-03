@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".AddNewBujang.AddBujangName">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="55" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bujang_ask_name"
+            style="@style/parent.TextLayout"
+            android:textSize="40sp"
+            android:fontFamily="@font/tmoneyregular"
+            android:text="Q1. \n부장님의 성함을 \n입력해주세요." />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bujang_enter_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/bujang_nickname"
+                style="@style/modifiedEditText"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:hint="별명도 좋아요!" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+            <Button
+                android:id="@+id/btn_firstuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장하기" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
