@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    tools:context=".AddNewBujang.AddBujangName">
+    android:paddingRight="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="55" >
+            android:layout_weight="45" >
         </LinearLayout>
 
         <TextView
@@ -33,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="5dp">
             <EditText
                 android:id="@+id/bujang_nickname"
                 style="@style/modifiedEditText"
@@ -45,7 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="40" >
+            android:layout_weight="35" >
         </LinearLayout>
 
         <LinearLayout
@@ -55,8 +53,9 @@
             android:gravity="right"
             android:paddingRight="10dp"
             android:paddingTop="10dp">
-            <Button
-                android:id="@+id/btn_firstuser"
+            <ImageView
+                android:id="@+id/btn_save_name"
+                android:background="@drawable/next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="저장하기" />

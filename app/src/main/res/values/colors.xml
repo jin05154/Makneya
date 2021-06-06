@@ -26,4 +26,5 @@
     <color name="contentTextColor">#020000</color>
     <color name="blackTextColor">#000</color>
     <color name="colorLoginPrimaryDark">#FDFFFF</color>
+    <color name="titleGray">#666666</color>
 </resources>

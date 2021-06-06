@@ -1,68 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/bujanginfo"
-        style="@style/parent.TextLayout"
+        android:id="@+id/addBujangTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/titleGray"
         android:textSize="28sp"
         android:fontFamily="@font/tmoneybold"
-        android:layout_marginTop="10dp"
-        android:text="부장님 정보 입력" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="부장님 정보 등록" />
 
-    <FrameLayout
-        android:id="@+id/changeview"
-        android:layout_width="match_parent"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="63" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10" >
+    <!-- indicator -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewPagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btn_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="성함"
-            app:backgroundTint="#000000" />
+        <ImageView
+            android:id="@+id/indicator0_iv_main"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/shape_circle_purple" />
 
-        <Button
-            android:id="@+id/btn_ggon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="라떼"
-            app:backgroundTint="#000000" />
+        <ImageView
+            android:id="@+id/indicator1_iv_main"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/indicator0_iv_main"
+            app:layout_constraintStart_toEndOf="@+id/indicator0_iv_main"
+            app:layout_constraintTop_toTopOf="@+id/indicator0_iv_main"
+            app:srcCompat="@drawable/shape_circle_gray" />
 
-        <Button
-            android:id="@+id/btn_hurry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="급함"
-            app:backgroundTint="#000000" />
+        <ImageView
+            android:id="@+id/indicator2_iv_main"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/indicator1_iv_main"
+            app:layout_constraintStart_toEndOf="@+id/indicator1_iv_main"
+            app:layout_constraintTop_toTopOf="@+id/indicator1_iv_main"
+            app:srcCompat="@drawable/shape_circle_gray" />
 
-        <Button
-            android:id="@+id/btn_spicy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="맵부심"
-            app:backgroundTint="#000000" />
+        <ImageView
+            android:id="@+id/indicator3_iv_main"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/indicator2_iv_main"
+            app:layout_constraintStart_toEndOf="@+id/indicator2_iv_main"
+            app:layout_constraintTop_toTopOf="@+id/indicator2_iv_main"
+            app:srcCompat="@drawable/shape_circle_gray" />
 
-        <Button
-            android:id="@+id/btn_drink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="주량"
-            app:backgroundTint="#000000" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/indicator4_iv_main"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/indicator3_iv_main"
+            app:layout_constraintStart_toEndOf="@+id/indicator3_iv_main"
+            app:layout_constraintTop_toTopOf="@+id/indicator3_iv_main"
+            app:srcCompat="@drawable/shape_circle_gray" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

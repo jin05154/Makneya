@@ -3,9 +3,7 @@ package com.stopmeifyoucan.makneya
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
-import com.stopmeifyoucan.makneya.AddNewBujang.AddBujang
 import com.stopmeifyoucan.makneya.Data.InDB
 
 class MyBujang : AppCompatActivity() {
