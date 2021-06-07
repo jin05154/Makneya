@@ -17,6 +17,7 @@ class ForFirstUser : AppCompatActivity() {
         val Mybirth = findViewById<TextView>(R.id.mybirth)
 
         btnfirstuser.setOnClickListener {
+            InDB.prefs.setString("currentstate", "1")
             InDB.prefs.setString("name", Mynickname.text.toString())
             InDB.prefs.setString("b_date", Mybirth.text.toString())
             //Log.d("bujang name is", InDB.prefs.getString("bujang_name", ""))

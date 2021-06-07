@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mapview"
@@ -16,81 +17,43 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
+        android:weightSum="10">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
+            android:layout_weight="6"
             android:background="#FCD462"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6"
+                android:layout_weight="1"
                 android:background="#FFFFFF"
                 android:orientation="vertical">
 
                 <fragment android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/map"
-                    android:name="com.naver.maps.map.MapFragment"
-                    />
-
+                    android:name="com.naver.maps.map.MapFragment" />
 
             </LinearLayout>
-
-            <!--Example with RelativeLayout and Gradient Drawable -->
-            <!-- for Recycler view use any of the layout as model-->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="15dp"
-                app:cardPreventCornerOverlap="true"
-                android:layout_marginTop="10dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:minHeight="100dp"
-                    android:background="@drawable/home_gradient_maths"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/textViewSub1Title"
-                        android:text="파스쿠찌 잠실역점"
-                        style="@style/viewParent.headerText.HomeCardTitle" />
-
-                    <TextView
-                        android:id="@+id/textViewNumber"
-                        android:text="010-2562-2913"
-                        style="@style/viewParent.headerText.homeCardContent"
-                        android:layout_below="@id/textViewSub1Title"/>
-
-                    <TextView
-                        android:id="@+id/textViewAddress"
-                        android:text="잠실역 7번 출구 300m"
-                        style="@style/viewParent.headerText.homeCardContent"
-                        android:layout_below="@id/textViewNumber"/>
-
-                    <ImageView
-                        android:maxHeight="90dp"
-                        android:src="@drawable/home_ic_maths"
-                        style="@style/homeCardImage" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/root_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_weight="4"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+
+
         </LinearLayout>
 
     </LinearLayout>
