@@ -46,14 +46,24 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/root_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:padding="16dp"
             android:orientation="vertical">
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:id="@+id/root_layout">
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
 
