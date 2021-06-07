@@ -34,6 +34,7 @@
                 android:orientation="vertical"/>
 
             <LinearLayout
+                android:id="@+id/firstmenu"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -56,7 +57,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="#FFFFFF"
-                android:id="@+id/linearLayout3">
+                android:id="@+id/secondmenu">
 
                 <ImageView
                     style="@style/menuView.ImageView"
@@ -70,6 +71,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/thirdmenu"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -78,6 +80,7 @@
                 <ImageView
                     style="@style/menuView.ImageView"
                     app:srcCompat="@drawable/three" />
+
                 <TextView
                     android:id="@+id/menu3"
                     style="@style/menuView.TextView"
@@ -87,6 +90,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/forthmenu"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -95,6 +99,7 @@
                 <ImageView
                     style="@style/menuView.ImageView"
                     app:srcCompat="@drawable/four" />
+
                 <TextView
                     android:id="@+id/menu4"
                     style="@style/menuView.TextView"
@@ -103,6 +108,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/fifthmenu"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -111,6 +117,7 @@
                 <ImageView
                     style="@style/menuView.ImageView"
                     app:srcCompat="@drawable/five" />
+
                 <TextView
                     android:id="@+id/menu5"
                     style="@style/menuView.TextView"

@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
         android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="ikqvpsto0k" />
         <activity android:name=".MyBujang"></activity>
         <activity
             android:name=".SplashActivity"
