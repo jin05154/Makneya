@@ -10,6 +10,10 @@ import android.widget.LinearLayout.LayoutParams
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraPosition
+import com.naver.maps.map.MapFragment
+import com.naver.maps.map.NaverMapOptions
 import kotlinx.android.synthetic.main.activity_menuapproval.*
 
 class MenuApproval : AppCompatActivity() {
@@ -17,6 +21,14 @@ class MenuApproval : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menuapproval)
+
+        var fm = supportFragmentManager
+
+        val options = NaverMapOptions()
+            .camera(CameraPosition(LatLng(37.594497, 127.129796), 15.0))
+
+        val mapFragment = MapFragment.newInstance(options)
+        fm.beginTransaction().add(R.id.map, mapFragment).commit()
 
         // Initialize a new LayoutParams instance, CardView width and height
         val layoutParams = RelativeLayout.LayoutParams(
