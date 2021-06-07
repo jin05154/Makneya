@@ -16,10 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
         android:usesCleartextTraffic="true">
-        <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="ikqvpsto0k" />
-        <activity android:name=".MyBujang"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Splash">
@@ -37,8 +33,12 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Makneya.NoActionBar" />
-        <activity android:name=".MenuApproval" />
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="ikqvpsto0k" />
+        <activity android:name=".MyBujang" />
         <activity android:name=".MenuSuggest" />
+        <activity android:name=".MenuApproval" />
     </application>
 
 </manifest>

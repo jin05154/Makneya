@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
         btn_googleSignIn.setOnClickListener {
             signIn()
         }
+
         btn_signUp.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -92,12 +93,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth?.signInWithCredential(credential)
-            ?.addOnCompleteListener(this) { task ->
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
+                    //val user = auth.currentUser
                     loginSuccess()
                     //updateUI(user)
                 } else {
@@ -108,7 +109,7 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun loginSuccess() {  // 이거를 updateUI에 활용하기
+    private fun loginSuccess() {
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
@@ -177,14 +178,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun moveActivity(){
         Log.d("new_user", "before ${InDB.prefs.getString("new_user", " ").toInt()}")
-        if ((InDB.prefs.getString("new_user", "").toInt()) == 1){
+        if ((InDB.prefs.getString("new_user", "").toInt()) == 1) {
             Log.d("new_user", "into if user ${InDB.prefs.getString("new_user", " ").toInt()}")
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-
         }
-        else{
+        else {
             Log.d("new_user", "else user ${InDB.prefs.getString("new_user", " ").toInt()}")
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -198,7 +198,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-
+        if (user != null) {
+            // User is signed in (getCurrentUser() will be null if not signed in)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun tedPermission() {

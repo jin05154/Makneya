@@ -46,8 +46,9 @@ class AddBujang : AppCompatActivity() {
             // This method will be invoked when the current page is scrolled, either as part of
             // a programmatically initiated smooth scroll or a user initiated touch scroll.
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                //addBujangTitle.text = "부장님 정보 등록 $position"
-                addBujangTitle.text = "부장님 정보 등록"
+                val positionPageNum = position + 1
+                addBujangTitle.text = "부장님 정보 등록 $positionPageNum"
+
                 btn_save_name.setOnClickListener {
                     Log.d("부장 이름은", bujang_nickname.text.toString())
                     mViewPager.setCurrentItem(position + 1, true)
@@ -192,12 +193,7 @@ class AddBujang : AppCompatActivity() {
             // dragging, when the pager is automatically settling to the current page,
             // or when it is fully stopped/idle.
             override fun onPageScrollStateChanged(state: Int) {
-                /*
-                Log.d("TAG", "onPageScrollStateChanged : $state")
-                when(state) {
-                    0 -> Log.d("부장 이름은", bujang_nickname.text.toString())
-                    1 -> Log.d("꼰대력은", (ggonbar.progress+1).toString())
-                }*/
+                //Log.d("TAG", "onPageScrollStateChanged : $state")
             }
         })
     }

@@ -53,8 +53,8 @@ class TabMyInfo : Fragment() {
         }
 
         changebujanginfo.setOnClickListener{
-            val Intent= Intent(context, MyBujang::class.java)
-            startActivity(Intent)
+            val intent= Intent(context, MyBujang::class.java)
+            startActivity(intent)
         }
 
         return view
@@ -83,10 +83,9 @@ class TabMyInfo : Fragment() {
             // FirebaseUser.getToken() instead.
             val uid = user.uid
 
-            //Log.d("test log", name)
             userNameEditText.text = name
             Picasso.get()
-                .load(user?.photoUrl)
+                .load(photoUrl)
                 .into(userImageEditImage)
         }
     }
@@ -95,7 +94,6 @@ class TabMyInfo : Fragment() {
         googleSignInClient?.signOut()
     }
     companion object {
-        fun newInstance(): TabMyInfo =
-            TabMyInfo()
+        fun newInstance(): TabMyInfo = TabMyInfo()
     }
 }
