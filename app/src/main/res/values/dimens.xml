@@ -7,4 +7,5 @@
     <dimen name="headerTextSizeLogin">22sp</dimen>
     <dimen name="newsMoreTextSize">16sp</dimen>
     <dimen name="signup_text_margin_top">5dp</dimen>
+    <dimen name="normalPadding">20dp</dimen>
 </resources>

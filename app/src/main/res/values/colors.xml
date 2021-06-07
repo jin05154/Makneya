@@ -27,4 +27,6 @@
     <color name="blackTextColor">#000</color>
     <color name="colorLoginPrimaryDark">#FDFFFF</color>
     <color name="titleGray">#666666</color>
+    <color name="miniTitleColor">#6F6A6A</color>
+    <color name="contentBodyColor">#FCFCFC</color>
 </resources>

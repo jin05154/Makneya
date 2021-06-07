@@ -42,14 +42,48 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <!--Example with RelativeLayout and Gradient Drawable -->
+            <!-- for Recycler view use any of the layout as model-->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:background="#FFFFFF">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textViewSub1Title"
+                        android:text="파스쿠찌 잠실역점"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:id="@+id/textViewNumber"
+                        android:text="010-2562-2913"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title"/>
+
+                    <TextView
+                        android:id="@+id/textViewAddress"
+                        android:text="잠실역 7번 출구 300m"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewNumber"/>
+
+                    <ImageView
+                        android:maxHeight="90dp"
+                        android:src="@drawable/home_ic_maths"
+                        style="@style/homeCardImage" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
