@@ -35,7 +35,8 @@
                 android:background="#FFFFFF"
                 android:orientation="vertical">
 
-                <fragment android:layout_width="match_parent"
+                <fragment
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/map"
                     android:name="com.naver.maps.map.MapFragment" />

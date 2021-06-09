@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.Data.KakaoAPI
 import com.stopmeifyoucan.makneya.Data.ResultSearchKeyword
@@ -33,9 +34,19 @@ class MenuSuggest : AppCompatActivity() {
         menu5.text = InDB.prefs.getString("menu5", "")
 
         menu1.setOnClickListener {
-            searchKeyword("구리시 교문동 마카롱")
-            val Intent= Intent(this, MenuApproval::class.java)
-            startActivity(Intent)
+            searchKeyword("구리 교문동" + menu1.text)
+        }
+        menu2.setOnClickListener {
+            searchKeyword("구리 교문동" + menu2.text)
+        }
+        menu3.setOnClickListener {
+            searchKeyword("구리 교문동" + menu3.text)
+        }
+        menu4.setOnClickListener {
+            searchKeyword("구리 교문동" + menu4.text)
+        }
+        menu5.setOnClickListener {
+            searchKeyword("구리 교문동" + menu5.text)
         }
 
     }
@@ -46,6 +57,7 @@ class MenuSuggest : AppCompatActivity() {
     }
 
     private fun searchKeyword(keyword: String) {
+        val Intent= Intent(this, MenuApproval::class.java)
         val retrofit = Retrofit.Builder()   // Retrofit 구성
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -60,8 +72,23 @@ class MenuSuggest : AppCompatActivity() {
                 response: Response<ResultSearchKeyword>
             ) {
                 // 통신 성공 (검색 결과는 response.body()에 담겨있음)
-                Log.d("Test", "Raw: ${response.raw()}")
-                Log.d("Test", "Body: ${response.body()}")
+                val Kakaoresponse = response.body()!!
+                if (Kakaoresponse.meta.total_count < 5){
+                    Toast.makeText(this@MenuSuggest, "주변에 식당이 없습니다", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    for(i in 1..5!!){
+                        Intent.putExtra("foodname"+i , Kakaoresponse.documents.get(i-1).place_name)
+                        Intent.putExtra("foodphone"+i , Kakaoresponse.documents.get(i-1).phone)
+                        Intent.putExtra("foodaddress"+i , Kakaoresponse.documents.get(i-1).address_name)
+                        Intent.putExtra("foodlink"+i , Kakaoresponse.documents.get(i-1).place_url)
+                        Intent.putExtra("foodY"+i, Kakaoresponse.documents.get(i-1).y)
+                        Intent.putExtra("foodX"+i, Kakaoresponse.documents.get(i-1).x)
+                    }
+                    Log.d("Test", "특정 정보: ${Kakaoresponse.documents.get(0).place_name}")
+                    Log.d("Test", "Body: ${response.body()}")
+                    startActivity(Intent)
+                }
             }
 
             override fun onFailure(call: Call<ResultSearchKeyword>, t: Throwable) {
