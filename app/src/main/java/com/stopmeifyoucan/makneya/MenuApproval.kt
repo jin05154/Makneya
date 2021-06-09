@@ -1,19 +1,22 @@
 package com.stopmeifyoucan.makneya
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.cardview.widget.CardView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMapOptions
 import kotlinx.android.synthetic.main.activity_menuapproval.*
+
 
 class MenuApproval : AppCompatActivity() {
 
@@ -54,7 +57,7 @@ class MenuApproval : AppCompatActivity() {
             menuCardView.setContentPadding(25,25,25,25)
 
             // Set the card view background color
-            menuCardView.setCardBackgroundColor(Color.LTGRAY)
+            menuCardView.setCardBackgroundColor(Color.parseColor("#FCFCFC"))
 
             // Set card view elevation
             menuCardView.cardElevation = 8F
@@ -63,12 +66,13 @@ class MenuApproval : AppCompatActivity() {
             menuCardView.maxCardElevation = 12F
 
             // Set a click listener for card view
+            /*
             menuCardView.setOnClickListener{
                 Toast.makeText(
                     applicationContext,
-                    "식당 상세보기",
+                    "식당 선택",
                     Toast.LENGTH_SHORT).show()
-            }
+            }*/
 
             // Add LinearLayout to the CardView
             menuCardView.addView(generateCardView())
@@ -81,28 +85,55 @@ class MenuApproval : AppCompatActivity() {
     // Custom method to generate an image view
     private fun generateCardView(): LinearLayout {
 
-        val cardLinearLayout = LinearLayout(this)
-        cardLinearLayout.orientation = LinearLayout.VERTICAL
+        val totalLayout = LinearLayout(this)
+        totalLayout.orientation = LinearLayout.HORIZONTAL
+
+        val textLayout = LinearLayout(this)
+        textLayout.orientation = LinearLayout.VERTICAL
 
         val restaurantName = TextView(this)
         restaurantName.text = "파스쿠찌 잠실역점"
-        restaurantName.textSize = 24f
-        restaurantName.setTextColor(Color.WHITE)
+        restaurantName.textSize = 22f
+        restaurantName.setTextColor(Color.parseColor("#020000"))
 
         val restaurantNumber = TextView(this)
         restaurantNumber.text = "02-000-0000"
-        restaurantNumber.textSize = 17f
-        restaurantNumber.setTextColor(Color.WHITE)
+        restaurantNumber.textSize = 16f
+        restaurantNumber.setTextColor(Color.parseColor("#2A2E43"))
 
         val restaurantAddress = TextView(this)
         restaurantAddress.text = "잠실역 7번출구 300m"
-        restaurantAddress.textSize = 17f
-        restaurantAddress.setTextColor(Color.WHITE)
+        restaurantAddress.textSize = 16f
+        restaurantAddress.setTextColor(Color.parseColor("#2A2E43"))
 
-        cardLinearLayout.addView(restaurantName)
-        cardLinearLayout.addView(restaurantNumber)
-        cardLinearLayout.addView(restaurantAddress)
+        textLayout.addView(restaurantName)
+        textLayout.addView(restaurantNumber)
+        textLayout.addView(restaurantAddress)
+        totalLayout.addView(textLayout)
 
-        return cardLinearLayout
+        val params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        params.gravity = Gravity.RIGHT
+
+        //val buttonLayout = LinearLayout(this)
+        //buttonLayout.orientation = LinearLayout.VERTICAL
+
+        val imgResId = R.drawable.next
+        var resId = imgResId
+        val restaurantInfo = ImageView(this)
+        restaurantInfo.setImageResource(resId)
+        restaurantInfo.setOnClickListener{
+            Toast.makeText(
+                applicationContext,
+                "상세보기",
+                Toast.LENGTH_SHORT).show()
+        }
+        restaurantInfo.layoutParams = params
+        //buttonLayout.addView(restaurantInfo)
+        totalLayout.addView(restaurantInfo)
+
+        return totalLayout
     }
 }
