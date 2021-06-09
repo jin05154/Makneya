@@ -1,7 +1,6 @@
 package com.stopmeifyoucan.makneya
 
 import com.google.gson.annotations.SerializedName
-import java.lang.StringBuilder
 
 class UserResponse {
     @SerializedName("name")
@@ -13,10 +12,10 @@ class UserResponse {
     @SerializedName("new_user")
     var new_user: String? = null
     @SerializedName("bujangData")
-    var bujangdata = ArrayList<Bujangdata>()
+    var bujangdata = ArrayList<BujangData>()
 }
 
-class Bujangdata{
+class BujangData{
     @SerializedName("bujang_name")
     var bujangname: String? = null
     @SerializedName("bujang_code")

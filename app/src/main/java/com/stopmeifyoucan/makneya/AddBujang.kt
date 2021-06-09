@@ -94,8 +94,8 @@ class AddBujang : AppCompatActivity() {
 
                         val user = FirebaseAuth.getInstance().currentUser
 
-                        user.getIdToken(true)
-                            .addOnCompleteListener { task ->
+                        user?.getIdToken(true)
+                            ?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     val idToken = task.result!!.token
                                     Log.d("상태 ", InDB.prefs.getString("currentstate", ""))

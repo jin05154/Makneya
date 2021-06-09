@@ -119,8 +119,8 @@ class LoginActivity : AppCompatActivity() {
         val service = retrofit.create(Userinterface::class.java)
 
         val mUser = FirebaseAuth.getInstance().currentUser
-        mUser.getIdToken(true)
-            .addOnCompleteListener { task ->
+        mUser?.getIdToken(true)
+            ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val idToken = task.result!!.token
                     //Log.d("token: ", idToken.toString())

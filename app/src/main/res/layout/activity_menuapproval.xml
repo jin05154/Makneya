@@ -47,18 +47,246 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
-            <ScrollView
+
+            <TextView
+                android:text="카드를 클릭해서 식당의 상세정보를 확인해보세요!"
+                style="@style/viewParent.headerText.contentText"
+                android:textColor="@color/gray"
+                android:paddingTop="10dp"
+                android:paddingBottom="2dp"/>
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
                 <LinearLayout
-                    android:id="@+id/root_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/place1ViewMore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/place1Name"
+                                android:text="식당 1"
+                                style="@style/viewParent.headerText.HomeCardTitle" />
+
+                            <TextView
+                                android:id="@+id/place1Number"
+                                android:text="02-000-0000"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place1Name"/>
+
+                            <TextView
+                                android:id="@+id/place1Address"
+                                android:text="잠실역 1번출구"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place1Number"/>
+
+                            <ImageView
+                                android:id="@+id/place1SelectBtn"
+                                android:maxHeight="40dp"
+                                android:src="@drawable/select_place"
+                                style="@style/homeCardImage"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/place2ViewMore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginBottom="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/place2Name"
+                                android:text="식당 2"
+                                style="@style/viewParent.headerText.HomeCardTitle" />
+
+                            <TextView
+                                android:id="@+id/place2Number"
+                                android:text="02-000-0000"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place2Name"/>
+
+                            <TextView
+                                android:id="@+id/place2Address"
+                                android:text="잠실역 2번출구"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place2Number"/>
+
+                            <ImageView
+                                android:id="@+id/place2SelectBtn"
+                                android:maxHeight="40dp"
+                                android:src="@drawable/select_place"
+                                style="@style/homeCardImage"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/place3ViewMore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginBottom="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/place3Name"
+                                android:text="식당 3"
+                                style="@style/viewParent.headerText.HomeCardTitle" />
+
+                            <TextView
+                                android:id="@+id/place3Number"
+                                android:text="02-000-0000"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place3Name"/>
+
+                            <TextView
+                                android:id="@+id/place3Address"
+                                android:text="잠실역 3번출구"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place3Number"/>
+
+                            <ImageView
+                                android:id="@+id/place3SelectBtn"
+                                android:maxHeight="40dp"
+                                android:src="@drawable/select_place"
+                                style="@style/homeCardImage"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/place4ViewMore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginBottom="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/place4Name"
+                                android:text="식당 4"
+                                style="@style/viewParent.headerText.HomeCardTitle" />
+
+                            <TextView
+                                android:id="@+id/place4Number"
+                                android:text="02-000-0000"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place4Name"/>
+
+                            <TextView
+                                android:id="@+id/place4Address"
+                                android:text="잠실역 4번출구"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place4Number"/>
+
+                            <ImageView
+                                android:id="@+id/place4SelectBtn"
+                                android:maxHeight="40dp"
+                                android:src="@drawable/select_place"
+                                style="@style/homeCardImage"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/place5ViewMore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginBottom="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:paddingLeft="18dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:id="@+id/place5Name"
+                                android:text="식당 5"
+                                style="@style/viewParent.headerText.HomeCardTitle" />
+
+                            <TextView
+                                android:id="@+id/place5Number"
+                                android:text="02-000-0000"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place5Name"/>
+
+                            <TextView
+                                android:id="@+id/place5Address"
+                                android:text="잠실역 5번출구"
+                                style="@style/viewParent.headerText.homeCardContent"
+                                android:layout_below="@id/place5Number"/>
+
+                            <ImageView
+                                android:id="@+id/place5SelectBtn"
+                                android:maxHeight="40dp"
+                                android:src="@drawable/select_place"
+                                style="@style/homeCardImage"/>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
                 </LinearLayout>
-            </ScrollView>
+
+            </androidx.core.widget.NestedScrollView>
         </LinearLayout>
 
     </LinearLayout>
