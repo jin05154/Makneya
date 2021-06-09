@@ -27,21 +27,28 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
+
+                <LinearLayout
                     android:id="@+id/Bujangname"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:autoSizeTextType="uniform"
-                    android:fontFamily="@font/tmoneyregular"
                     android:gravity="center"
                     android:background="#FFDB0F"
-                    android:text="이름" />
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:id="@+id/spinnerbujang"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="0dp"
+                        android:spinnerMode="dropdown"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bujangbutton"
-                    android:layout_width="29dp"
-                    android:layout_height="match_parent"
-                    android:includeFontPadding="false" />
+                </LinearLayout>
+
+
 
                 <Button
                     android:id="@+id/Plus"

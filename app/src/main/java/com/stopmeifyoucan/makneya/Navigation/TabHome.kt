@@ -34,14 +34,23 @@ class TabHome : Fragment() {
         val seekbarGa : SeekBar = view.findViewById(R.id.SeekbarGa)
         val seekbarNa : SeekBar = view.findViewById(R.id.SeekbarNA)
         val spinnerweather  = view.findViewById<Spinner>(R.id.spinnerweather)
-
+        val spinnerbujang = view.findViewById<Spinner>(R.id.spinnerbujang)
 
         val weatherList = listOf("날씨를 선택해 주세요", "맑음", "흐림", "비", "눈")
+        var bujangList = mutableListOf<String>()
+
+        val Bcount = InDB.prefs.getString("bujangcount", "").toInt()
+        for(i in 1..Bcount!!){
+            bujangList.add(InDB.prefs.getString("bujangname"+i, ""))
+        }
 
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
+        val adaptermenu = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
+        val adapterbujang = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, bujangList)
+        var indexbujang : Int? =null
 
-        spinnerweather.adapter = adapter
+        spinnerweather.adapter = adaptermenu
+        spinnerbujang.adapter = adapterbujang
 
         spinnerweather.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -56,14 +65,29 @@ class TabHome : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+            }
+        }
+
+        spinnerbujang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                //if(position != 0) Toast.makeText(requireContext(), weatherList[position], Toast.LENGTH_SHORT).show()
+                indexbujang = position + 1
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
 
 
-        BujangnameSpace = view.findViewById(R.id.Bujangname)
+        /* BujangnameSpace = view.findViewById(R.id.Bujangname)
 
-        BujangnameSpace.text = InDB.prefs.getString("bujangname1", "")
+         BujangnameSpace.text = InDB.prefs.getString("bujangname1", "")*/
 
 
         getApproval.setOnClickListener(object : View.OnClickListener {
@@ -84,7 +108,8 @@ class TabHome : Fragment() {
                 Log.d("감정", (seekbarNa.progress+1).toString())
 
 
-                json.put("bujang_code", InDB.prefs.getString("bujangcode1", ""))
+                json.put("bujang_code", InDB.prefs.getString(("bujangcode" + indexbujang), ""))
+                Log.d("부장코드", InDB.prefs.getString(("bujangcode" + indexbujang), ""))
                 json.put("feeling", InDB.prefs.getString("feeling", ""))
                 json.put("haejang", InDB.prefs.getString("haejang", ""))
                 json.put("weather", InDB.prefs.getString("currentweather", ""))

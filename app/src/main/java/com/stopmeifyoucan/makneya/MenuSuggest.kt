@@ -33,7 +33,7 @@ class MenuSuggest : AppCompatActivity() {
         menu5.text = InDB.prefs.getString("menu5", "")
 
         menu1.setOnClickListener {
-            searchKeyword("구리 마카롱")
+            searchKeyword("구리시 교문동 마카롱")
             val Intent= Intent(this, MenuApproval::class.java)
             startActivity(Intent)
         }
