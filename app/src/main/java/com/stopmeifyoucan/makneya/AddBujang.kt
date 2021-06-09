@@ -10,6 +10,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.firebase.auth.FirebaseAuth
+import com.stopmeifyoucan.makneya.Data.FirstUserResponse
+import com.stopmeifyoucan.makneya.Data.FirstUserinterface
 import com.stopmeifyoucan.makneya.Data.InDB
 import kotlinx.android.synthetic.main.activity_addbujang.*
 import kotlinx.android.synthetic.main.layout_add_bujangdrink.*
@@ -85,85 +87,164 @@ class AddBujang : AppCompatActivity() {
                     btn_save_drink.setOnClickListener {
                         Log.d("주량은", (drinkbar.progress + 1).toString())
 
-                        val retrofit = Retrofit.Builder()
-                            .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build()
+                        if (InDB.prefs.getString("new_user", " ").toInt() == 1){
+                            val retrofit = Retrofit.Builder()
+                                .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build()
 
-                        val service = retrofit.create(GetBujangInterface::class.java)
+                            val service = retrofit.create(GetBujangInterface::class.java)
 
-                        val user = FirebaseAuth.getInstance().currentUser
+                            val user = FirebaseAuth.getInstance().currentUser
 
-                        user?.getIdToken(true)
-                            ?.addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    val idToken = task.result!!.token
-                                    Log.d("상태 ", InDB.prefs.getString("currentstate", ""))
+                            user.getIdToken(true)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        val idToken = task.result!!.token
+                                        Log.d("상태 ", InDB.prefs.getString("currentstate", ""))
 
-                                    // Send token to your backend via HTTPS
-                                    val json = JSONObject()
-                                    json.put("state", InDB.prefs.getString("currentstate", "").toInt() )
-                                    json.put("idToken", idToken)
-                                    json.put("bujang_code", InDB.prefs.getString("currentcode", ""))
-                                    json.put("bujang_name", bujang_nickname.text.toString())
-                                    json.put("ggondae", (ggonbar.progress+1).toString())
-                                    json.put("drink", (drinkbar.progress+1).toString())
-                                    json.put("spicy", (spicybar.progress+1).toString())
-                                    json.put("hurry", (hurrybar.progress+1).toString())
+                                        // Send token to your backend via HTTPS
+                                        val json = JSONObject()
+                                        json.put("state", InDB.prefs.getString("currentstate", "").toInt() )
+                                        json.put("idToken", idToken)
+                                        json.put("bujang_code", InDB.prefs.getString("currentcode", ""))
+                                        json.put("bujang_name", bujang_nickname.text.toString())
+                                        json.put("ggondae", (ggonbar.progress+1).toString())
+                                        json.put("drink", (drinkbar.progress+1).toString())
+                                        json.put("spicy", (spicybar.progress+1).toString())
+                                        json.put("hurry", (hurrybar.progress+1).toString())
 
-                                    val requestBody: RequestBody =
-                                        RequestBody.create(MediaType.parse("application/json"), json.toString())
-                                    val call = service.postbujangplus(requestBody)
-                                    Log.d("json", json.toString())
+                                        val requestBody: RequestBody =
+                                            RequestBody.create(MediaType.parse("application/json"), json.toString())
+                                        val call = service.postbujangplus(requestBody)
+                                        Log.d("json", json.toString())
 
-                                    call.enqueue(object : Callback<GetBujangResponse> {
+                                        call.enqueue(object : Callback<GetBujangResponse> {
 
-                                        override fun onResponse(
-                                            call: Call<GetBujangResponse>,
-                                            response: Response<GetBujangResponse>
-                                        ) {
-                                            if (response.code() == 200) {
-                                                Log.d("restest", response.toString())
-                                                val Plusresponse = response.body()!!
-                                                //Log.d("uidtest", testtext.Body.toString())
+                                            override fun onResponse(
+                                                call: Call<GetBujangResponse>,
+                                                response: Response<GetBujangResponse>
+                                            ) {
+                                                if (response.code() == 200) {
+                                                    Log.d("restest", response.toString())
+                                                    val Plusresponse = response.body()!!
+                                                    //Log.d("uidtest", testtext.Body.toString())
 
-                                                if (Plusresponse != null) {
-                                                    InDB.prefs.setString("bujangcount", Plusresponse.bujangcount.toString())
-                                                    //Log.d("new_user", InDB.prefs.getString("new_user", ""))
-                                                    val bCount = Plusresponse.bujangcount?.toInt()
-                                                    for(i in 1..bCount!!){
-                                                        InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangdata.get(i-1).bujangname.toString())
-                                                        InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangdata.get(i-1).bujangcode.toString())
-                                                        Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                                    if (Plusresponse != null) {
+                                                        InDB.prefs.setString("bujangcount", Plusresponse.bujangcount.toString())
+                                                        //Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                                        val bCount = Plusresponse.bujangcount?.toInt()
+                                                        for(i in 1..bCount!!){
+                                                            InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangdata.get(i-1).bujangname.toString())
+                                                            InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangdata.get(i-1).bujangcode.toString())
+                                                            Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                                        }
+                                                        InDB.prefs.remove("currentcode")
+
+                                                    } else {
+                                                        Log.d("test", "uid is null")
+                                                        //Log.d("token: ", idToken.toString())
                                                     }
-                                                    InDB.prefs.remove("currentcode")
 
-                                                } else {
-                                                    Log.d("test", "uid is null")
-                                                    //Log.d("token: ", idToken.toString())
+
                                                 }
-
-
+                                                val testtext = response.body()
+                                                if (testtext != null) {
+                                                    //Log.d("errortest", testtext.body.toString())
+                                                }
+                                                //Log.d("errortest", idToken.toString())
                                             }
-                                            val testtext = response.body()
-                                            if (testtext != null) {
-                                                //Log.d("errortest", testtext.body.toString())
+
+                                            override fun onFailure(call: Call<GetBujangResponse>, t: Throwable) {
+                                                Log.d("test", "실패")
+                                                Log.d("error: ", t.message.toString())
+                                                //Log.d("token: ", idToken.toString())
                                             }
-                                            //Log.d("errortest", idToken.toString())
-                                        }
+                                        })
 
-                                        override fun onFailure(call: Call<GetBujangResponse>, t: Throwable) {
-                                            Log.d("test", "실패")
-                                            Log.d("error: ", t.message.toString())
-                                            //Log.d("token: ", idToken.toString())
-                                        }
-                                    })
-
-                                } else {
-                                    //Handle error -> task.getException();
+                                    } else {
+                                        //Handle error -> task.getException();
+                                    }
                                 }
-                            }
+                        }
+                        else{
+                            Log.d("확인용", "제대로 들어옴")
+                            val retrofit = Retrofit.Builder()
+                                .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build()
 
+                            val service = retrofit.create(FirstUserinterface::class.java)
+
+                            val user = FirebaseAuth.getInstance().currentUser
+
+                            user.getIdToken(true)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        val idToken = task.result!!.token
+                                        Log.d("상태 ", InDB.prefs.getString("new_user", ""))
+
+                                        // Send token to your backend via HTTPS
+                                        val json = JSONObject()
+                                        json.put("idToken", idToken)
+                                        json.put("name", InDB.prefs.getString("name", ""))
+                                        json.put("b_date", InDB.prefs.getString("b_date", ""))
+                                        json.put("bujang_name", bujang_nickname.text.toString())
+                                        json.put("ggondae", (ggonbar.progress+1).toString())
+                                        json.put("drink", (drinkbar.progress+1).toString())
+                                        json.put("spicy", (spicybar.progress+1).toString())
+                                        json.put("hurry", (hurrybar.progress+1).toString())
+
+                                        val requestBody: RequestBody =
+                                            RequestBody.create(MediaType.parse("application/json"), json.toString())
+                                        val call = service.firstbujangadd(requestBody)
+                                        Log.d("json", json.toString())
+
+                                        call.enqueue(object : Callback<FirstUserResponse> {
+
+                                            override fun onResponse(
+                                                call: Call<FirstUserResponse>,
+                                                response: Response<FirstUserResponse>
+                                            ) {
+                                                if (response.code() == 200) {
+                                                    Log.d("restest", response.toString())
+                                                    val Plusresponse = response.body()!!
+                                                    //Log.d("uidtest", testtext.Body.toString())
+
+                                                    if (Plusresponse != null) {
+                                                        InDB.prefs.setString("bujangcount", Plusresponse.bujang_count.toString())
+                                                        InDB.prefs.setString("new_user", Plusresponse.new_user.toString())
+                                                        //Log.d("new_user", InDB.prefs.getString("new_user", ""))
+                                                        val bCount = Plusresponse.bujang_count?.toInt()
+                                                        for(i in 1..bCount!!){
+                                                            InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangData.get(i-1).bujang_name.toString())
+                                                            InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangData.get(i-1).bujang_code.toString())
+                                                            Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                                        }
+                                                        InDB.prefs.remove("currentcode")
+
+                                                    } else {
+                                                        Log.d("test", "uid is null")
+                                                        //Log.d("token: ", idToken.toString())
+                                                    }
+
+
+                                                }
+                                            }
+
+                                            override fun onFailure(call: Call<FirstUserResponse>, t: Throwable) {
+                                                Log.d("test", "실패")
+                                                Log.d("error: ", t.message.toString())
+                                                //Log.d("token: ", idToken.toString())
+                                            }
+                                        })
+
+                                    } else {
+                                        //Handle error -> task.getException();
+                                    }
+                                }
+
+                        }
                         val intent = Intent(this@AddBujang, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
