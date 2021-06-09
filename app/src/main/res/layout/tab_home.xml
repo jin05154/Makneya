@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    >
+    android:paddingRight="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,16 +27,15 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-
                 <LinearLayout
-                    android:id="@+id/Bujangname"
+                    android:id="@+id/bujangName"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:background="#FFDB0F"
+                    android:background="@drawable/file_nametag"
                     android:orientation="horizontal">
                     <Spinner
-                        android:id="@+id/spinnerbujang"
+                        android:id="@+id/spinnerBujang"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="0dp"
@@ -48,14 +47,12 @@
 
                 </LinearLayout>
 
-
-
                 <Button
                     android:id="@+id/Plus"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
                     android:background="@drawable/plus"
-                    android:text="Button"
                     app:backgroundTint="#000000" />
 
             </LinearLayout>
@@ -66,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"
-            android:background="#FFDB0F">
+            android:background="@drawable/file_body_top">
 
             <TextView
                 android:id="@+id/GA"
@@ -205,7 +202,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#FFDB0F"
+            android:background="@drawable/file_body_bottom"
             android:gravity="right"
             android:paddingRight="10dp">
 

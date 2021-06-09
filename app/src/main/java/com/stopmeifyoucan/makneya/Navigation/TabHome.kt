@@ -34,7 +34,7 @@ class TabHome : Fragment() {
         val seekbarGa : SeekBar = view.findViewById(R.id.SeekbarGa)
         val seekbarNa : SeekBar = view.findViewById(R.id.SeekbarNA)
         val spinnerweather  = view.findViewById<Spinner>(R.id.spinnerweather)
-        val spinnerbujang = view.findViewById<Spinner>(R.id.spinnerbujang)
+        val spinnerbujang = view.findViewById<Spinner>(R.id.spinnerBujang)
 
         val weatherList = listOf("날씨를 선택해 주세요", "맑음", "흐림", "비", "눈")
         var bujangList = mutableListOf<String>()

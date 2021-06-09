@@ -25,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
-            android:background="#FCD462"
             android:orientation="vertical">
 
             <LinearLayout
@@ -48,15 +47,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/border_map">
 
             <TextView
                 android:text="카드를 클릭해서 식당의 상세정보를 확인해보세요!"
                 style="@style/viewParent.headerText.contentText"
                 android:textColor="@color/gray"
-                android:paddingTop="10dp"
+                android:paddingTop="13dp"
                 android:paddingBottom="2dp"/>
 
             <androidx.core.widget.NestedScrollView

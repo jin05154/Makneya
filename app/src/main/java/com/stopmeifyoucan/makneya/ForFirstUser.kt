@@ -3,23 +3,18 @@ package com.stopmeifyoucan.makneya
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import com.stopmeifyoucan.makneya.Data.InDB
+import kotlinx.android.synthetic.main.activity_forfirstuser.*
 
 class ForFirstUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forfirstuser)
 
-        val btnfirstuser = findViewById<Button>(R.id.btn_firstuser)
-        val Mynickname = findViewById<TextView>(R.id.mynickname)
-        val Mybirth = findViewById<TextView>(R.id.mybirth)
-
-        btnfirstuser.setOnClickListener {
+        btn_firstuser.setOnClickListener {
             InDB.prefs.setString("currentstate", "1")
-            InDB.prefs.setString("name", Mynickname.text.toString())
-            InDB.prefs.setString("b_date", Mybirth.text.toString())
+            InDB.prefs.setString("name", myNickname.text.toString())
+            InDB.prefs.setString("b_date", myBirth.text.toString())
             //Log.d("bujang name is", InDB.prefs.getString("bujang_name", ""))
             val intent = Intent(this, AddBujang::class.java)
             startActivity(intent)

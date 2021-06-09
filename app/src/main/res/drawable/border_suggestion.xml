@@ -4,12 +4,12 @@
         android:bottom="-2dp"
         android:left="-2dp"
         android:right="-2dp"
-        android:top="2dp">
+        android:top="-2dp">
         <shape android:shape="rectangle" >
             <!-- 테두리 두께 및 색상 설정 -->
             <stroke
-                android:width="1dp"
-                android:color="#808080" />
+                android:width="4dp"
+                android:color="@color/gray" />
         </shape>
     </item>
 </layer-list>

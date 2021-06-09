@@ -1,121 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context=".ForFirstUser">
+
+    <TextView
+        android:id="@+id/welcomeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/titleGray"
+        android:textSize="28sp"
+        android:fontFamily="@font/tmoneybold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="환영합니다!" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="100">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="7"
-            android:background="@drawable/border">
+            android:layout_weight="50">
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/tmoneyregular"
-                android:includeFontPadding="false"
-                android:paddingLeft="15dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp"
-                android:text="환영합니다!"
-                android:textSize="35dp" />
+        <TextView
+            style="@style/parent"
+            android:textSize="30sp"
+            android:fontFamily="@font/tmoneyregular"
+            android:lineSpacingExtra ="5dp"
+            android:text="처음이시군요! \n우선 본인의 이름과\n생년월일을 입력해 주세요." />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/myNickname"
+                style="@style/modifiedEditText"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:hint="닉네임도 좋아요!"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="@dimen/signup_text_margin_top">
+            <EditText
+                android:id="@+id/myBirth"
+                style="@style/modifiedEditText"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:hint="예)19900101"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40" >
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="13">
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
 
-            <TextView
-                android:id="@+id/textView4"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/tmoneyregular"
-                android:gravity=""
-                android:includeFontPadding="false"
-                android:paddingLeft="25dp"
-                android:paddingTop="30dp"
-                android:paddingRight="25dp"
-                android:paddingBottom="30dp"
-                android:text="처음이시군요! \n우선 본인의 이름과 생년월일을 입력해 주세요" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10" >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/mynickname"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="닉네임도 좋아요!"
-                    android:inputType="textPersonName"
-                    android:textColorHint="@color/gray" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10" >
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/mybirth"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="예)19900101"
-                    android:inputType="textPersonName"
-                    android:textColorHint="@color/gray" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8" >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="right"
-                android:paddingRight="10dp">
-
+                android:layout_weight="1">
                 <Button
                     android:id="@+id/btn_firstuser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="NEXT" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10" >
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

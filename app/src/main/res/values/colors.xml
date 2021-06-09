@@ -29,4 +29,5 @@
     <color name="titleGray">#666666</color>
     <color name="miniTitleColor">#6F6A6A</color>
     <color name="contentBodyColor">#FCFCFC</color>
+    <color name="pastelOrange">#facd89</color>
 </resources>
