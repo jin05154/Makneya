@@ -143,10 +143,10 @@ class TabHome : Fragment() {
                                             InDB.prefs.setString("menu4", testtext.RecommendMenu.get(3).menuname.toString())
                                             InDB.prefs.setString("menu5", testtext.RecommendMenu.get(4).menuname.toString())
 
-                                            if(InDB.prefs.getString("currentweather", "").toInt() == -1){
+                                            if (InDB.prefs.getString("currentweather", "").toInt() == -1) {
                                                 Toast.makeText(requireContext(), "날씨를 선택해 주세요!", Toast.LENGTH_SHORT).show()
                                             }
-                                            else{
+                                            else {
                                                 val intent = Intent(context, MenuSuggestion::class.java)
                                                 startActivity(intent)
                                             }

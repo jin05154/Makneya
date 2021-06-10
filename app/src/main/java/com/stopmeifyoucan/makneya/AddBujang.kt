@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -52,8 +53,12 @@ class AddBujang : AppCompatActivity() {
                 addBujangTitle.text = "부장님 정보 등록 $positionPageNum"
 
                 btn_save_name.setOnClickListener {
-                    Log.d("부장 이름은", bujang_nickname.text.toString())
-                    mViewPager.setCurrentItem(position + 1, true)
+                    if (bujang_nickname.text.toString() == "") {
+                        Toast.makeText(this@AddBujang, "부장님 성함은 필수사항입니다!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.d("부장 이름은", bujang_nickname.text.toString())
+                        mViewPager.setCurrentItem(position + 1, true)
+                    }
                 }
                 btn_before_ggon.setOnClickListener {
                     mViewPager.setCurrentItem(position - 1, true)

@@ -37,7 +37,8 @@
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="별명도 좋아요!" />
+                android:hint="별명도 좋아요!"
+                android:text=""/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
