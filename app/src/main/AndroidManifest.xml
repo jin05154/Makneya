@@ -11,7 +11,7 @@
         android:name=".Data.InDB"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/app_start"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Makneya"
@@ -37,8 +37,9 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="ikqvpsto0k" />
         <activity android:name=".MyBujang" />
-        <activity android:name=".MenuSuggest" />
-        <activity android:name=".MenuApproval" />
+        <activity android:name=".MenuSuggestion" />
+        <activity android:name=".PlaceSuggestion" />
+        <activity android:name=".FinalApproval" />
     </application>
 
 </manifest>

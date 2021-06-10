@@ -57,9 +57,7 @@
         <item name="android:drawableRight">@drawable/ic_more</item>
     </style>
 
-    <!-- Base application theme. -->
     <style name="LoginTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorLoginPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -139,6 +137,45 @@
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:fontFamily">@font/tmoneyregular</item>
         <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Final Approval -->
+    <style name="finalView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:fontFamily">@font/tmoneyregular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="finalView.headerText">
+        <item name="android:textColor">@color/contentTextColor</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">40dp</item>
+    </style>
+    <style name="finalView.miniTitleText">
+        <item name="android:textColor">#5D5C5C</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+    <style name="finalView.miniTitleText.miniTopic">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="finalView.miniText">
+        <item name="android:textColor">@color/miniTitle</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="consultTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/tmoneyregular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:textColor">@color/miniTitle</item>
     </style>
 
     <style name="Theme.Makneya.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

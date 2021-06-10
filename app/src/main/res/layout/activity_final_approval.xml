@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_paper"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="7">
+
+            <TextView
+                style="@style/finalView.headerText"
+                android:text="품의서"
+                android:paddingBottom="10dp">
+            </TextView>
+
+            <TextView
+                style="@style/finalView.miniTitleText"
+                android:text="1. 작성자">
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/finalNameIs"
+                    style="@style/finalView.miniTitleText.miniTopic"
+                    android:text="성명:">
+                </TextView>
+                <TextView
+                    android:id="@+id/finalName"
+                    style="@style/finalView.miniText"
+                    android:text="김막내"
+                    android:layout_toRightOf="@id/finalNameIs">
+                </TextView>
+                <TextView
+                    android:id="@+id/finalDateIs"
+                    style="@style/finalView.miniTitleText.miniTopic"
+                    android:text="작성일:"
+                    android:layout_below="@id/finalNameIs">
+                </TextView>
+                <TextView
+                    android:id="@+id/finalDate"
+                    style="@style/finalView.miniText"
+                    android:text="2021.06.10"
+                    android:layout_toRightOf="@id/finalDateIs"
+                    android:layout_below="@id/finalName">
+                </TextView>
+                <TextView
+                    android:id="@+id/finalTitleIs"
+                    style="@style/finalView.miniTitleText.miniTopic"
+                    android:text="제목:"
+                    android:layout_below="@id/finalDateIs">
+                </TextView>
+                <TextView
+                    android:id="@+id/finalTitle"
+                    style="@style/finalView.miniText"
+                    android:text="금일 점심 품의서 전송드립니다."
+                    android:layout_toRightOf="@id/finalTitleIs"
+                    android:layout_below="@id/finalDate">
+                </TextView>
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/finalView.miniTitleText"
+                android:text="2. 품의내용"
+                android:paddingTop="10dp">
+            </TextView>
+            <TextView
+                style="@style/consultTextView"
+                android:text="안녕하세요."
+                android:paddingTop="10dp">
+            </TextView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/consultTextName"
+                    style="@style/consultTextView"
+                    android:text="개발팀 김막내 사원입니다.">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextPlace1"
+                    style="@style/consultTextView"
+                    android:text="오늘 점심은 "
+                    android:layout_below="@id/consultTextName">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextPlace2"
+                    style="@style/consultTextView"
+                    android:text="강남함박"
+                    android:layout_below="@id/consultTextName"
+                    android:layout_toRightOf="@id/consultTextPlace1">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextPlace3"
+                    style="@style/consultTextView"
+                    android:text="에서"
+                    android:layout_below="@id/consultTextName"
+                    android:layout_toRightOf="@id/consultTextPlace2">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextPlace4"
+                    style="@style/consultTextView"
+                    android:text="함박스떼이끼"
+                    android:layout_below="@id/consultTextPlace1">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextPlace5"
+                    style="@style/consultTextView"
+                    android:text="어떠신가요?"
+                    android:layout_below="@id/consultTextPlace1"
+                    android:layout_toRightOf="@id/consultTextPlace4">
+                </TextView>
+
+            </RelativeLayout>
+            <TextView
+                style="@style/consultTextView"
+                android:lineSpacingExtra ="10dp"
+                android:text="11시에 나가면 웨이팅 없이\n바로 먹을 수 있다고 합니다.\n확인 후 회신 부탁드립니다.">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5">
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/finalApproveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:text="전송하기">
+        </Button>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

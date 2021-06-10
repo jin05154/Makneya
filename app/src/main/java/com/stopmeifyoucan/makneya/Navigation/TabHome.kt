@@ -31,9 +31,9 @@ class TabHome : Fragment() {
         val view = inflater.inflate(R.layout.tab_home, container, false)
         val getApproval = view.findViewById<Button>(R.id.btn_approval)
         val addBujang = view.findViewById<Button>(R.id.Plus)
-        val seekbarGa : SeekBar = view.findViewById(R.id.SeekbarGa)
-        val seekbarNa : SeekBar = view.findViewById(R.id.SeekbarNA)
-        val spinnerweather  = view.findViewById<Spinner>(R.id.spinnerweather)
+        val seekbarGa : SeekBar = view.findViewById(R.id.seekbarGA)
+        val seekbarNa : SeekBar = view.findViewById(R.id.seekbarNA)
+        val spinnerweather  = view.findViewById<Spinner>(R.id.spinnerWeather)
         val spinnerbujang = view.findViewById<Spinner>(R.id.spinnerBujang)
 
         val weatherList = listOf("날씨를 선택해 주세요", "맑음", "흐림", "비", "눈")
@@ -136,7 +136,7 @@ class TabHome : Fragment() {
                                         Log.d("restest", response.toString())
                                         val testtext = response.body()!!
                                         if (testtext != null){
-                                            Log.d("test", testtext.RecommendMenu.get(0).menuname.toString())
+                                            //Log.d("test", testtext.RecommendMenu.get(0).menuname.toString())
                                             InDB.prefs.setString("menu1", testtext.RecommendMenu.get(0).menuname.toString())
                                             InDB.prefs.setString("menu2", testtext.RecommendMenu.get(1).menuname.toString())
                                             InDB.prefs.setString("menu3", testtext.RecommendMenu.get(2).menuname.toString())
@@ -147,7 +147,7 @@ class TabHome : Fragment() {
                                                 Toast.makeText(requireContext(), "날씨를 선택해 주세요!", Toast.LENGTH_SHORT).show()
                                             }
                                             else{
-                                                val intent = Intent(context, MenuSuggest::class.java)
+                                                val intent = Intent(context, MenuSuggestion::class.java)
                                                 startActivity(intent)
                                             }
                                         }

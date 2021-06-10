@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             // FirebaseUser.getToken() instead.
             val uid = user.uid
 
-            Log.d("test log", name)
+            Log.d("Google user name", name)
             //var userName = findViewById<TextView>(R.id.userID)
             //userName.setText(name)
         }

@@ -8,18 +8,18 @@ import android.widget.Toast
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.Data.KakaoAPI
 import com.stopmeifyoucan.makneya.Data.ResultSearchKeyword
-import kotlinx.android.synthetic.main.activity_menusuggestion.*
+import kotlinx.android.synthetic.main.activity_menu_suggestion.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MenuSuggest : AppCompatActivity() {
+class MenuSuggestion : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menusuggestion)
+        setContentView(R.layout.activity_menu_suggestion)
 
         menu1.text = InDB.prefs.getString("menu1", "")
         menu2.text = InDB.prefs.getString("menu2", "")
@@ -28,6 +28,7 @@ class MenuSuggest : AppCompatActivity() {
         menu5.text = InDB.prefs.getString("menu5", "")
 
         menu1.setOnClickListener {
+            intent.putExtra("food_name", menu1.text.toString())
             searchKeyword("구리 교문동" + menu1.text)
         }
         menu2.setOnClickListener {
@@ -51,7 +52,7 @@ class MenuSuggest : AppCompatActivity() {
     }
 
     private fun searchKeyword(keyword: String) {
-        val intent = Intent(this, MenuApproval::class.java)
+        val intent = Intent(this, PlaceSuggestion::class.java)
         val retrofit = Retrofit.Builder()   // Retrofit 구성
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -68,7 +69,7 @@ class MenuSuggest : AppCompatActivity() {
                 // 통신 성공 (검색 결과는 response.body()에 담겨있음)
                 val kakaoResponse = response.body()!!
                 if (kakaoResponse.meta.total_count < 5){
-                    Toast.makeText(this@MenuSuggest, "주변에 식당이 없습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MenuSuggestion, "주변에 식당이 없습니다", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     for(i in 1..5!!){
@@ -79,8 +80,10 @@ class MenuSuggest : AppCompatActivity() {
                         intent.putExtra("foodY"+i, kakaoResponse.documents.get(i-1).y)
                         intent.putExtra("foodX"+i, kakaoResponse.documents.get(i-1).x)
                     }
-                    Log.d("Test", "특정 정보: ${kakaoResponse.documents.get(0).place_name}")
+                    Log.d("Test", "선택한 음식: ${kakaoResponse.meta.same_name.keyword}")
+                    Log.d("Test", "선택한 식당: ${kakaoResponse.documents.get(0).place_name}")
                     Log.d("Test", "Body: ${response.body()}")
+                    intent.putExtra("food_type", kakaoResponse.meta.same_name.keyword)
                     startActivity(intent)
                 }
             }

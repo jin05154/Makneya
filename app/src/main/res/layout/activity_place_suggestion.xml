@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mapview"
+    android:id="@+id/mapView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuApproval">
+    tools:context=".PlaceSuggestion">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,16 +94,16 @@
                                 style="@style/viewParent.headerText.HomeCardTitle" />
 
                             <TextView
-                                android:id="@+id/place1Number"
-                                android:text="02-000-0000"
+                                android:id="@+id/place1Address"
+                                android:text="잠실역 1번출구"
                                 style="@style/viewParent.headerText.homeCardContent"
                                 android:layout_below="@id/place1Name"/>
 
                             <TextView
-                                android:id="@+id/place1Address"
-                                android:text="잠실역 1번출구"
+                                android:id="@+id/place1Number"
+                                android:text="02-000-0000"
                                 style="@style/viewParent.headerText.homeCardContent"
-                                android:layout_below="@id/place1Number"/>
+                                android:layout_below="@id/place1Address"/>
 
                             <ImageView
                                 android:id="@+id/place1SelectBtn"
@@ -137,16 +137,16 @@
                                 style="@style/viewParent.headerText.HomeCardTitle" />
 
                             <TextView
-                                android:id="@+id/place2Number"
-                                android:text="02-000-0000"
+                                android:id="@+id/place2Address"
+                                android:text="잠실역 2번출구"
                                 style="@style/viewParent.headerText.homeCardContent"
                                 android:layout_below="@id/place2Name"/>
 
                             <TextView
-                                android:id="@+id/place2Address"
-                                android:text="잠실역 2번출구"
+                                android:id="@+id/place2Number"
+                                android:text="02-000-0000"
                                 style="@style/viewParent.headerText.homeCardContent"
-                                android:layout_below="@id/place2Number"/>
+                                android:layout_below="@id/place2Address"/>
 
                             <ImageView
                                 android:id="@+id/place2SelectBtn"
@@ -180,16 +180,16 @@
                                 style="@style/viewParent.headerText.HomeCardTitle" />
 
                             <TextView
-                                android:id="@+id/place3Number"
-                                android:text="02-000-0000"
+                                android:id="@+id/place3Address"
+                                android:text="잠실역 3번출구"
                                 style="@style/viewParent.headerText.homeCardContent"
                                 android:layout_below="@id/place3Name"/>
 
                             <TextView
-                                android:id="@+id/place3Address"
-                                android:text="잠실역 3번출구"
+                                android:id="@+id/place3Number"
+                                android:text="02-000-0000"
                                 style="@style/viewParent.headerText.homeCardContent"
-                                android:layout_below="@id/place3Number"/>
+                                android:layout_below="@id/place3Address"/>
 
                             <ImageView
                                 android:id="@+id/place3SelectBtn"
@@ -223,16 +223,16 @@
                                 style="@style/viewParent.headerText.HomeCardTitle" />
 
                             <TextView
-                                android:id="@+id/place4Number"
-                                android:text="02-000-0000"
+                                android:id="@+id/place4Address"
+                                android:text="잠실역 4번출구"
                                 style="@style/viewParent.headerText.homeCardContent"
                                 android:layout_below="@id/place4Name"/>
 
                             <TextView
-                                android:id="@+id/place4Address"
-                                android:text="잠실역 4번출구"
+                                android:id="@+id/place4Number"
+                                android:text="02-000-0000"
                                 style="@style/viewParent.headerText.homeCardContent"
-                                android:layout_below="@id/place4Number"/>
+                                android:layout_below="@id/place4Address"/>
 
                             <ImageView
                                 android:id="@+id/place4SelectBtn"
@@ -266,16 +266,16 @@
                                 style="@style/viewParent.headerText.HomeCardTitle" />
 
                             <TextView
-                                android:id="@+id/place5Number"
-                                android:text="02-000-0000"
+                                android:id="@+id/place5Address"
+                                android:text="잠실역 5번출구"
                                 style="@style/viewParent.headerText.homeCardContent"
                                 android:layout_below="@id/place5Name"/>
 
                             <TextView
-                                android:id="@+id/place5Address"
-                                android:text="잠실역 5번출구"
+                                android:id="@+id/place5Number"
+                                android:text="02-000-0000"
                                 style="@style/viewParent.headerText.homeCardContent"
-                                android:layout_below="@id/place5Number"/>
+                                android:layout_below="@id/place5Address"/>
 
                             <ImageView
                                 android:id="@+id/place5SelectBtn"
