@@ -91,28 +91,40 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/consultTextName"
+                    android:id="@+id/consultTextName1"
                     style="@style/consultTextView"
-                    android:text="개발팀 김막내 사원입니다.">
+                    android:text="개발팀">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextName2"
+                    style="@style/consultTextView"
+                    android:text="김막내"
+                    android:layout_toRightOf="@id/consultTextName1">
+                </TextView>
+                <TextView
+                    android:id="@+id/consultTextName3"
+                    style="@style/consultTextView"
+                    android:text="사원입니다."
+                    android:layout_toRightOf="@id/consultTextName2">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace1"
                     style="@style/consultTextView"
-                    android:text="오늘 점심은 "
-                    android:layout_below="@id/consultTextName">
+                    android:text="오늘 점심은"
+                    android:layout_below="@id/consultTextName1">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace2"
                     style="@style/consultTextView"
                     android:text="강남함박"
-                    android:layout_below="@id/consultTextName"
+                    android:layout_below="@id/consultTextName1"
                     android:layout_toRightOf="@id/consultTextPlace1">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace3"
                     style="@style/consultTextView"
                     android:text="에서"
-                    android:layout_below="@id/consultTextName"
+                    android:layout_below="@id/consultTextName1"
                     android:layout_toRightOf="@id/consultTextPlace2">
                 </TextView>
                 <TextView

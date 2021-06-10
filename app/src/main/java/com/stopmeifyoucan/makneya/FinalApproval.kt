@@ -14,10 +14,11 @@ class FinalApproval : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_final_approval)
 
-        finalNameIs.text = InDB.prefs.getString("name", "")
+        finalName.text = InDB.prefs.getString("name", "")
+        consultTextName2.text = InDB.prefs.getString("name", "")
 
         val currentDateTime = Calendar.getInstance().time
-        var dateFormat = SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(currentDateTime)
+        var dateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA).format(currentDateTime)
         finalDate.text = dateFormat
 
         if (intent.hasExtra("place_name") && intent.hasExtra("food_name")) {
