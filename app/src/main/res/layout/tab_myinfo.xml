@@ -15,7 +15,7 @@
         <TextView
             style="@style/viewParent.headerText"
             android:text="MY INFO"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="10dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,12 +23,12 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileCircleImageView"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 app:civ_border_width="2dp"
                 app:civ_border_color="@color/imageBorderColor"
                 android:src="@drawable/employee"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"/>
 
             <TextView
@@ -40,13 +40,22 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
-                android:id="@+id/address"
+                android:id="@+id/addressIs"
                 style="@style/viewParent.headerText"
-                android:text="내 근무지역: 강남"
+                android:text="내 근무지역 : "
                 android:textSize="16sp"
                 android:textColor="#5D5C5C"
                 android:layout_below="@id/userID"
                 android:layout_toRightOf="@id/profileCircleImageView"/>
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/viewParent.headerText"
+                android:text="잠실"
+                android:textSize="16sp"
+                android:textColor="#5D5C5C"
+                android:layout_below="@id/userID"
+                android:layout_toRightOf="@id/addressIs"/>
 
             <ImageView
                 style="@style/viewParent"
@@ -61,7 +70,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/bujanginfo"
+            android:id="@+id/changeBujangInfo"
             style="@style/viewParent.headerText.settingsTextIcon"
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_edit_profile"
@@ -91,6 +100,12 @@
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_logout"
             android:text="로그아웃" />
+
+        <TextView
+            android:id="@+id/myinfoDeleteAccount"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_logout"
+            android:text="회원 탈퇴" />
 
     </LinearLayout>
 </LinearLayout>

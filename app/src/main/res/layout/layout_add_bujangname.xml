@@ -7,6 +7,7 @@
     android:paddingRight="20dp">
 
     <LinearLayout
+        android:id="@+id/outerTextLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -35,7 +36,6 @@
             <EditText
                 android:id="@+id/bujang_nickname"
                 style="@style/modifiedEditText"
-                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="별명도 좋아요!"
                 android:text=""/>

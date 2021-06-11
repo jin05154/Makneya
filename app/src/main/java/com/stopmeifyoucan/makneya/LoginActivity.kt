@@ -32,7 +32,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class LoginActivity : AppCompatActivity() {
-    //private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 

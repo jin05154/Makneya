@@ -11,6 +11,15 @@ class ForFirstUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forfirstuser)
 
+        myBirth.setOnEditorActionListener{ textView, action, event ->
+            var handled = false
+//            if (action == myBirth.IME_ACTION_DONE) {
+//                login()
+//                handled = true
+//            }
+            handled
+        }
+
         btn_firstuser.setOnClickListener {
             InDB.prefs.setString("currentstate", "1")
             InDB.prefs.setString("name", myNickname.text.toString())

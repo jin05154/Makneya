@@ -1,11 +1,13 @@
 package com.stopmeifyoucan.makneya
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
@@ -52,6 +54,11 @@ class AddBujang : AppCompatActivity() {
                 val positionPageNum = position + 1
                 addBujangTitle.text = "부장님 정보 등록 $positionPageNum"
 
+                //  외부 터치시 키보드 내리기
+                outerTextLayout.setOnClickListener {
+                    hideKeyboard()
+                }
+
                 btn_save_name.setOnClickListener {
                     if (bujang_nickname.text.toString() == "") {
                         Toast.makeText(this@AddBujang, "부장님 성함은 필수사항입니다!", Toast.LENGTH_SHORT).show()
@@ -64,7 +71,7 @@ class AddBujang : AppCompatActivity() {
                     mViewPager.setCurrentItem(position - 1, true)
                 }
                 btn_save_ggon.setOnClickListener {
-                    Log.d("꼰대력은", (ggonbar.progress + 1).toString())
+                    Log.d("꼰대력은", (ggonbar .progress + 1).toString())
                     mViewPager.setCurrentItem(position + 1, true)
                 }
                 if (position == 2) {
@@ -233,7 +240,6 @@ class AddBujang : AppCompatActivity() {
                                                         //Log.d("token: ", idToken.toString())
                                                     }
 
-
                                                 }
                                             }
 
@@ -279,7 +285,13 @@ class AddBujang : AppCompatActivity() {
             // dragging, when the pager is automatically settling to the current page,
             // or when it is fully stopped/idle.
             override fun onPageScrollStateChanged(state: Int) {
-                //Log.d("TAG", "onPageScrollStateChanged : $state")
+                // "넌 못 지나간다"
+                when(state) {
+                    0 -> if (bujang_nickname.text.toString() == "") {
+                        Toast.makeText(this@AddBujang, "부장님 성함은 필수사항입니다!", Toast.LENGTH_SHORT).show()
+                        mViewPager.setCurrentItem( 0, true)
+                    }
+                }
             }
         })
     }
@@ -306,4 +318,10 @@ class AddBujang : AppCompatActivity() {
             mViewPager.removeView(`object` as View)
         }
     }
+
+    fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(bujang_nickname.windowToken, 0)
+    }
+
 }
