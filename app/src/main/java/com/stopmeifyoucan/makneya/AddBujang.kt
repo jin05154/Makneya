@@ -55,7 +55,7 @@ class AddBujang : AppCompatActivity() {
                 addBujangTitle.text = "부장님 정보 등록 $positionPageNum"
 
                 //  외부 터치시 키보드 내리기
-                outerTextLayout.setOnClickListener {
+                outerNameTextLayout.setOnClickListener {
                     hideKeyboard()
                 }
 
@@ -149,7 +149,7 @@ class AddBujang : AppCompatActivity() {
                                                         for(i in 1..bCount!!){
                                                             InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangdata.get(i-1).bujangname.toString())
                                                             InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangdata.get(i-1).bujangcode.toString())
-                                                            Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                                            //Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
                                                         }
                                                         InDB.prefs.remove("currentcode")
 

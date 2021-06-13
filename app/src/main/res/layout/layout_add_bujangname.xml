@@ -7,7 +7,7 @@
     android:paddingRight="20dp">
 
     <LinearLayout
-        android:id="@+id/outerTextLayout"
+        android:id="@+id/outerNameTextLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -36,7 +36,10 @@
             <EditText
                 android:id="@+id/bujang_nickname"
                 style="@style/modifiedEditText"
+                android:inputType="text"
+                android:singleLine="true"
                 android:maxLines="1"
+                android:maxLength="20"
                 android:hint="별명도 좋아요!"
                 android:text=""/>
         </com.google.android.material.textfield.TextInputLayout>

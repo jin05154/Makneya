@@ -185,7 +185,7 @@ class LoginActivity : AppCompatActivity() {
         }
         else {
             Log.d("new_user", "else user ${InDB.prefs.getString("new_user", " ").toInt()}")
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ForFirstUser::class.java)
             startActivity(intent)
             finish()
         }

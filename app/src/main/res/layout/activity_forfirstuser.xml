@@ -22,6 +22,7 @@
         tools:text="환영합니다!" />
 
     <LinearLayout
+        android:id="@+id/outerFirstUserTextLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -48,9 +49,12 @@
             <EditText
                 android:id="@+id/myNickname"
                 style="@style/modifiedEditText"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:singleLine="true"
                 android:maxLines="1"
-                android:inputType="textPassword"
-                android:hint="닉네임도 좋아요!"/>
+                android:maxLength="15"
+                android:hint="이름"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -61,9 +65,11 @@
             <EditText
                 android:id="@+id/myBirth"
                 style="@style/modifiedEditText"
-                android:maxLines="1"
-                android:inputType="textPassword"
-                android:hint="예)19900101"/>
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLength="8"
+                android:hint="생년월일 (ex.19901130)"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout

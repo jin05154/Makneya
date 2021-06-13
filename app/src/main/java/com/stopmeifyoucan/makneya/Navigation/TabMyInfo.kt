@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -30,6 +31,7 @@ class TabMyInfo : Fragment() {
     private lateinit var userImageEditImage : ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val view = inflater.inflate(R.layout.tab_myinfo, container, false)
         userImageEditImage = view.findViewById(R.id.profileCircleImageView)
         userNameEditText = view.findViewById(R.id.userID)
@@ -55,35 +57,23 @@ class TabMyInfo : Fragment() {
 
         googleSignout.setOnClickListener {
             signOut()
-            val intent = Intent(context, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
         }
 
         googleDeleteAccount.setOnClickListener {
             deleteAccount()
-            val intent= Intent(context, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
         }
 
         return view
     }
+
     private fun getUserProfile() {
         val user = Firebase.auth.currentUser
         user?.let {
-            // Name, email address, and profile photo Url
             val name = user.displayName
-            val email = user.email
             val photoUrl = user.photoUrl
-
             // Check if user's email is verified
+            val email = user.email
             val emailVerified = user.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            val uid = user.uid
 
             userNameEditText.text = name
             Picasso.get()
@@ -97,11 +87,29 @@ class TabMyInfo : Fragment() {
     }
     private fun deleteAccount() {
         // currentUser가 nullable. null이면 뒤 작업을 안 한다는 뜻.
-        Firebase.auth.currentUser?.delete()
+        val user = Firebase.auth.currentUser
+            user?.delete()
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    googleSignInClient?.revokeAccess()
+                    // Revokes access given to the current application.
+                    // Future sign-in attempts will require the user to re-consent to all requested scopes.
                     Log.d(TAG, "회원탈퇴 완료.")
+                    Toast.makeText(context, "구글 로그인 실패", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(context, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
                 }
+            }
+    }
+    private fun reauthenticate() {
+        val user = Firebase.auth.currentUser
+        val credential = GoogleAuthProvider.getCredential(user.uid,null)
+        // Prompt the user to re-provide their sign-in credentials
+        user.reauthenticate(credential)
+            .addOnCompleteListener {
+                deleteAccount()
+                Log.d(TAG, "User re-authenticated.")
             }
     }
     companion object {
