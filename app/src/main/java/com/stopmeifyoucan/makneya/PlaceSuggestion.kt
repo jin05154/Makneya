@@ -29,6 +29,8 @@ class PlaceSuggestion : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_suggestion)
 
+        menuSelected.text = intent.getStringExtra("food_type")
+
         getInfo()
 
         var fm = supportFragmentManager

@@ -1,10 +1,15 @@
 package com.stopmeifyoucan.makneya
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDialog
 import com.stopmeifyoucan.makneya.Data.InDB
 import com.stopmeifyoucan.makneya.Data.KakaoAPI
 import com.stopmeifyoucan.makneya.Data.ResultSearchKeyword
@@ -17,7 +22,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MenuSuggestion : AppCompatActivity() {
 
+    private lateinit var progressDialog: AppCompatDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        progressON()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_suggestion)
 
@@ -26,6 +36,8 @@ class MenuSuggestion : AppCompatActivity() {
         menu3.text = InDB.prefs.getString("menu3", "")
         menu4.text = InDB.prefs.getString("menu4", "")
         menu5.text = InDB.prefs.getString("menu5", "")
+
+        progressOFF()
 
         menu1.setOnClickListener {
             intent.putExtra("food_name", menu1.text.toString())
@@ -69,7 +81,7 @@ class MenuSuggestion : AppCompatActivity() {
                 // 통신 성공 (검색 결과는 response.body()에 담겨있음)
                 val kakaoResponse = response.body()!!
                 if (kakaoResponse.meta.total_count < 5){
-                    Toast.makeText(this@MenuSuggestion, "주변에 식당이 없습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MenuSuggestion, "주변에 식당이 없습니다.", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     for(i in 1..5!!){
@@ -93,5 +105,21 @@ class MenuSuggestion : AppCompatActivity() {
                 Log.w("MainActivity", "통신 실패: ${t.message}")
             }
         })
+    }
+
+    fun progressON() {
+        progressDialog = AppCompatDialog(this)
+        progressDialog.setCancelable(false)
+        progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog.setContentView(R.layout.loading_dialog_custom)
+        progressDialog.show()
+        var imgLoadingFrame = progressDialog.findViewById<ImageView>(R.id.iv_frame_loading)
+        var frameAnimation = imgLoadingFrame?.background as AnimationDrawable
+        imgLoadingFrame?.post { frameAnimation.start() }
+    }
+    fun progressOFF() {
+        if(progressDialog != null && progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
     }
 }

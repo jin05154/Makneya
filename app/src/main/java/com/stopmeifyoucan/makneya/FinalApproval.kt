@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.stopmeifyoucan.makneya.Data.InDB
 import kotlinx.android.synthetic.main.activity_final_approval.*
 import java.text.SimpleDateFormat
 import java.util.*

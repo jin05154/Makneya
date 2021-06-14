@@ -21,17 +21,46 @@
         android:weightSum="10">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_weight="0.6"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/menuSelectedIs"
+                    android:text="선택된 메뉴: "
+                    style="@style/viewParent.headerText.contentText"
+                    android:textSize="16dp"
+                    android:paddingTop="15dp"/>
+                <TextView
+                    android:id="@+id/menuSelected"
+                    android:text=""
+                    style="@style/viewParent.headerText.contentText"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/tmoneybold"
+                    android:paddingTop="15dp"
+                    android:layout_toRightOf="@id/menuSelectedIs"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="4dp"
+            android:layout_weight="4.5"
+            android:orientation="vertical"
+            android:background="@drawable/border_map">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
                 android:orientation="vertical">
 
                 <fragment
@@ -46,18 +75,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_weight="4.9"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
             android:orientation="vertical"
-            android:background="@drawable/border_map">
+            android:background="@drawable/border_place_suggestion">
 
             <TextView
                 android:text="카드를 클릭해서 식당의 상세정보를 확인해보세요!"
                 style="@style/viewParent.headerText.contentText"
                 android:textColor="@color/gray"
-                android:paddingTop="13dp"
-                android:paddingBottom="2dp"/>
+                android:paddingTop="10dp"/>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"

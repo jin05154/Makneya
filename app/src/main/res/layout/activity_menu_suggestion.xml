@@ -44,7 +44,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_suggestion"
+                android:background="@drawable/border_menu_suggestion"
                 android:padding="10dp">
 
                 <ImageView
@@ -84,7 +84,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_suggestion"
+                android:background="@drawable/border_menu_suggestion"
                 android:padding="10dp">
 
                 <ImageView
@@ -124,7 +124,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_suggestion"
+                android:background="@drawable/border_menu_suggestion"
                 android:padding="10dp">
 
                 <ImageView
@@ -164,7 +164,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_suggestion"
+                android:background="@drawable/border_menu_suggestion"
                 android:padding="10dp">
 
                 <ImageView
@@ -204,7 +204,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_suggestion"
+                android:background="@drawable/border_menu_suggestion"
                 android:padding="10dp">
 
                 <ImageView

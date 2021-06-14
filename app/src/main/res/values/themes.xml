@@ -88,7 +88,7 @@
     <style name="menuView.TextView">
         <item name="android:padding">10dp</item>
         <item name="android:layout_weight">8</item>
-        <item name="android:textSize">45sp</item>
+        <item name="android:textSize">43sp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/tmoneyregular</item>
         <item name="android:includeFontPadding">false</item>

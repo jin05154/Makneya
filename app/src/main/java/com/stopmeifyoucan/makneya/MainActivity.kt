@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
         bottomNavigationView.selectedItemId = R.id.navigation_home
 
-        supportFragmentManager.beginTransaction().add(R.id.linearLayout,
+        supportFragmentManager.beginTransaction().add(R.id.mapLayout,
             TabHome()
         ).commit()
     }
@@ -64,19 +64,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         when(item.itemId) {
             R.id.navigation_community -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout ,
+                supportFragmentManager.beginTransaction().replace(R.id.mapLayout ,
                     TabCommunity()
                 ).commitAllowingStateLoss()
                 return true
             }
             R.id.navigation_home -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout,
+                supportFragmentManager.beginTransaction().replace(R.id.mapLayout,
                     TabHome()
                 ).commitAllowingStateLoss()
                 return true
             }
             R.id.navigation_myinfo -> {
-                supportFragmentManager.beginTransaction().replace(R.id.linearLayout,
+                supportFragmentManager.beginTransaction().replace(R.id.mapLayout,
                     TabMyInfo()
                 ).commitAllowingStateLoss()
                 //Log.d("뭐지?", InDB.prefs.getString("myaddress", ""))
