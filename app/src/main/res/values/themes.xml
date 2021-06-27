@@ -25,6 +25,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Home -->
+    <style name="questionTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:fontFamily">@font/tmoneyregular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!-- My Info -->
     <style name="borderLine">
         <item name="android:layout_width">match_parent</item>

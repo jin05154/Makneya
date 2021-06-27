@@ -53,7 +53,7 @@
                 android:inputType="text"
                 android:singleLine="true"
                 android:maxLines="1"
-                android:maxLength="15"
+                android:maxLength="20"
                 android:hint="이름"/>
         </com.google.android.material.textfield.TextInputLayout>
 

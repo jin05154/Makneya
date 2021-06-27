@@ -35,7 +35,7 @@ class TabHome : Fragment() {
 
         val view = inflater.inflate(R.layout.tab_home, container, false)
         val getApproval = view.findViewById<Button>(R.id.btn_approval)
-        val addBujang = view.findViewById<Button>(R.id.Plus)
+        val addBujang = view.findViewById<Button>(R.id.plusBtn)
         val seekbarGa : SeekBar = view.findViewById(R.id.seekbarGA)
         val seekbarNa : SeekBar = view.findViewById(R.id.seekbarNA)
         val spinnerWeather  = view.findViewById<Spinner>(R.id.spinnerWeather)
