@@ -2,251 +2,206 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/bujangName"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/file_nametag"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinnerBujang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/plusBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/plus"
+            android:layout_gravity="center"
+            app:backgroundTint="@color/gray" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/questionTextView"
+        android:layout_weight="0.8"
+        android:layout_gravity="bottom"
+        android:background="@drawable/file_body_top"
+        android:autoSizeTextType="uniform"
+        android:paddingTop="17dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="4dp"
+        android:text="가. 술마신 정도">
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="@color/file_yellow">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="😃"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_weight="1">
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekbarGA"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:max="4"
+            android:progress="2"
+            android:scrollbarStyle="outsideInset"
+            android:thumb="?android:attr/textSelectHandle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="🤮"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_weight="1">
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+        style="@style/questionTextView"
+        android:layout_weight="0.8"
+        android:layout_gravity="bottom"
+        android:background="@drawable/border_top"
+        android:autoSizeTextType="uniform"
+        android:paddingTop="17dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="4dp"
+        android:text="나. 부장님 기분">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="@color/file_yellow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="🤬"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_weight="1">
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekbarNA"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:max="4"
+            android:progress="2"
+            android:scrollbarStyle="outsideInset"
+            android:thumb="@android:drawable/btn_star_big_on" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="🥰"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:layout_weight="1">
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+        style="@style/questionTextView"
+        android:layout_weight="0.8"
+        android:layout_gravity="bottom"
+        android:background="@drawable/border_top"
+        android:autoSizeTextType="uniform"
+        android:paddingTop="17dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="4dp"
+        android:text="다. 날씨">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="@color/file_yellow">
+
+        <Spinner
+            android:id="@+id/spinnerWeather"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
-            android:gravity="bottom">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+    <TextView
+        style="@style/questionTextView"
+        android:layout_weight="0.8"
+        android:background="@drawable/border_top"
+        android:autoSizeTextType="uniform"
+        android:paddingTop="17dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="4dp"
+        android:text="라. 먹었던 메뉴">
+    </TextView>
 
-                <LinearLayout
-                    android:id="@+id/bujangName"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="@drawable/file_nametag"
-                    android:orientation="horizontal">
-                    <Spinner
-                        android:id="@+id/spinnerBujang"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="0dp"
-                        android:spinnerMode="dropdown" />
-                </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="#FFDB0F">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="@drawable/file_body_bottom"
+        android:gravity="right"
+        android:paddingRight="10dp">
 
-                <Button
-                    android:id="@+id/Plus"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/plus"
-                    android:layout_gravity="center"
-                    app:backgroundTint="@color/gray" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:background="@drawable/file_body_top">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/tmoneyregular"
-                android:textStyle="bold"
-                android:includeFontPadding="false"
-                android:paddingTop="17dp"
-                android:paddingLeft="13dp"
-                android:paddingBottom="4dp"
-                android:text="가. 술마신 정도"
-                android:textColor="#000000" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
-            android:background="#FFDB0F">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="😃"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:layout_weight="1">
-            </TextView>
-
-            <SeekBar
-                android:id="@+id/seekbarGA"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:max="4"
-                android:progress="2"
-                android:scrollbarStyle="outsideInset"
-                android:thumb="?android:attr/textSelectHandle" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="🤮"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:layout_weight="1">
-            </TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:background="#FFDB0F">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/tmoneyregular"
-                android:textStyle="bold"
-                android:includeFontPadding="false"
-                android:paddingTop="17dp"
-                android:paddingLeft="13dp"
-                android:paddingBottom="4dp"
-                android:text="나. 부장님 기분"
-                android:textColor="#000000"
-                android:background="@drawable/border_top" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
-            android:background="#FFDB0F"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="🤬"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:layout_weight="1">
-            </TextView>
-
-            <SeekBar
-                android:id="@+id/seekbarNA"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:max="4"
-                android:progress="2"
-                android:scrollbarStyle="outsideInset"
-                android:thumb="@android:drawable/btn_star_big_on" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="🥰"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:layout_weight="1">
-            </TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:background="#FFDB0F">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/tmoneyregular"
-                android:textStyle="bold"
-                android:includeFontPadding="false"
-                android:paddingTop="17dp"
-                android:paddingLeft="13dp"
-                android:paddingBottom="4dp"
-                android:text="다. 날씨"
-                android:textColor="#000000"
-                android:background="@drawable/border_top"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
-            android:background="#FFDB0F">
-
-            <Spinner
-                android:id="@+id/spinnerWeather"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:spinnerMode="dropdown" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:background="#FFDB0F">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/tmoneyregular"
-                android:textStyle="bold"
-                android:includeFontPadding="false"
-                android:paddingTop="17dp"
-                android:paddingLeft="13dp"
-                android:paddingBottom="4dp"
-                android:text="라. 먹었던 메뉴"
-                android:textColor="#000000"
-                android:background="@drawable/border_top"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
-            android:background="#FFDB0F">
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/file_body_bottom"
-            android:gravity="right"
-            android:paddingRight="10dp">
-
-            <Button
-                android:id="@+id/btn_approval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="결재받기"
-                android:fontFamily="@font/tmoneyregular"
-                android:textStyle="bold"
-                android:includeFontPadding="false"
-                app:backgroundTint="#000000" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_approval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추천받기"
+            android:fontFamily="@font/tmoneyregular"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            app:backgroundTint="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
     </LinearLayout>
 
 </LinearLayout>

@@ -123,28 +123,27 @@ class LoginActivity : AppCompatActivity() {
                     val call = service.getCurrentUserData(idToken.toString())
 
                     call.enqueue(object: Callback<UserResponse>{
-
                         override fun onResponse(
                             call: Call<UserResponse>,
                             response: Response<UserResponse>) {
                             if (response.code() == 200) {
                                 Log.d("alltext", response.toString())
-                                val firstresponse = response.body()!!
+                                val firstResponse = response.body()!!
                                 //Log.d("uidtest", testtext.Body.toString())
 
-                                if (firstresponse != null) {
-                                    Log.d("uidtest", firstresponse.new_user.toString())
-                                    Log.d("bujangcount", firstresponse.bujangcount.toString())
-                                    Log.d("name", firstresponse.Name.toString())
+                                if (firstResponse != null) {
+                                    Log.d("uidtest", firstResponse.new_user.toString())
+                                    Log.d("bujangcount", firstResponse.bujangcount.toString())
+                                    Log.d("name", firstResponse.Name.toString())
                                     //Log.d("dtest", testtext.bujangdata.get(0).bujangcode.toString())
-                                    InDB.prefs.setString("new_user", firstresponse.new_user.toString())
-                                    InDB.prefs.setString("bujangcount", firstresponse.bujangcount.toString())
+                                    InDB.prefs.setString("new_user", firstResponse.new_user.toString())
+                                    InDB.prefs.setString("bujangcount", firstResponse.bujangcount.toString())
                                     //Log.d("new_user", InDB.prefs.getString("new_user", ""))
-                                    val Bcount = firstresponse.bujangcount?.toInt()
-                                    for(i in 1..Bcount!!){
-                                        InDB.prefs.setString(("bujangname"+i), firstresponse.bujangdata.get(i-1).bujangname.toString())
-                                        InDB.prefs.setString(("bujangcode"+i), firstresponse.bujangdata.get(i-1).bujangcode.toString())
-                                        Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
+                                    val bCount = firstResponse.bujangcount?.toInt()
+                                    for(i in 1..bCount!!){
+                                        InDB.prefs.setString(("bujangname"+i), firstResponse.bujangdata.get(i-1).bujangname.toString())
+                                        InDB.prefs.setString(("bujangcode"+i), firstResponse.bujangdata.get(i-1).bujangcode.toString())
+                                        //Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
                                     }
                                     moveActivity()
 
@@ -220,7 +219,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        val GOOGLE_REQUEST_CODE = 99
-        val TAG = "googleLogin"
+        const val GOOGLE_REQUEST_CODE = 99
+        const val TAG = "googleLogin"
     }
 }

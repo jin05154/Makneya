@@ -57,6 +57,7 @@ class TabMyInfo : Fragment() {
 
         googleSignout.setOnClickListener {
             signOut()
+            Toast.makeText(context, "로그아웃 완료.", Toast.LENGTH_SHORT).show()
             val logoutIntent= Intent(context, LoginActivity::class.java)
             logoutIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(logoutIntent)
@@ -98,7 +99,7 @@ class TabMyInfo : Fragment() {
                     // Revokes access given to the current application.
                     // Future sign-in attempts will require the user to re-consent to all requested scopes.
                     Log.d(TAG, "회원탈퇴 완료.")
-                    Toast.makeText(context, "구글 로그인 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "회원탈퇴 완료.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(context, LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)

@@ -9,7 +9,7 @@
         android:id="@+id/FirstFragment"
         android:name="com.stopmeifyoucan.makneya.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/tab_community">
+        tools:layout="@layout/tab_youtube">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

@@ -22,11 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MenuSuggestion : AppCompatActivity() {
 
-    private lateinit var progressDialog: AppCompatDialog
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        progressON()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_suggestion)
@@ -37,28 +33,33 @@ class MenuSuggestion : AppCompatActivity() {
         menu4.text = InDB.prefs.getString("menu4", "")
         menu5.text = InDB.prefs.getString("menu5", "")
 
-        progressOFF()
+        firstMenu.setOnClickListener {
+            onClickIntent(0)
+        }
+        secondMenu.setOnClickListener {
+            onClickIntent(1)
+        }
+        thirdMenu.setOnClickListener {
+            onClickIntent(2)
+        }
+        fourthMenu.setOnClickListener {
+            onClickIntent(3)
+        }
+        fifthMenu.setOnClickListener {
+            onClickIntent(4)
+        }
+    }
 
-        menu1.setOnClickListener {
-            intent.putExtra("food_name", menu1.text.toString())
-            searchKeyword("구리 교문동" + menu1.text)
-        }
-        menu2.setOnClickListener {
-            searchKeyword("구리 교문동" + menu2.text)
-        }
-        menu3.setOnClickListener {
-            searchKeyword("구리 교문동" + menu3.text)
-        }
-        menu4.setOnClickListener {
-            searchKeyword("구리 교문동" + menu4.text)
-        }
-        menu5.setOnClickListener {
-            searchKeyword("구리 교문동" + menu5.text)
-        }
-
+    // 각 menu에 대한 setOnClickListener 함수화하기
+    private fun onClickIntent(i: Int) {
+        val menuButtons = listOf(menu1, menu2, menu3, menu4, menu5)
+        BaseApplication.instance?.progressON()
+        intent.putExtra("food_name", menuButtons[i].text.toString())
+        searchKeyword("구리 교문동" + menuButtons[i].text)
     }
 
     companion object {
+        private const val TAG = "MenuSuggestion"
         const val BASE_URL = "https://dapi.kakao.com/"
         const val API_KEY = "KakaoAK a16aaf30cdca387012e19f35ffac4705"  // REST API 키
     }
@@ -80,8 +81,9 @@ class MenuSuggestion : AppCompatActivity() {
             ) {
                 // 통신 성공 (검색 결과는 response.body()에 담겨있음)
                 val kakaoResponse = response.body()!!
-                if (kakaoResponse.meta.total_count < 5){
+                if (kakaoResponse.meta.total_count < 5) {
                     Toast.makeText(this@MenuSuggestion, "주변에 식당이 없습니다.", Toast.LENGTH_SHORT).show()
+                    BaseApplication.instance?.progressOFF()
                 }
                 else {
                     for(i in 1..5!!){
@@ -92,11 +94,12 @@ class MenuSuggestion : AppCompatActivity() {
                         intent.putExtra("foodY"+i, kakaoResponse.documents.get(i-1).y)
                         intent.putExtra("foodX"+i, kakaoResponse.documents.get(i-1).x)
                     }
-                    Log.d("Test", "선택한 음식: ${kakaoResponse.meta.same_name.keyword}")
-                    Log.d("Test", "선택한 식당: ${kakaoResponse.documents.get(0).place_name}")
-                    Log.d("Test", "Body: ${response.body()}")
+                    Log.d(TAG, "선택한 음식: ${kakaoResponse.meta.same_name.keyword}")
+                    Log.d(TAG, "선택한 식당: ${kakaoResponse.documents.get(0).place_name}")
+                    Log.d(TAG, "Body: ${response.body()}")
                     intent.putExtra("food_type", kakaoResponse.meta.same_name.keyword)
                     startActivity(intent)
+                    BaseApplication.instance?.progressOFF()
                 }
             }
 
@@ -105,21 +108,5 @@ class MenuSuggestion : AppCompatActivity() {
                 Log.w("MainActivity", "통신 실패: ${t.message}")
             }
         })
-    }
-
-    fun progressON() {
-        progressDialog = AppCompatDialog(this)
-        progressDialog.setCancelable(false)
-        progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        progressDialog.setContentView(R.layout.loading_dialog_custom)
-        progressDialog.show()
-        var imgLoadingFrame = progressDialog.findViewById<ImageView>(R.id.iv_frame_loading)
-        var frameAnimation = imgLoadingFrame?.background as AnimationDrawable
-        imgLoadingFrame?.post { frameAnimation.start() }
-    }
-    fun progressOFF() {
-        if(progressDialog != null && progressDialog.isShowing) {
-            progressDialog.dismiss()
-        }
     }
 }

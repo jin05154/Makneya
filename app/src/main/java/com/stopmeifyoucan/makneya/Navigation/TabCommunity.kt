@@ -9,7 +9,7 @@ import com.stopmeifyoucan.makneya.R
 class TabCommunity : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.tab_community, container, false)
+        inflater.inflate(R.layout.tab_youtube, container, false)
 
     companion object {
         fun newInstance(): TabCommunity =

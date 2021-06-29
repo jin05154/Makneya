@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.navigation_community -> {
+            R.id.navigation_youtube -> {
                 supportFragmentManager.beginTransaction().replace(R.id.mapLayout ,
                     TabCommunity()
                 ).commitAllowingStateLoss()

@@ -35,7 +35,7 @@ class TabHome : Fragment() {
 
         val view = inflater.inflate(R.layout.tab_home, container, false)
         val getApproval = view.findViewById<Button>(R.id.btn_approval)
-        val addBujang = view.findViewById<Button>(R.id.Plus)
+        val addBujang = view.findViewById<Button>(R.id.plusBtn)
         val seekbarGa : SeekBar = view.findViewById(R.id.seekbarGA)
         val seekbarNa : SeekBar = view.findViewById(R.id.seekbarNA)
         val spinnerWeather  = view.findViewById<Spinner>(R.id.spinnerWeather)
@@ -44,17 +44,17 @@ class TabHome : Fragment() {
         val weatherList = listOf("날씨를 선택해 주세요", "맑음", "흐림", "비", "눈")
         var bujangList = mutableListOf<String>()
 
-        val Bcount = InDB.prefs.getString("bujangcount", "").toInt()
-        for(i in 1..Bcount!!){
+        val bCount = InDB.prefs.getString("bujangcount", "").toInt()
+        for(i in 1..bCount!!) {
             bujangList.add(InDB.prefs.getString("bujangname"+i, ""))
         }
 
-        val adaptermenu = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
-        val adapterbujang = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, bujangList)
-        var indexbujang : Int? =null
+        val adapterMenu = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
+        val adapterBujang = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, bujangList)
+        var indexBujang : Int? = null
 
-        spinnerWeather.adapter = adaptermenu
-        spinnerBujang.adapter = adapterbujang
+        spinnerWeather.adapter = adapterMenu
+        spinnerBujang.adapter = adapterBujang
 
         spinnerWeather.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -78,7 +78,7 @@ class TabHome : Fragment() {
                 id: Long
             ) {
                 //if(position != 0) Toast.makeText(requireContext(), weatherList[position], Toast.LENGTH_SHORT).show()
-                indexbujang = position + 1
+                indexBujang = position + 1
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) { }
@@ -102,8 +102,8 @@ class TabHome : Fragment() {
             Log.d("해장", (seekbarGa.progress+1).toString())
             Log.d("감정", (seekbarNa.progress+1).toString())
 
-            json.put("bujang_code", InDB.prefs.getString(("bujangcode" + indexbujang), ""))
-            Log.d("부장코드", InDB.prefs.getString(("bujangcode" + indexbujang), ""))
+            json.put("bujang_code", InDB.prefs.getString(("bujangcode" + indexBujang), ""))
+            Log.d("부장코드", InDB.prefs.getString(("bujangcode" + indexBujang), ""))
             json.put("feeling", InDB.prefs.getString("feeling", ""))
             json.put("haejang", InDB.prefs.getString("haejang", ""))
             json.put("weather", InDB.prefs.getString("currentweather", ""))
@@ -117,13 +117,11 @@ class TabHome : Fragment() {
                         val requestBody: RequestBody = RequestBody.create(MediaType.parse("application/json"), json.toString())
                         val call = service.postinstanceData(requestBody)
 
-
                         call.enqueue(object : Callback<InstanceDataResponse> {
-
                             override fun onResponse(
                                 call: Call<InstanceDataResponse>,
                                 response: Response<InstanceDataResponse>
-                            ){
+                            ) {
                                 Log.d("alltext", response.toString())
                                 if (response.code() == 200){
                                     Log.d("json", json.toString())
@@ -139,6 +137,7 @@ class TabHome : Fragment() {
 
                                         if (InDB.prefs.getString("currentweather", "").toInt() == -1) {
                                             Toast.makeText(requireContext(), "날씨를 선택해 주세요!", Toast.LENGTH_SHORT).show()
+                                            progressOFF()
                                         } else {
                                             val intent = Intent(context, MenuSuggestion::class.java)
                                             startActivity(intent)
@@ -179,6 +178,7 @@ class TabHome : Fragment() {
         var frameAnimation = imgLoadingFrame?.background as AnimationDrawable
         imgLoadingFrame?.post { frameAnimation.start() }
     }
+
     fun progressOFF() {
         if(progressDialog != null && progressDialog.isShowing) {
             progressDialog.dismiss()

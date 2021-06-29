@@ -71,7 +71,7 @@ class AddBujang : AppCompatActivity() {
                     mViewPager.setCurrentItem(position - 1, true)
                 }
                 btn_save_ggon.setOnClickListener {
-                    Log.d("꼰대력은", (ggonbar .progress + 1).toString())
+                    Log.d("꼰대력은", (ggonbar.progress + 1).toString())
                     mViewPager.setCurrentItem(position + 1, true)
                 }
                 if (position == 2) {
