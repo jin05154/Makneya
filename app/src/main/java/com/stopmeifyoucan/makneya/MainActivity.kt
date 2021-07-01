@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 location?.let {
                     val position = LatLng(it.latitude, it.longitude)
                     Log.e("lat and long", "${position.latitude} and ${position.longitude}")
-                    getAddress(position)
+                    //getAddress(position)
                 }
             }
             override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
