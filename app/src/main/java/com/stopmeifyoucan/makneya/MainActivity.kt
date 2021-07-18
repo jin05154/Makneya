@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.Navigation.TabCommunity
+import com.stopmeifyoucan.makneya.Navigation.TabRecipe
 import com.stopmeifyoucan.makneya.Navigation.TabHome
 import com.stopmeifyoucan.makneya.Navigation.TabMyInfo
 import kotlinx.android.synthetic.main.activity_main.*
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when(item.itemId) {
             R.id.navigation_youtube -> {
                 supportFragmentManager.beginTransaction().replace(R.id.mapLayout ,
-                    TabCommunity()
+                    TabRecipe()
                 ).commitAllowingStateLoss()
                 return true
             }
