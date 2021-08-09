@@ -117,27 +117,26 @@
                     android:id="@+id/consultTextPlace2"
                     style="@style/consultTextView"
                     android:text="강남함박"
-                    android:layout_below="@id/consultTextName1"
-                    android:layout_toRightOf="@id/consultTextPlace1">
+                    android:layout_below="@id/consultTextPlace1">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace3"
                     style="@style/consultTextView"
                     android:text="에서"
-                    android:layout_below="@id/consultTextName1"
-                    android:layout_toRightOf="@id/consultTextPlace2">
+                    android:layout_below="@id/consultTextPlace2">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace4"
                     style="@style/consultTextView"
                     android:text="함박스떼이끼"
-                    android:layout_below="@id/consultTextPlace1">
+                    android:layout_below="@id/consultTextPlace2"
+                    android:layout_toRightOf="@id/consultTextPlace3">
                 </TextView>
                 <TextView
                     android:id="@+id/consultTextPlace5"
                     style="@style/consultTextView"
                     android:text="어떠신가요?"
-                    android:layout_below="@id/consultTextPlace1"
+                    android:layout_below="@id/consultTextPlace2"
                     android:layout_toRightOf="@id/consultTextPlace4">
                 </TextView>
 
