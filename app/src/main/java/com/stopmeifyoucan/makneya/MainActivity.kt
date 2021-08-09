@@ -2,11 +2,13 @@ package com.stopmeifyoucan.makneya
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.AssetManager
 import android.location.*
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
@@ -16,7 +18,38 @@ import com.stopmeifyoucan.makneya.Navigation.TabCommunity
 import com.stopmeifyoucan.makneya.Navigation.TabHome
 import com.stopmeifyoucan.makneya.Navigation.TabMyInfo
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.InputStream
 import java.util.*
+
+@Entity
+data class NationalWeatherTable(
+    @PrimaryKey val code: String,
+    val name1: String,
+    val name2: String,
+    val name3: String,
+    val x: Int,
+    val y: Int
+)
+
+@Dao
+interface NationalWeatherInterface {
+    @Query("SELECT * FROM NationalWeatherTable")
+    suspend fun getAll(): List<NationalWeatherTable>
+
+    @Insert
+    suspend fun insert(nationalWeatherTable: NationalWeatherTable)
+
+    @Query("DELETE FROM NationalWeatherTable")
+    suspend fun deleteAll()
+}
+
+@Database(entities = [NationalWeatherTable::class], version = 1)
+abstract class AppDatabase: RoomDatabase() {
+    abstract fun nationalWeatherInterface(): NationalWeatherInterface
+}
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -26,7 +59,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -50,14 +82,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             locationListener
         )
 
-        getUserProfile()
+//        val NationalWeatherDB = Room.databaseBuilder(this, AppDatabase::class.java,"db").build()
+//        val assetManager: AssetManager = resources.assets
+//        val inputStream: InputStream = assetManager.open("NationalWeatherDB.txt")
+//
+//        inputStream.bufferedReader().readLines().forEach {
+//            var token = it.split("\t")
+//            var input = NationalWeatherTable(token[0], token[1], token[2], token[3], token[4].toInt(), token[5].toInt())
+//            CoroutineScope(Dispatchers.Main).launch {
+//                NationalWeatherDB.nationalWeatherInterface().insert(input)
+//            }
+//        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
         bottomNavigationView.selectedItemId = R.id.navigation_home
 
-        supportFragmentManager.beginTransaction().add(R.id.mapLayout,
-            TabHome()
-        ).commit()
+        supportFragmentManager.beginTransaction().add(R.id.mapLayout, TabHome()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -90,24 +130,12 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     private fun getUserProfile() {
         val user = Firebase.auth.currentUser
         user?.let {
-            // Name, email address, and profile photo Url
             val name = user.displayName
-            val email = user.email
-            val photoUrl = user.photoUrl
-
-            // Check if user's email is verified
-            val emailVerified = user.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            val uid = user.uid
 
             Log.d("Google user name", name)
-            //var userName = findViewById<TextView>(R.id.userID)
-            //userName.setText(name)
         }
     }
+
     private fun getAddress(position: LatLng) {
         val geoCoder = Geocoder(this@MainActivity, Locale.KOREAN)
         val address =

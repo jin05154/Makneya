@@ -13,11 +13,11 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.stopmeifyoucan.makneya.*
-import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.Data.InstanceDataResponse
-import com.stopmeifyoucan.makneya.Data.InstanceDatainterface
+import com.google.gson.GsonBuilder
 import com.stopmeifyoucan.makneya.AddBujang
+import com.stopmeifyoucan.makneya.Data.*
+import com.stopmeifyoucan.makneya.MenuSuggestion
+import com.stopmeifyoucan.makneya.R
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -34,12 +34,12 @@ class TabHome : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.tab_home, container, false)
-        val getApproval = view.findViewById<Button>(R.id.btn_approval)
+        val spinnerBujang = view.findViewById<Spinner>(R.id.spinnerBujang)
         val addBujang = view.findViewById<Button>(R.id.plusBtn)
         val seekbarGa : SeekBar = view.findViewById(R.id.seekbarGA)
         val seekbarNa : SeekBar = view.findViewById(R.id.seekbarNA)
         val spinnerWeather  = view.findViewById<Spinner>(R.id.spinnerWeather)
-        val spinnerBujang = view.findViewById<Spinner>(R.id.spinnerBujang)
+        val getSuggestions = view.findViewById<Button>(R.id.btn_suggestions)
 
         val weatherList = listOf("날씨를 선택해 주세요", "맑음", "흐림", "비", "눈")
         var bujangList = mutableListOf<String>()
@@ -49,26 +49,12 @@ class TabHome : Fragment() {
             bujangList.add(InDB.prefs.getString("bujangname"+i, ""))
         }
 
-        val adapterMenu = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
         val adapterBujang = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, bujangList)
+        val adapterWeather = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, weatherList)
         var indexBujang : Int? = null
 
-        spinnerWeather.adapter = adapterMenu
         spinnerBujang.adapter = adapterBujang
-
-        spinnerWeather.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                //if(position != 0) Toast.makeText(requireContext(), weatherList[position], Toast.LENGTH_SHORT).show()
-                InDB.prefs.setString("currentweather", (position-1).toString())
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) { }
-        }
+        spinnerWeather.adapter = adapterWeather
 
         spinnerBujang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -84,14 +70,30 @@ class TabHome : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) { }
         }
 
-        getApproval.setOnClickListener {
+        spinnerWeather.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                //if(position != 0) Toast.makeText(requireContext(), weatherList[position], Toast.LENGTH_SHORT).show()
+                InDB.prefs.setString("currentweather", (position-1).toString())
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) { }
+        }
+
+        getWeatherData()
+
+        getSuggestions.setOnClickListener {
             // 버튼 클릭하면 로딩 애니메이션 보이기
             progressON()
 
             val json = JSONObject()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+                .baseUrl(awsBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
@@ -168,6 +170,30 @@ class TabHome : Fragment() {
         return view
     }
 
+    private fun getWeatherData() {
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+        val retrofit = Retrofit.Builder()
+            .baseUrl(weatherBaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(WeatherService::class.java)
+        val call = service.getCurrentWeatherData(data_type, num_of_rows, page_no, base_data, base_time, nx, ny)
+        call.enqueue(object : Callback<WEATHER> {
+            override fun onResponse(call: Call<WEATHER>, response: Response<WEATHER>) {
+                if (response.isSuccessful) {
+                    Log.d("api", response.body().toString())
+                    //Log.d("api", response.body()!!.response.body.items.item.toString())
+                    //Log.d("api", response.body()!!.response.body.items.item[0].category)
+                }
+            }
+            override fun onFailure(call: Call<WEATHER>, t: Throwable) {
+                t.message?.let { Log.d("api", it) }
+            }
+        })
+    }
+
     private fun progressON() {
         progressDialog = AppCompatDialog(context)
         progressDialog.setCancelable(false)
@@ -187,5 +213,14 @@ class TabHome : Fragment() {
 
     companion object {
         fun newInstance(): TabHome = TabHome()
+        const val awsBaseUrl = "https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/"
+        const val weatherBaseUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/"
+        const val num_of_rows = 10
+        const val page_no = 1
+        const val data_type = "JSON"
+        var base_time = 1100
+        var base_data = 20210629
+        var nx = "55"
+        var ny = "127"
     }
 }

@@ -179,6 +179,11 @@
         android:layout_height="0dp"
         android:layout_weight="1.3"
         android:background="#FFDB0F">
+        <TextView
+            android:id="@+id/testWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -189,7 +194,7 @@
         android:paddingRight="10dp">
 
         <Button
-            android:id="@+id/btn_approval"
+            android:id="@+id/btn_suggestions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="추천받기"
