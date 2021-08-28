@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.Data
+package com.stopmeifyoucan.makneya.data
 
 data class ResultSearchKeyword(
     var meta: PlaceMeta,                // 장소 메타데이터

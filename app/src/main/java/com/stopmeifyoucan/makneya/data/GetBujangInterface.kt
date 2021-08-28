@@ -1,5 +1,6 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.data
 
+import com.stopmeifyoucan.makneya.GetBujangResponse
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*

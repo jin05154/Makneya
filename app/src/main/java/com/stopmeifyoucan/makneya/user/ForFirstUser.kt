@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.user
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,8 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.R
 import kotlinx.android.synthetic.main.activity_forfirstuser.*
 
 class ForFirstUser : AppCompatActivity() {

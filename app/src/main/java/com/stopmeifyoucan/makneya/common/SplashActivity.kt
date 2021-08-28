@@ -1,10 +1,11 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.common
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.stopmeifyoucan.makneya.R
 
 class SplashActivity : AppCompatActivity() {
 

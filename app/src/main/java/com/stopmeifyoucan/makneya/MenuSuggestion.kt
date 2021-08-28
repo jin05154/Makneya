@@ -1,18 +1,14 @@
 package com.stopmeifyoucan.makneya
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.AnimationDrawable
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDialog
-import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.Data.KakaoAPI
-import com.stopmeifyoucan.makneya.Data.ResultSearchKeyword
+import com.stopmeifyoucan.makneya.common.BaseApplication
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.data.KakaoAPI
+import com.stopmeifyoucan.makneya.data.ResultSearchKeyword
 import kotlinx.android.synthetic.main.activity_menu_suggestion.*
 import retrofit2.Call
 import retrofit2.Callback

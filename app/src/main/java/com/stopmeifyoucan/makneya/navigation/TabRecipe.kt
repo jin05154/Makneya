@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.Navigation
+package com.stopmeifyoucan.makneya.navigation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

@@ -1,10 +1,11 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.R
 
 class MyBujang : AppCompatActivity() {
 

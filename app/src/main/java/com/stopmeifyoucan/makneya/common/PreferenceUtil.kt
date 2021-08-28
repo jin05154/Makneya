@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.common
 
 import android.content.Context
 import android.content.SharedPreferences

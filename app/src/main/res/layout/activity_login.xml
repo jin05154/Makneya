@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.stopmeifyoucan.makneya.LoginActivity"
+    tools:context="com.stopmeifyoucan.makneya.common.LoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLoginPrimaryDark">

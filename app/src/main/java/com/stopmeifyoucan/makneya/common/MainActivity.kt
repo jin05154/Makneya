@@ -2,7 +2,6 @@ package com.stopmeifyoucan.makneya
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.AssetManager
 import android.location.*
 import android.os.Bundle
 import android.util.Log
@@ -13,15 +12,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.Navigation.TabRecipe
-import com.stopmeifyoucan.makneya.Navigation.TabHome
-import com.stopmeifyoucan.makneya.Navigation.TabMyInfo
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.navigation.TabRecipe
+import com.stopmeifyoucan.makneya.navigation.TabHome
+import com.stopmeifyoucan.makneya.navigation.TabMyInfo
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.io.InputStream
 import java.util.*
 
 @Entity

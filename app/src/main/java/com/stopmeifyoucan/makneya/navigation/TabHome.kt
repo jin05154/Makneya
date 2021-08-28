@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.Navigation
+package com.stopmeifyoucan.makneya.navigation
 
 import android.content.Intent
 import android.graphics.Color
@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.GsonBuilder
-import com.stopmeifyoucan.makneya.AddBujang
-import com.stopmeifyoucan.makneya.Data.*
+import com.stopmeifyoucan.makneya.user.AddBujang
+import com.stopmeifyoucan.makneya.data.*
 import com.stopmeifyoucan.makneya.MenuSuggestion
 import com.stopmeifyoucan.makneya.R
 import okhttp3.MediaType

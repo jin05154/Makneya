@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya.Navigation
+package com.stopmeifyoucan.makneya.navigation
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,10 +17,10 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
-import com.stopmeifyoucan.makneya.Data.InDB
-import com.stopmeifyoucan.makneya.LoginActivity
-import com.stopmeifyoucan.makneya.LoginActivity.Companion.TAG
-import com.stopmeifyoucan.makneya.MyBujang
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.common.LoginActivity
+import com.stopmeifyoucan.makneya.common.LoginActivity.Companion.TAG
+import com.stopmeifyoucan.makneya.user.MyBujang
 import com.stopmeifyoucan.makneya.R
 
 class TabMyInfo : Fragment() {

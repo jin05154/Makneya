@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.common
 
 import android.Manifest
 import android.content.Intent
@@ -17,7 +17,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
-import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.*
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.user.ForFirstUser
 import kotlinx.android.synthetic.main.layout_login.*
 import retrofit2.Call
 import retrofit2.Callback

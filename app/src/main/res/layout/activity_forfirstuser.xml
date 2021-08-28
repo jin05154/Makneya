@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context=".ForFirstUser">
+    tools:context=".user.ForFirstUser">
 
     <TextView
         android:id="@+id/welcomeTitle"

@@ -1,7 +1,7 @@
-package com.stopmeifyoucan.makneya.Data
+package com.stopmeifyoucan.makneya.data
 
 import android.app.Application
-import com.stopmeifyoucan.makneya.PreferenceUtil
+import com.stopmeifyoucan.makneya.common.PreferenceUtil
 
 class InDB: Application() {
     companion object{

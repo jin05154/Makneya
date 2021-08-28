@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.user
 
 import android.content.Context
 import android.content.Intent
@@ -13,9 +13,13 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.firebase.auth.FirebaseAuth
-import com.stopmeifyoucan.makneya.Data.FirstUserResponse
-import com.stopmeifyoucan.makneya.Data.FirstUserinterface
-import com.stopmeifyoucan.makneya.Data.InDB
+import com.stopmeifyoucan.makneya.data.FirstUserResponse
+import com.stopmeifyoucan.makneya.data.FirstUserinterface
+import com.stopmeifyoucan.makneya.data.InDB
+import com.stopmeifyoucan.makneya.data.GetBujangInterface
+import com.stopmeifyoucan.makneya.GetBujangResponse
+import com.stopmeifyoucan.makneya.MainActivity
+import com.stopmeifyoucan.makneya.R
 import kotlinx.android.synthetic.main.activity_addbujang.*
 import kotlinx.android.synthetic.main.layout_add_bujangdrink.*
 import kotlinx.android.synthetic.main.layout_add_bujangggondae.*
@@ -266,18 +270,28 @@ class AddBujang : AppCompatActivity() {
 
             // This method will be invoked when a new page becomes selected.
             override fun onPageSelected(position: Int) {
-                indicator0_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_gray, null))
-                indicator1_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_gray, null))
-                indicator2_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_gray, null))
-                indicator3_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_gray, null))
-                indicator4_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_gray, null))
+                indicator0_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                    R.drawable.shape_circle_gray, null))
+                indicator1_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                    R.drawable.shape_circle_gray, null))
+                indicator2_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                    R.drawable.shape_circle_gray, null))
+                indicator3_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                    R.drawable.shape_circle_gray, null))
+                indicator4_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                    R.drawable.shape_circle_gray, null))
 
                 when(position) {
-                    0 -> indicator0_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_purple, null))
-                    1 -> indicator1_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_purple, null))
-                    2 -> indicator2_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_purple, null))
-                    3 -> indicator3_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_purple, null))
-                    4 -> indicator4_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.shape_circle_purple, null))
+                    0 -> indicator0_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                        R.drawable.shape_circle_purple, null))
+                    1 -> indicator1_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                        R.drawable.shape_circle_purple, null))
+                    2 -> indicator2_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                        R.drawable.shape_circle_purple, null))
+                    3 -> indicator3_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                        R.drawable.shape_circle_purple, null))
+                    4 -> indicator4_iv_main.setImageDrawable(ResourcesCompat.getDrawable(resources,
+                        R.drawable.shape_circle_purple, null))
                 }
             }
 
