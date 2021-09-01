@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         when(item.itemId) {
             // 간편요리는 fragment가 아닌 activity로 처리
-            R.id.navigation_youtube -> {
+            R.id.navigation_recipe -> {
                 val intent = Intent(this, TabRecipe::class.java)
                 startActivity(intent)
             }
