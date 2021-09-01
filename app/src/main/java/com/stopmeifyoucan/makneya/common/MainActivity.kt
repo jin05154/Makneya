@@ -2,6 +2,7 @@ package com.stopmeifyoucan.makneya
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.location.*
 import android.os.Bundle
 import android.util.Log
@@ -98,11 +99,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
+            // 간편요리는 fragment가 아닌 activity로 처리
             R.id.navigation_youtube -> {
-                supportFragmentManager.beginTransaction().replace(R.id.mapLayout ,
-                    TabRecipe()
-                ).commitAllowingStateLoss()
-                return true
+                val intent = Intent(this, TabRecipe::class.java)
+                startActivity(intent)
             }
             R.id.navigation_home -> {
                 supportFragmentManager.beginTransaction().replace(R.id.mapLayout,

@@ -7,6 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
     <application
         android:name=".data.InDB"
         android:allowBackup="false"
@@ -36,6 +42,7 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="ikqvpsto0k" />
+        <activity android:name=".navigation.TabRecipe" />
         <activity android:name=".user.MyBujang" />
         <activity android:name=".MenuSuggestion" />
         <activity android:name=".PlaceSuggestion" />

@@ -41,9 +41,11 @@ android {
 dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    def multidex_version = "2.0.1"
+    // youtube
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
     // 네이버 지도 SDK
     implementation 'com.naver.maps:map-sdk:3.11.0'
+    def multidex_version = "2.0.1"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
