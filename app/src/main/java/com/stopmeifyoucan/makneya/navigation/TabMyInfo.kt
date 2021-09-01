@@ -44,7 +44,7 @@ class TabMyInfo : Fragment() {
         myAddress.text = InDB.prefs.getString("myaddress", "")
 
         changeBujangInfo.setOnClickListener{
-            val intent= Intent(context, MyBujang::class.java)
+            val intent = Intent(context, MyBujang::class.java)
             startActivity(intent)
         }
 
@@ -75,7 +75,6 @@ class TabMyInfo : Fragment() {
         user?.let {
             val name = user.displayName
             val photoUrl = user.photoUrl
-            // Check if user's email is verified
             val email = user.email
             val emailVerified = user.isEmailVerified
 
@@ -116,6 +115,7 @@ class TabMyInfo : Fragment() {
                 Log.d(TAG, "User re-authenticated.")
             }
     }
+
     companion object {
         fun newInstance(): TabMyInfo = TabMyInfo()
     }

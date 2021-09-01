@@ -128,14 +128,14 @@ class TabHome : Fragment() {
                                 if (response.code() == 200){
                                     Log.d("json", json.toString())
                                     Log.d("restest", response.toString())
-                                    val testtext = response.body()!!
-                                    if (testtext != null) {
+                                    val body = response.body()!!
+                                    if (body != null) {
                                         //Log.d("test", testtext.RecommendMenu.get(0).menuname.toString())
-                                        InDB.prefs.setString("menu1", testtext.RecommendMenu.get(0).menuname.toString())
-                                        InDB.prefs.setString("menu2", testtext.RecommendMenu.get(1).menuname.toString())
-                                        InDB.prefs.setString("menu3", testtext.RecommendMenu.get(2).menuname.toString())
-                                        InDB.prefs.setString("menu4", testtext.RecommendMenu.get(3).menuname.toString())
-                                        InDB.prefs.setString("menu5", testtext.RecommendMenu.get(4).menuname.toString())
+                                        InDB.prefs.setString("menu1", body.RecommendMenu[0].menuname.toString())
+                                        InDB.prefs.setString("menu2", body.RecommendMenu[1].menuname.toString())
+                                        InDB.prefs.setString("menu3", body.RecommendMenu[2].menuname.toString())
+                                        InDB.prefs.setString("menu4", body.RecommendMenu[3].menuname.toString())
+                                        InDB.prefs.setString("menu5", body.RecommendMenu[4].menuname.toString())
 
                                         if (InDB.prefs.getString("currentweather", "").toInt() == -1) {
                                             Toast.makeText(requireContext(), "날씨를 선택해 주세요!", Toast.LENGTH_SHORT).show()
