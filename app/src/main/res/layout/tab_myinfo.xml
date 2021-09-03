@@ -78,7 +78,7 @@
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:drawableLeft="@drawable/ic_edit_password"
+            android:drawableLeft="@drawable/ic_reviews"
             android:layout_marginTop="10dp"
             android:text="내 리뷰 보기" />
 
