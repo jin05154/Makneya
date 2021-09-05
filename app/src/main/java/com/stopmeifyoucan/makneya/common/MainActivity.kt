@@ -1,4 +1,4 @@
-package com.stopmeifyoucan.makneya
+package com.stopmeifyoucan.makneya.common
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.stopmeifyoucan.makneya.R
 import com.stopmeifyoucan.makneya.data.InDB
 import com.stopmeifyoucan.makneya.navigation.TabRecipe
 import com.stopmeifyoucan.makneya.navigation.TabHome

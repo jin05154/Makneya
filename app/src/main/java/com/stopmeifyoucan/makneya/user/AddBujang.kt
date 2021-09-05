@@ -18,7 +18,7 @@ import com.stopmeifyoucan.makneya.data.FirstUserinterface
 import com.stopmeifyoucan.makneya.data.InDB
 import com.stopmeifyoucan.makneya.data.GetBujangInterface
 import com.stopmeifyoucan.makneya.GetBujangResponse
-import com.stopmeifyoucan.makneya.MainActivity
+import com.stopmeifyoucan.makneya.common.MainActivity
 import com.stopmeifyoucan.makneya.R
 import kotlinx.android.synthetic.main.activity_addbujang.*
 import kotlinx.android.synthetic.main.layout_add_bujangdrink.*
