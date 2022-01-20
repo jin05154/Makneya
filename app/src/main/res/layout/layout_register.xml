@@ -14,8 +14,10 @@
         android:adjustViewBounds="true"
         android:cropToPadding="true"
         android:src="@drawable/logo_login"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"/>
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginTop="30dp"/>
 
     <TextView
         android:layout_alignParentTop="true"
@@ -34,7 +36,8 @@
         android:labelFor="@+id/editTextName"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
@@ -52,7 +55,8 @@
         android:labelFor="@+id/editTextEmail"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
@@ -69,7 +73,8 @@
         android:id="@+id/textInputNickname"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
@@ -87,7 +92,8 @@
         android:labelFor="@+id/editTextPassword"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
 
@@ -105,6 +111,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_login_button"
         android:layout_gravity="right"
-        android:paddingTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"/>
 
 </LinearLayout>
