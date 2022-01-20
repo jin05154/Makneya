@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
-        btn_googleSignIn.setOnClickListener {
+        btn_google_sign_in.setOnClickListener {
             signIn()
         }
 
