@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
-        android:src="@drawable/splash_login"
+        android:src="@drawable/logo_login"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"/>
 
@@ -30,62 +31,73 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputName"
+        android:labelFor="@+id/editTextName"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
+
         <EditText
             android:id="@+id/editTextName"
             style="@style/modifiedEditText"
+            android:hint="이름"
             android:inputType="text"
             android:maxLines="1"
-            android:hint="이름"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputMobile"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginTop="@dimen/signup_text_margin_top">
-        <EditText
-            android:id="@+id/editTextMobile"
-            style="@style/modifiedEditText"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:hint="이메일주소"/>
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputEmail"
+        android:labelFor="@+id/editTextEmail"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
+
         <EditText
             android:id="@+id/editTextEmail"
             style="@style/modifiedEditText"
+            android:hint="이메일주소"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:hint="닉네임"/>
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputNickname"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="@dimen/signup_text_margin_top">
+
+        <EditText
+            android:id="@+id/editTextNickname"
+            style="@style/modifiedEditText"
+            android:hint="닉네임"
+            android:inputType="text"
+            android:maxLines="1"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputPassword"
+        android:labelFor="@+id/editTextPassword"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="15dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginTop="@dimen/signup_text_margin_top">
+
         <EditText
             android:id="@+id/editTextPassword"
             style="@style/modifiedEditText"
             android:hint="비밀번호"
+            android:inputType="textPassword"
             android:maxLines="1"
-            android:inputType="textPassword"/>
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
