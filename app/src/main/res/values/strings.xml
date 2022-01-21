@@ -2,14 +2,7 @@
     <string name="app_name">Makneya</string>
     <string name="app_start">막내야</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -23,8 +16,14 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="firebase_web_client_id">363910159040-v7am3rt9cu1nnpngolqia208rvekc65b.apps.googleusercontent.com</string>
+
+    <!-- ID tokens -->
     <string name="GOOGLE_API_KEY">AIzaSyDa-746wBZtV4VzylsY-xnKqlzCvxj0z7M</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="AWS_API_URL">https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/</string>
+    <string name="firebase_web_client_id">363910159040-v7am3rt9cu1nnpngolqia208rvekc65b.apps.googleusercontent.com</string>
+    <string name="kakao_base_url">https://dapi.kakao.com/</string>
+    <string name="kakao_api_key">KakaoAK a16aaf30cdca387012e19f35ffac4705</string>
+    <string name="weather_base_url">http://apis.data.go.kr/1360000/VilageFcstInfoService/</string>
+    <string name="weather_api_key">getVilageFcst?serviceKey=fJHQarZZHDA44sSg6onUtCVNxg1%2BVn2Hhmng%2BnA8oHawn9bURtewIVsgBrFTGT%2FFZM7oWOzIzOZF0V664cYOWg%3D%3D</string>
+
 </resources>

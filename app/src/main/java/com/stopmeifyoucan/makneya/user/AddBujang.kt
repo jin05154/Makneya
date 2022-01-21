@@ -105,7 +105,7 @@ class AddBujang : AppCompatActivity() {
 
                         if (InDB.prefs.getString("new_user", " ").toInt() == 1){
                             val retrofit = Retrofit.Builder()
-                                .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+                                .baseUrl(getString(R.string.AWS_API_URL))
                                 .addConverterFactory(GsonConverterFactory.create())
                                 .build()
 
@@ -186,7 +186,7 @@ class AddBujang : AppCompatActivity() {
                         else{
                             Log.d("확인용", "제대로 들어옴")
                             val retrofit = Retrofit.Builder()
-                                .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+                                .baseUrl(getString(R.string.AWS_API_URL))
                                 .addConverterFactory(GsonConverterFactory.create())
                                 .build()
 
@@ -235,7 +235,6 @@ class AddBujang : AppCompatActivity() {
                                                         for(i in 1..bCount!!){
                                                             InDB.prefs.setString(("bujangname"+i), Plusresponse.bujangData.get(i-1).bujang_name.toString())
                                                             InDB.prefs.setString(("bujangcode"+i), Plusresponse.bujangData.get(i-1).bujang_code.toString())
-                                                            Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
                                                         }
                                                         InDB.prefs.remove("currentcode")
 

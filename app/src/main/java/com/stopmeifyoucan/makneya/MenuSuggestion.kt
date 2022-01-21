@@ -54,20 +54,14 @@ class MenuSuggestion : AppCompatActivity() {
         searchKeyword("구리 교문동" + menuButtons[i].text)
     }
 
-    companion object {
-        private const val TAG = "MenuSuggestion"
-        const val BASE_URL = "https://dapi.kakao.com/"
-        const val API_KEY = "KakaoAK a16aaf30cdca387012e19f35ffac4705"  // REST API 키
-    }
-
     private fun searchKeyword(keyword: String) {
         val intent = Intent(this, PlaceSuggestion::class.java)
         val retrofit = Retrofit.Builder()   // Retrofit 구성
-            .baseUrl(BASE_URL)
+            .baseUrl(getString(R.string.kakao_base_url))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api = retrofit.create(KakaoAPI::class.java)   // 통신 인터페이스를 객체로 생성
-        val call = api.getSearchKeyword(API_KEY, keyword)   // 검색 조건 입력
+        val call = api.getSearchKeyword(getString(R.string.kakao_api_key), keyword)   // 검색 조건 입력
 
         // API 서버에 요청
         call.enqueue(object: Callback<ResultSearchKeyword> {
@@ -104,5 +98,9 @@ class MenuSuggestion : AppCompatActivity() {
                 Log.w("MainActivity", "통신 실패: ${t.message}")
             }
         })
+    }
+
+    companion object {
+        private const val TAG = "MenuSuggestion"
     }
 }

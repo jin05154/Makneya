@@ -108,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
     private fun loginSuccess() {
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/")
+            .baseUrl(getString(R.string.AWS_API_URL))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -145,7 +145,6 @@ class LoginActivity : AppCompatActivity() {
                                     for(i in 1..bCount!!){
                                         InDB.prefs.setString(("bujangname"+i), firstResponse.bujangdata.get(i-1).bujangname.toString())
                                         InDB.prefs.setString(("bujangcode"+i), firstResponse.bujangdata.get(i-1).bujangcode.toString())
-                                        //Log.d("실험 그자체", InDB.prefs.getString(("bujangcode"+i), ""))
                                     }
                                     moveActivity()
 

@@ -93,7 +93,7 @@ class TabHome : Fragment() {
             val json = JSONObject()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl(awsBaseUrl)
+                .baseUrl(getString(R.string.AWS_API_URL))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
@@ -175,7 +175,7 @@ class TabHome : Fragment() {
             .setLenient()
             .create()
         val retrofit = Retrofit.Builder()
-            .baseUrl(weatherBaseUrl)
+            .baseUrl(getString(R.string.weather_base_url))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(WeatherService::class.java)
@@ -213,8 +213,6 @@ class TabHome : Fragment() {
 
     companion object {
         fun newInstance(): TabHome = TabHome()
-        const val awsBaseUrl = "https://l4uzx6dl7i.execute-api.ap-northeast-2.amazonaws.com/"
-        const val weatherBaseUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/"
         const val num_of_rows = 10
         const val page_no = 1
         const val data_type = "JSON"

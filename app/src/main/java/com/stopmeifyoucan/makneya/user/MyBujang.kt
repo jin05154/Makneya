@@ -18,9 +18,9 @@ class MyBujang : AppCompatActivity() {
         val bujang4 = findViewById<TextView>(R.id.mybujang4)
         val bujang5 = findViewById<TextView>(R.id.mybujang5)
 
-        val bujangcount = InDB.prefs.getString("bujangcount", "").toInt()
+        val bujangCount = InDB.prefs.getString("bujangcount", "").toInt()
 
-        for(i in 1..bujangcount!!){
+        for(i in 1..bujangCount!!){
             if( i == 1 ){
                 bujang1.text = InDB.prefs.getString("bujangname1", "")
             }
@@ -40,36 +40,36 @@ class MyBujang : AppCompatActivity() {
         bujang1.setOnClickListener {
             InDB.prefs.setString("currentstate", "2")
             InDB.prefs.setString("currentcode", InDB.prefs.getString("bujangcode1", ""))
-            val Intent= Intent(this, AddBujang::class.java)
-            startActivity(Intent)
+            val intent = Intent(this, AddBujang::class.java)
+            startActivity(intent)
         }
-        if (bujangcount > 1){
+        if (bujangCount > 1){
             bujang2.setOnClickListener {
                 InDB.prefs.setString("currentstate", "2")
                 InDB.prefs.setString("currentcode", InDB.prefs.getString("bujangcode2", ""))
-                val Intent= Intent(this, AddBujang::class.java)
-                startActivity(Intent)
+                val intent = Intent(this, AddBujang::class.java)
+                startActivity(intent)
             }
-            if (bujangcount > 2){
+            if (bujangCount > 2){
                 bujang3.setOnClickListener {
                     InDB.prefs.setString("currentstate", "2")
                     InDB.prefs.setString("currentcode", InDB.prefs.getString("bujangcode3", ""))
-                    val Intent= Intent(this, AddBujang::class.java)
-                    startActivity(Intent)
+                    val intent = Intent(this, AddBujang::class.java)
+                    startActivity(intent)
                 }
-                if(bujangcount > 3){
+                if(bujangCount > 3){
                     bujang4.setOnClickListener {
                         InDB.prefs.setString("currentstate", "2")
                         InDB.prefs.setString("currentcode", InDB.prefs.getString("bujangcode4", ""))
-                        val Intent= Intent(this, AddBujang::class.java)
-                        startActivity(Intent)
+                        val intent = Intent(this, AddBujang::class.java)
+                        startActivity(intent)
                     }
-                    if(bujangcount > 4){
+                    if(bujangCount > 4){
                         bujang5.setOnClickListener {
                             InDB.prefs.setString("currentstate", "2")
                             InDB.prefs.setString("currentcode", InDB.prefs.getString("bujangcode5", ""))
-                            val Intent= Intent(this, AddBujang::class.java)
-                            startActivity(Intent)
+                            val intent = Intent(this, AddBujang::class.java)
+                            startActivity(intent)
                         }
                     }
                 }
