@@ -13,5 +13,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-app/src/main/java/com/stopmeifyoucan/makneya/data
-app/src/main/res/values/strings.xml
