@@ -14,7 +14,7 @@
 
         <TextView
             style="@style/viewParent.headerText"
-            android:text="부장님 정보수정"
+            android:text="부장님 정보 수정"
             android:layout_marginBottom="30dp"/>
 
         <LinearLayout
@@ -24,8 +24,6 @@
         <TextView
             android:id="@+id/mybujang1"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:text="" />
 
         <LinearLayout
@@ -37,8 +35,6 @@
         <TextView
             android:id="@+id/mybujang2"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:text="" />
 
         <LinearLayout
@@ -49,8 +45,6 @@
         <TextView
             android:id="@+id/mybujang3"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:text="" />
 
         <LinearLayout
@@ -61,8 +55,6 @@
         <TextView
             android:id="@+id/mybujang4"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:text="" />
 
         <LinearLayout
@@ -73,15 +65,12 @@
         <TextView
             android:id="@+id/mybujang5"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:text="" />
 
         <LinearLayout
             style="@style/borderLine"
             android:orientation="horizontal">
         </LinearLayout>
-
 
     </LinearLayout>
 </LinearLayout>
