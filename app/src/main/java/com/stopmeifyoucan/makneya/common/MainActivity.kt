@@ -1,15 +1,24 @@
 package com.stopmeifyoucan.makneya.common
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.location.*
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.room.*
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.location.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -50,46 +59,15 @@ abstract class AppDatabase: RoomDatabase() {
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private val locationManager by lazy {
-        getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    }
+    val PERMISSION_ID = 42
+    lateinit var mFusedLocationClient: FusedLocationProviderClient
 
-    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val locationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location) {
-                location?.let {
-                    val position = LatLng(it.latitude, it.longitude)
-                    Log.e("lat and long", "${position.latitude} and ${position.longitude}")
-                    //getAddress(position)
-                }
-            }
-            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
-            override fun onProviderEnabled(provider: String) {}
-            override fun onProviderDisabled(provider: String) {}
-        }
-
-        locationManager.requestLocationUpdates(
-            LocationManager.GPS_PROVIDER,
-            10000,
-            1f,
-            locationListener
-        )
-
-//        val NationalWeatherDB = Room.databaseBuilder(this, AppDatabase::class.java,"db").build()
-//        val assetManager: AssetManager = resources.assets
-//        val inputStream: InputStream = assetManager.open("NationalWeatherDB.txt")
-//
-//        inputStream.bufferedReader().readLines().forEach {
-//            var token = it.split("\t")
-//            var input = NationalWeatherTable(token[0], token[1], token[2], token[3], token[4].toInt(), token[5].toInt())
-//            CoroutineScope(Dispatchers.Main).launch {
-//                NationalWeatherDB.nationalWeatherInterface().insert(input)
-//            }
-//        }
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        getLastLocation()
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
         bottomNavigationView.selectedItemId = R.id.navigation_home
@@ -115,7 +93,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.mapLayout,
                     TabMyInfo()
                 ).commitAllowingStateLoss()
-                //Log.d("뭐지?", InDB.prefs.getString("myaddress", ""))
                 return true
             }
         }
@@ -133,11 +110,104 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     private fun getAddress(position: LatLng) {
-        val geoCoder = Geocoder(this@MainActivity, Locale.KOREAN)
-        val address =
-            geoCoder.getFromLocation(position.latitude, position.longitude, 1).first()
-                .getAddressLine(0)
-        InDB.prefs.setString("myaddress", address)
-        Log.d("Address", address)
+        val geoCoder = Geocoder(this@MainActivity, Locale.KOREA)
+        val addressInfo = geoCoder.getFromLocation(position.latitude, position.longitude, 1)
+        val fullAddress = addressInfo[0].getAddressLine(0).toString()
+        val city = addressInfo[0].adminArea
+        var district = addressInfo[0].locality
+        if (district == null) district = addressInfo[0].subLocality
+        if (district == null) district = addressInfo[0].subAdminArea
+        // var dong = addressInfo[0].thoroughfare
+        val shortAddress = "$city $district"
+        InDB.prefs.setString("myaddress", shortAddress)
+        Log.e("Address", fullAddress)
+        Log.e("Address", shortAddress)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getLastLocation() {
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    var location: Location? = task.result
+                    if (location == null) {
+                        requestNewLocationData()
+                    } else {
+                        val position = LatLng(location.latitude, location.longitude)
+                        Log.e("last location", "${location.latitude} and ${location.longitude}")
+                        getAddress(position)
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun requestNewLocationData() {
+        var mLocationRequest = LocationRequest.create().apply {
+            interval = 0
+            fastestInterval = 0
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            numUpdates = 1
+        }
+        var mLocationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult) {
+                locationResult?.let {
+                    for ((i, location) in it.locations.withIndex()) {
+                        Log.e("lat and long","#$i ${location.latitude} , ${location.longitude}")
+                    }
+                }
+            }
+        }
+        Looper.myLooper()?.let {
+            mFusedLocationClient.requestLocationUpdates(
+                mLocationRequest, mLocationCallback,
+                it
+            )
+        }
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        var locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
+    }
+
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+        return false
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
+            PERMISSION_ID
+        )
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == PERMISSION_ID) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLastLocation()
+            }
+        }
     }
 }

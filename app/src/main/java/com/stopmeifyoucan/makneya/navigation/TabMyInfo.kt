@@ -35,7 +35,7 @@ class TabMyInfo : Fragment() {
         val view = inflater.inflate(R.layout.tab_myinfo, container, false)
         userImageEditImage = view.findViewById(R.id.profileCircleImageView)
         userNameEditText = view.findViewById(R.id.userID)
-        val myAddress = view.findViewById<TextView>(R.id.address)
+        val myAddress = view.findViewById<TextView>(R.id.area)
         val changeBujangInfo = view.findViewById<TextView>(R.id.changeBujangInfo)
         val googleSignout = view.findViewById<TextView>(R.id.myinfoLogout)
         val googleDeleteAccount = view.findViewById<TextView>(R.id.myinfoDeleteAccount)
